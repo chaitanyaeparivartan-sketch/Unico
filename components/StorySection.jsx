@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { ArrowUpRight, Award, Compass, Layers, Building2, Sparkles } from "lucide-react";
 
 export default function StorySection({ onOpenContact }) {
@@ -98,43 +97,6 @@ export default function StorySection({ onOpenContact }) {
           </p>
         </div>
 
-        {/* Stepped Masonry Visualization Frame */}
-        <div className="w-full mb-12 sm:mb-16 relative">
-          <div className="relative w-full max-w-6xl mx-auto px-2 sm:px-4">
-            {/* Stepped Brick Wall Assembled from Modular Assets */}
-            <div className="relative w-full aspect-[2190/864] max-h-[520px] filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.95)]">
-              <Image
-                src="/images/story/unico-brick-wall-with-text.png"
-                alt="The UNICO Journey - Ascending stepped weathered brick wall from 1985 to Today"
-                fill
-                priority
-                sizes="(max-width: 1440px) 100vw, 1300px"
-                className="object-contain object-bottom select-none"
-              />
-
-              {/* Interactive Step Hotspots overlaid on the 5 pillars */}
-              <div className="absolute inset-0 grid grid-cols-5 pointer-events-auto">
-                {phases.map((phase, idx) => (
-                  <button
-                    key={phase.year}
-                    type="button"
-                    onClick={() => setActiveStep(idx)}
-                    onMouseEnter={() => setActiveStep(idx)}
-                    className="h-full w-full transition-all duration-300 focus:outline-none cursor-pointer group/pillar relative"
-                    aria-label={`Highlight ${phase.year} ${phase.title}`}
-                  >
-                    {activeStep === idx && (
-                      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rotate-45 bg-[#ae7b13] shadow-[0_0_12px_#ae7b13] pointer-events-none transition-all duration-300" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Baseline Stone Foundation Accent */}
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ae7b13]/50 to-transparent mt-2" />
-          </div>
-        </div>
 
         {/* Ascending Phase Milestone Cards (5 Tiers from Bedrock to Skyline) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 w-full">

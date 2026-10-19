@@ -37,22 +37,30 @@ export default function Header({ onOpenContact }) {
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
-        {/* Left Navigation (Projects, Our Story, Our Work) */}
+        {/* Left Navigation (Projects, Our Story, Our Work) with Growing Text Effect */}
         <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
           {leftNavItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`transition-colors flex items-center gap-2 group ${
+              className={`relative py-1 transition-all duration-300 flex items-center gap-2 group ${
                 item.active
                   ? "text-white font-semibold"
                   : "text-white/80 hover:text-white"
               }`}
             >
               {item.active && (
-                <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-amber-300 transition-colors shadow-sm"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#ae7b13] group-hover:scale-150 transition-all duration-300 shadow-sm animate-pulse"></span>
               )}
-              {item.label}
+              <span
+                className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
+                  item.active ? "animate-nav-grow" : ""
+                }`}
+              >
+                {item.label}
+              </span>
+              {/* Expanding glowing underline on hover */}
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#ae7b13] to-transparent transition-all duration-300 group-hover:w-full rounded-full" />
             </Link>
           ))}
         </nav>
@@ -73,35 +81,41 @@ export default function Header({ onOpenContact }) {
           </Link>
         </div>
 
-        {/* Right Navigation & CTA (What We Build, How We Build, Quality + Start a Project) */}
+        {/* Right Navigation & CTA with Growing Text Effect */}
         <div className="hidden xl:flex items-center space-x-8">
           <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
             {rightNavItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-white/80 hover:text-white transition-colors"
+                className="relative py-1 text-white/80 hover:text-white transition-all duration-300 group flex items-center"
               >
-                {item.label}
+                <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
+                  {item.label}
+                </span>
+                {/* Expanding glowing underline on hover */}
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#ae7b13] to-transparent transition-all duration-300 group-hover:w-full rounded-full" />
               </Link>
             ))}
           </nav>
 
-          {/* Luxury Split CTA Button: 'Start a Project' */}
+          {/* Luxury Split CTA Button: 'Start a Project' with Growing Effect */}
           <button
             onClick={onOpenContact}
-            className="group flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02]"
+            className="group flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.04]"
             aria-label="Start a Project"
           >
             <span className="bg-white text-black text-[13px] font-medium tracking-[0.06em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
-              Start a Project
+              <span className="inline-block transition-all duration-300 group-hover:scale-110 group-hover:tracking-[0.12em]">
+                Start a Project
+              </span>
             </span>
             <span className="w-[1px] bg-neutral-300"></span>
             <span className="bg-white text-black px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-125"
               />
             </span>
           </button>
@@ -164,11 +178,13 @@ export default function Header({ onOpenContact }) {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 transition-colors ${
+                className={`py-1 transition-all duration-300 group flex items-center ${
                   item.active ? "text-white font-semibold" : "text-white/80 hover:text-white"
                 }`}
               >
-                {item.label}
+                <span className="inline-block transition-transform duration-300 group-hover:scale-105 group-hover:tracking-[0.2em] origin-left">
+                  {item.label}
+                </span>
               </Link>
             ))}
 
