@@ -6,7 +6,6 @@ const nextConfig = {
     qualities: [75, 95],
   },
   turbopack: {
-    root: "/Users/tharunteja/Desktop/Unico",
     rules: {
       "*.css": {
         loaders: ["@tailwindcss/turbopack"],
