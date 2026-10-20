@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 /*
   Quality Promise & Standards Section
@@ -101,6 +101,84 @@ const ISO_STANDARDS = [
   },
 ];
 
+// Individual Quality Promise Card with directional slide-in animation
+function QualityCard({ item, idx, isEven, isHovered, onMouseEnter, onMouseLeave }) {
+  const cardRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`w-full flex ${
+        isEven ? "justify-end" : "justify-start"
+      } transition-all duration-700 ease-out will-change-transform`}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible
+          ? "translateX(0)"
+          : isEven
+          ? "translateX(70px)"
+          : "translateX(-70px)",
+        transitionDelay: `${(idx % 2) * 90}ms`,
+      }}
+    >
+      <div
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        className={`w-full sm:w-[92%] md:w-[72%] lg:w-[62%] max-w-[580px] rounded-none py-4 sm:py-5 px-5 sm:px-7 md:px-8 transition-all duration-300 border relative overflow-hidden min-h-[76px] sm:min-h-[84px] flex items-center ${
+          isEven
+            ? "bg-gradient-to-r from-[#14120e] to-[#18140f] border-[#c9a35a]/25"
+            : "bg-gradient-to-r from-[#11141a] to-[#0c0f14] border-white/10"
+        } ${
+          isHovered
+            ? "border-[#c9a35a]/60 shadow-[0_8px_30px_rgba(201,163,90,0.12)] -translate-y-0.5"
+            : "hover:border-white/20"
+        }`}
+      >
+        {/* Left Side: Point Title in Gold */}
+        <div className="relative z-10 pr-16 sm:pr-20">
+          <h3 className="text-sm sm:text-base md:text-[17px] lg:text-[18px] font-bold tracking-tight text-[#caa156] leading-snug">
+            {item.title}
+          </h3>
+        </div>
+
+        {/* Right Side: Clean Watermark Number */}
+        <div className="absolute right-4 sm:right-6 md:right-7 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none">
+          <span
+            aria-hidden="true"
+            className="font-sans font-black text-5xl sm:text-6xl md:text-[68px] text-white/[0.08] tracking-tight leading-none select-none"
+          >
+            {item.id}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function QualitySection() {
   const [hoveredId, setHoveredId] = useState(null);
 
@@ -134,44 +212,22 @@ export default function QualitySection() {
           </p>
         </div>
 
-        {/* 7 Quality Standard Cards in Compact Zig-Zag Staircase */}
-        <div className="space-y-3.5 sm:space-y-4 max-w-5xl mx-auto mb-20 sm:mb-24">
+        {/* 7 Quality Standard Cards in Compact Zig-Zag Staircase with directional slide-in */}
+        <div className="space-y-3.5 sm:space-y-4 max-w-5xl mx-auto mb-20 sm:mb-24 overflow-hidden">
           {COMMITMENTS.map((item, idx) => {
             const isEven = idx % 2 === 1; // 02, 04, 06 are even indices
             const isHovered = hoveredId === item.id;
 
             return (
-              <div
+              <QualityCard
                 key={item.id}
+                item={item}
+                idx={idx}
+                isEven={isEven}
+                isHovered={isHovered}
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`w-full sm:w-[92%] md:w-[72%] lg:w-[62%] max-w-[580px] rounded-none py-4 sm:py-5 px-5 sm:px-7 md:px-8 transition-all duration-300 border relative overflow-hidden min-h-[76px] sm:min-h-[84px] flex items-center ${
-                  isEven
-                    ? "ml-auto mr-0 bg-gradient-to-r from-[#14120e] to-[#18140f] border-[#c9a35a]/25"
-                    : "mr-auto ml-0 bg-gradient-to-r from-[#11141a] to-[#0c0f14] border-white/10"
-                } ${
-                  isHovered
-                    ? "border-[#c9a35a]/60 shadow-[0_8px_30px_rgba(201,163,90,0.12)] -translate-y-0.5"
-                    : "hover:border-white/20"
-                }`}
-              >
-                {/* Left Side: Point Title in Gold */}
-                <div className="relative z-10 pr-16 sm:pr-20">
-                  <h3 className="text-sm sm:text-base md:text-[17px] lg:text-[18px] font-bold tracking-tight text-[#caa156] leading-snug">
-                    {item.title}
-                  </h3>
-                </div>
-
-                {/* Right Side: Clean Watermark Number */}
-                <div className="absolute right-4 sm:right-6 md:right-7 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none">
-                  <span
-                    aria-hidden="true"
-                    className="font-sans font-black text-5xl sm:text-6xl md:text-[68px] text-white/[0.08] tracking-tight leading-none select-none"
-                  >
-                    {item.id}
-                  </span>
-                </div>
-              </div>
+              />
             );
           })}
         </div>

@@ -1,23 +1,65 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Play, X, Pause, Volume2, VolumeX } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 export default function MetricsSection() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [isPlayingInline, setIsPlayingInline] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const sectionRef = useRef(null);
   const videoRef = useRef(null);
 
-  const toggleInlinePlay = () => {
+  // Detect when user reaches this section on scroll or direct navigation
+  useEffect(() => {
+    const handleScrollOrReach = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      // Section is reaching or visible in the viewport
+      const isReaching = rect.top < window.innerHeight * 0.75 && rect.bottom > 80;
+
+      if (isReaching) {
+        setIsInView(true);
+        if (videoRef.current && videoRef.current.paused) {
+          videoRef.current.play().catch(() => {});
+          setIsPlaying(true);
+        }
+      } else {
+        if (videoRef.current && !videoRef.current.paused) {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollOrReach, { passive: true });
+    // Check immediately on mount in case user landed on #metrics or refreshed
+    handleScrollOrReach();
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollOrReach);
+    };
+  }, []);
+
+  // Handle play/pause toggle in place
+  const togglePlay = (e) => {
+    e.stopPropagation();
     if (!videoRef.current) return;
-    if (isPlayingInline) {
+    if (isPlaying) {
       videoRef.current.pause();
-      setIsPlayingInline(false);
+      setIsPlaying(false);
     } else {
-      videoRef.current.play();
-      setIsPlayingInline(true);
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
     }
+  };
+
+  // Handle mute/unmute toggle in place
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
   };
 
   const metrics = [
@@ -39,14 +81,48 @@ export default function MetricsSection() {
   ];
 
   return (
-    <section id="metrics" className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-b border-white/10">
+    <section
+      ref={sectionRef}
+      id="metrics"
+      className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-b border-white/10 overflow-hidden"
+    >
+      {/* Pop-Up Effect Keyframes: Card pops up into view with scale and elevation when reaching the section */}
+      <style>{`
+        @keyframes cardPopUpEntrance {
+          0% {
+            opacity: 0;
+            transform: scale(0.85) translateY(36px);
+            box-shadow: 0 0 0 rgba(174, 123, 19, 0);
+          }
+          65% {
+            opacity: 1;
+            transform: scale(1.03) translateY(-4px);
+            box-shadow: 0 20px 45px rgba(174, 123, 19, 0.4);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+          }
+        }
+
+        .animate-card-popup {
+          animation: cardPopUpEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
+
       <div className="max-w-[1440px] mx-auto">
         {/* 50% Video + 50% Content & Stats Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          {/* Column 1: 50% Video Card */}
+          {/* Column 1: 50% Video Card - Plays in place with Pop-up Entrance Effect */}
           <div className="lg:col-span-6 flex items-center">
-            <div className="relative group overflow-hidden bg-neutral-900 aspect-[16/10] w-full shadow-2xl border border-white/10">
-              {/* Inline Video Player */}
+            <div
+              onClick={togglePlay}
+              className={`relative group overflow-hidden bg-neutral-900 aspect-[16/10] w-full shadow-2xl border border-white/15 cursor-pointer transition-all duration-500 hover:border-white/35 ${
+                isInView ? "animate-card-popup" : "opacity-0 scale-90"
+              }`}
+            >
+              {/* High-Definition Video Playing in Place */}
               <video
                 ref={videoRef}
                 src="/video/updated_UNICO.mp4"
@@ -54,53 +130,71 @@ export default function MetricsSection() {
                 playsInline
                 loop
                 muted={isMuted}
-                className="w-full h-full object-cover"
-                onPlay={() => setIsPlayingInline(true)}
-                onPause={() => setIsPlayingInline(false)}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
               />
 
-              {/* Play/Pause Overlay */}
-              {!isPlayingInline && (
-                <div
-                  onClick={toggleInlinePlay}
-                  className="absolute inset-0 bg-black/40 group-hover:bg-black/30 flex items-center justify-center cursor-pointer transition-colors duration-300"
-                >
-                  <div className="w-16 h-16 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                    <Play size={22} fill="white" className="ml-0.5" />
+              {/* Gradient Vignettes */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 pointer-events-none transition-opacity duration-300 group-hover:from-black/90" />
+
+              {/* Top Status Indicator */}
+              <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/60 backdrop-blur-md border border-white/15 text-[10px] uppercase font-bold tracking-[0.14em] text-neutral-200">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{isPlaying ? "Playing Reel" : "Paused"}</span>
+                </div>
+              </div>
+
+              {/* Center Play Overlay when paused */}
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] transition-all duration-300 pointer-events-none">
+                  <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                    <Play size={24} fill="white" className="ml-1 text-white" />
                   </div>
                 </div>
               )}
 
-              {/* In-Video Controls when playing */}
-              {isPlayingInline && (
-                <div className="absolute bottom-3 right-3 flex items-center gap-2">
+              {/* In-Place Bottom Video Controls */}
+              <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-auto">
+                <div className="flex items-center gap-2">
+                  {/* Play / Pause Toggle Button */}
                   <button
-                    onClick={() => setIsMuted(!isMuted)}
-                    className="p-1.5 rounded bg-black/60 backdrop-blur-sm text-white hover:bg-black/80 transition-colors"
-                    aria-label="Toggle Mute"
+                    type="button"
+                    onClick={togglePlay}
+                    className="p-2 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg"
+                    aria-label={isPlaying ? "Pause Video" : "Play Video"}
+                  >
+                    {isPlaying ? <Pause size={14} /> : <Play size={14} fill="white" />}
+                  </button>
+
+                  {/* Sound Toggle (Mute / Unmute) Button */}
+                  <button
+                    type="button"
+                    onClick={toggleMute}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg text-[11px] font-medium"
+                    aria-label={isMuted ? "Unmute Audio" : "Mute Audio"}
                   >
                     {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                  </button>
-                  <button
-                    onClick={toggleInlinePlay}
-                    className="p-1.5 rounded bg-black/60 backdrop-blur-sm text-white hover:bg-black/80 transition-colors"
-                    aria-label="Pause Video"
-                  >
-                    <Pause size={14} />
-                  </button>
-                  <button
-                    onClick={() => setIsVideoModalOpen(true)}
-                    className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-white hover:bg-black/80"
-                  >
-                    Expand
+                    <span className="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">
+                      {isMuted ? "Unmute" : "Sound On"}
+                    </span>
                   </button>
                 </div>
-              )}
+
+                <span className="text-[10px] tracking-widest uppercase font-semibold text-neutral-400 bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 hidden sm:inline">
+                  UNICO FILM · 4K
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Column 2: 50% Stats Container with Title on Top and Stats on Bottom */}
-          <div className="lg:col-span-6 flex flex-col justify-between py-1 lg:pl-2">
+          <div
+            className={`lg:col-span-6 flex flex-col justify-between py-1 lg:pl-2 transition-all duration-1000 delay-200 ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             {/* Top Part: Title & Tag placed right above stats */}
             <div className="mb-8 lg:mb-10">
               <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
@@ -142,32 +236,6 @@ export default function MetricsSection() {
           </div>
         </div>
       </div>
-
-      {/* Fullscreen Video Modal */}
-      {isVideoModalOpen && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200">
-          <div
-            onClick={() => setIsVideoModalOpen(false)}
-            className="absolute inset-0 bg-black/90 backdrop-blur-xl"
-          />
-          <div className="relative w-full max-w-5xl aspect-video bg-black z-10 shadow-2xl overflow-hidden border border-white/10">
-            <button
-              onClick={() => setIsVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/70 text-white hover:bg-white hover:text-black transition-colors"
-              aria-label="Close video"
-            >
-              <X size={20} />
-            </button>
-            <video
-              src="/video/updated_UNICO.mp4"
-              controls
-              autoPlay
-              playsInline
-              className="w-full h-full object-contain"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

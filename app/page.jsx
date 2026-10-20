@@ -11,20 +11,17 @@ import DrawingToDoneSection from "@/components/DrawingToDoneSection";
 import ProcessSection from "@/components/ProcessSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ClientLogosSection from "@/components/ClientLogosSection";
 import QualitySection from "@/components/QualitySection";
 import CtaSection from "@/components/CtaSection";
 import ContactModal from "@/components/ContactModal";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-[#090c10] text-white selection:bg-[#d4af37]/30 selection:text-white">
-      {/* Fixed Dark / Light Mode Switch in Bottom Right Corner */}
-      <ThemeToggle />
-
       {/* Top Header */}
       <Header onOpenContact={() => setContactOpen(true)} />
 
@@ -54,6 +51,9 @@ export default function Home() {
 
       {/* Testimonials Section: 'CLIENT VOICES' */}
       <TestimonialsSection />
+
+      {/* Client Logos & Institutional Partners Section: 'ESTEEMED CLIENTELE' */}
+      <ClientLogosSection />
 
       {/* Quality Promise & Standards Section: 'QUALITY STANDARDS' */}
       <QualitySection />

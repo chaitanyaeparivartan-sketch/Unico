@@ -49,8 +49,62 @@ export default function Hero() {
   const textScale = 1 + scrollProgress * 0.25;
   const trackingValue = (0.08 + scrollProgress * 0.035).toFixed(4);
 
+  const [entranceComplete, setEntranceComplete] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setEntranceComplete(true);
+    }, 1100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-end overflow-hidden select-none">
+      {/* Page Load Growing Keyframe Animations */}
+      <style>{`
+        @keyframes heroTitleEntrance {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+            letter-spacing: 0.02em;
+            filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+          }
+          65% {
+            transform: scale(1.06);
+            letter-spacing: 0.09em;
+            filter: drop-shadow(0 4px 28px rgba(212, 175, 55, 0.45));
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+            letter-spacing: 0.08em;
+            filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.9));
+          }
+        }
+
+        @keyframes heroSubEntrance {
+          0% {
+            opacity: 0;
+            transform: scale(0.9) translateY(14px);
+          }
+          70% {
+            transform: scale(1.02) translateY(0);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        .animate-hero-title {
+          animation: heroTitleEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-hero-sub {
+          animation: heroSubEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+        }
+      `}</style>
+
       {/* Background Architectural Carousel Images */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, idx) => (
@@ -79,9 +133,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent top-[45%] pointer-events-none" />
       </div>
 
-      {/* Bottom Centered Content Area with Growing Effect */}
+      {/* Bottom Centered Content Area with Page Load & Scroll Growing Effect */}
       <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 sm:px-8 lg:px-12 pb-6 sm:pb-8 lg:pb-10 flex flex-col items-center text-center">
-        {/* Single-line Headline: BUILD FOR THE LIFE INSIDE with Scroll-Driven Growth */}
+        {/* Single-line Headline: BUILD FOR THE LIFE INSIDE with Page-Load + Scroll-Driven Growth */}
         <div
           className={`origin-center ${
             isMounted ? "opacity-100" : "opacity-0"
@@ -91,19 +145,25 @@ export default function Hero() {
           }}
         >
           <h1
-            className="font-canela text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-light leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300"
-            style={{
-              transform: `scale(${textScale})`,
-              letterSpacing: `${trackingValue}em`,
-              transition: "transform 0.08s ease-out, letter-spacing 0.08s ease-out",
-            }}
+            className={`font-canela text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-light leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
+              !entranceComplete && scrollY === 0 ? "animate-hero-title" : ""
+            }`}
+            style={
+              entranceComplete || scrollY > 0
+                ? {
+                    transform: `scale(${textScale})`,
+                    letterSpacing: `${trackingValue}em`,
+                    transition: "transform 0.08s ease-out, letter-spacing 0.08s ease-out",
+                  }
+                : {}
+            }
           >
             Build For The Life Inside
           </h1>
         </div>
 
-        {/* Philosophy Paragraph */}
-        <p className="max-w-xl text-white/85 text-[11px] sm:text-xs md:text-[13px] lg:text-[14px] font-light leading-relaxed tracking-wide drop-shadow-md cursor-default select-none">
+        {/* Philosophy Paragraph with Growing Entrance */}
+        <p className="max-w-xl text-white/85 text-[11px] sm:text-xs md:text-[13px] lg:text-[14px] font-light leading-relaxed tracking-wide drop-shadow-md cursor-default select-none animate-hero-sub opacity-0">
           We design and build enduring spaces where everyday moments thrive.
           From solid foundations to intentional layouts, every detail is
           engineered to support the way you truly live.

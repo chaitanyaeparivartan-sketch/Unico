@@ -114,6 +114,9 @@ export default function TestimonialsSection() {
     TESTIMONIALS[(startIndex + 2) % total],
   ];
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
   const handleNext = useCallback(() => {
     setStartIndex((prev) => (prev + 1) % total);
   }, [total]);
@@ -121,6 +124,20 @@ export default function TestimonialsSection() {
   const handlePrev = useCallback(() => {
     setStartIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
+
+  // Touch swipe support for mobile
+  const minSwipeDistance = 45;
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) handleNext();
+    if (distance < -minSwipeDistance) handlePrev();
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -185,12 +202,23 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* 3 Testimonials Cards in a Row (Matching User's Reference Content & Layout Exactly) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+        {/* Testimonials Cards: 1 card on Mobile, 2 on Tablet, 3 on Desktop */}
+        <div
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch"
+        >
           {visibleCards.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="rounded-none bg-black border border-white/10 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_40px_rgba(0,0,0,0.85)] min-h-[380px]"
+              className={`rounded-none bg-black border border-white/10 p-7 sm:p-8 flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_40px_rgba(0,0,0,0.85)] min-h-[380px] ${
+                idx === 0
+                  ? "flex"
+                  : idx === 1
+                  ? "hidden md:flex"
+                  : "hidden lg:flex"
+              }`}
             >
               <div>
                 {/* 5 Gold Star Rating at Top of Card */}
@@ -241,6 +269,23 @@ export default function TestimonialsSection() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Mobile Pagination Indicator Dots */}
+        <div className="flex md:hidden items-center justify-center gap-1.5 mt-6">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setStartIndex(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                i === startIndex % total
+                  ? "w-6 bg-[#caa156]"
+                  : "w-1.5 bg-white/20 hover:bg-white/40"
+              }`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
           ))}
         </div>
       </div>

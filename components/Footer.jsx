@@ -67,6 +67,11 @@ export default function Footer({ onOpenContact }) {
                 </a>
               </li>
               <li>
+                <a href="#clients" className="hover:text-white transition-colors duration-200">
+                  Clients &amp; Partners
+                </a>
+              </li>
+              <li>
                 <a href="#quality" className="hover:text-white transition-colors duration-200">
                   Quality
                 </a>

@@ -36,21 +36,106 @@ export default function Header({ onOpenContact }) {
           : "bg-transparent py-5 sm:py-6"
       }`}
     >
+      {/* Page Load Growing Animations */}
+      <style>{`
+        @keyframes navGrowIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+            letter-spacing: 0.06em;
+          }
+          65% {
+            transform: scale(1.08);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+            letter-spacing: 0.14em;
+          }
+        }
+
+        @keyframes logoGrowIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.78);
+            filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+          }
+          65% {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.75));
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+            filter: drop-shadow(0 2px 12px rgba(212, 175, 55, 0.4));
+          }
+        }
+
+        @keyframes dotGrowPulse {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          70% {
+            transform: scale(1.6);
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes ctaGrowIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.84);
+          }
+          65% {
+            transform: scale(1.06);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-nav-grow {
+          animation: navGrowIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .animate-logo-grow {
+          animation: logoGrowIn 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .animate-dot-grow {
+          animation: dotGrowPulse 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        .animate-cta-grow {
+          animation: ctaGrowIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+      `}</style>
+
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
         {/* Left Navigation (Projects, Our Story, Our Work) with Growing Text Effect */}
         <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
-          {leftNavItems.map((item) => (
+          {leftNavItems.map((item, idx) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`relative py-1 transition-all duration-300 flex items-center gap-2 group ${
+              style={{ animationDelay: `${idx * 120}ms` }}
+              className={`relative py-1 transition-all duration-300 flex items-center gap-2 group animate-nav-grow ${
                 item.active
                   ? "text-white font-semibold"
                   : "text-white/80 hover:text-white"
               }`}
             >
               {item.active && (
-                <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#ae7b13] group-hover:scale-150 transition-all duration-300 shadow-sm animate-pulse"></span>
+                <span
+                  style={{ animationDelay: "180ms" }}
+                  className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#ae7b13] group-hover:scale-150 transition-all duration-300 shadow-sm animate-pulse animate-dot-grow"
+                />
               )}
               <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-110 group-hover:tracking-[0.2em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
                 {item.label}
@@ -61,10 +146,13 @@ export default function Header({ onOpenContact }) {
           ))}
         </nav>
 
-        {/* Center UNICO Logo */}
+        {/* Center UNICO Logo with Page Load Growing Bloom */}
         <div className="flex items-center justify-center">
           <Link href="/" className="relative flex items-center group">
-            <div className="relative h-12 sm:h-14 md:h-15 w-32 sm:w-36 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <div
+              style={{ animationDelay: "220ms" }}
+              className="relative h-12 sm:h-14 md:h-15 w-32 sm:w-36 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
+            >
               <Image
                 src="/images/unico-logo-cropped.png"
                 alt="UNICO Logo"
@@ -80,11 +168,12 @@ export default function Header({ onOpenContact }) {
         {/* Right Navigation & CTA with Growing Text Effect */}
         <div className="hidden xl:flex items-center space-x-8">
           <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
-            {rightNavItems.map((item) => (
+            {rightNavItems.map((item, idx) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="relative py-1 text-white/80 hover:text-white transition-all duration-300 group flex items-center"
+                style={{ animationDelay: `${380 + idx * 120}ms` }}
+                className="relative py-1 text-white/80 hover:text-white transition-all duration-300 group flex items-center animate-nav-grow"
               >
                 <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
                   {item.label}
@@ -98,7 +187,8 @@ export default function Header({ onOpenContact }) {
           {/* Luxury Split CTA Button: 'Start a Project' with Growing Effect */}
           <button
             onClick={onOpenContact}
-            className="group flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.04]"
+            style={{ animationDelay: "620ms" }}
+            className="group flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.04] animate-cta-grow"
             aria-label="Start a Project"
           >
             <span className="bg-white text-black text-[13px] font-medium tracking-[0.06em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">

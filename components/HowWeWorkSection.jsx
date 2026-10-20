@@ -55,20 +55,6 @@ export default function HowWeWorkSection() {
           <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-md">
             A transparent, disciplined five-stage methodology that turns architectural blueprints into reality with zero guesswork.
           </p>
-
-          {/* Progress Indicator – desktop only */}
-          <div className="mt-8 hidden items-center gap-3.5 text-[13px] tracking-[0.15em] text-[#8d8f96] lg:flex">
-            <span>
-              <b className="font-medium text-white">{pad(active + 1)}</b> /{" "}
-              {pad(steps.length)}
-            </span>
-            <div className="relative h-0.5 w-[140px] overflow-hidden bg-white/10">
-              <i
-                className="absolute inset-0 origin-left bg-[#ae7b13] transition-transform duration-500"
-                style={{ transform: `scaleX(${(active + 1) / steps.length})` }}
-              />
-            </div>
-          </div>
         </div>
 
         {/* RIGHT – scrolling steps */}

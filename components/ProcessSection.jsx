@@ -59,12 +59,12 @@ export default function ProcessSection() {
   return (
     <section
       id="how-we-build"
-      className="relative bg-[#0a0a0b] text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10 overflow-hidden"
+      className="relative bg-[#0a0a0b] text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10"
     >
       {/* Anchor for process links */}
       <span id="process" className="absolute -top-16 left-0 opacity-0 pointer-events-none" />
 
-      {/* Embedded fonts and CSS :has() rules for zero-latency default + single-hover preview */}
+      {/* Embedded fonts and CSS :has() rules for zero-latency default + single-hover preview on desktop */}
       <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap");
 
@@ -116,7 +116,7 @@ export default function ProcessSection() {
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header */}
-        <div className="max-w-4xl mb-12 sm:mb-14 lg:mb-16">
+        <div className="max-w-4xl mb-10 sm:mb-14 lg:mb-16">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]" />
             <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
@@ -133,10 +133,64 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Bento Grid with Single Active Card Preview (01 by default, hovered card when hovering) */}
+        {/* Mobile View: Vertical Sticky Stacking / Swipable Cards (Matching What We Do Section) */}
+        <div className="md:hidden relative pb-6">
+          {STEPS.map((step, idx) => (
+            <div
+              key={`mobile-${step.id}`}
+              className="sticky top-20 sm:top-24 bg-[#0a0a0b] py-3.5"
+              style={{
+                zIndex: idx + 1,
+              }}
+            >
+              <div className="bg-[#12110f] border border-[#c9a35a]/35 rounded-none p-5 sm:p-6 shadow-2xl shadow-black relative overflow-hidden flex flex-col">
+                {/* Image */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border border-white/10 mb-4 shadow-lg">
+                  <Image
+                    src={step.image}
+                    alt={step.alt}
+                    fill
+                    className="object-cover object-center filter brightness-95"
+                    sizes="100vw"
+                    priority={idx === 0}
+                  />
+                  {/* Subtle Gradient Scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Stage Counter Badge on top right */}
+                  <div className="absolute top-2.5 right-2.5 bg-black/85 backdrop-blur-md px-2.5 py-1 border border-[#ae7b13]/60">
+                    <span className="font-['Sora',sans-serif] text-[11px] font-bold text-[#f3d690] tracking-wider">
+                      {step.id} / 05
+                    </span>
+                  </div>
+                </div>
+
+                {/* Stage Tag */}
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block" />
+                  <span className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+                    STAGE {step.id}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-['Sora',sans-serif] text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="font-['Manrope',sans-serif] text-sm sm:text-[15px] text-[#caa156] font-medium leading-relaxed">
+                  {step.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop View: Bento Grid with Single Active Card Preview (01 by default, hovered card when hovering) */}
         <div
           onMouseLeave={() => setHoveredCard(null)}
-          className="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 auto-rows-fr"
+          className="bento-grid hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 auto-rows-fr"
         >
           {STEPS.map((step) => {
             const isFirst = step.id === "01";
