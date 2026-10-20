@@ -200,9 +200,10 @@ export default function FeaturedDevelopments({ onOpenContact }) {
 
   return (
     <section
-      id="developments"
+      id="projects"
       className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
+      <span id="developments" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
         <div className="mb-10 sm:mb-12 lg:mb-14">

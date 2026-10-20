@@ -63,24 +63,25 @@ export default function DrawingToDoneSection() {
 
   return (
     <section
-      id="drawing-to-done"
+      id="work"
       className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
+      <span id="drawing-to-done" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12 lg:mb-14 text-center max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-3.5">
+        <div className="mb-10 sm:mb-12 lg:mb-14 max-w-4xl">
+          <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
             <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]"></span>
             <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
               FROM DRAWING TO DONE
             </span>
           </div>
 
-          <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.6rem] tracking-tight text-white font-light leading-[1.14] mb-4 sm:mb-5">
+          <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.8rem] tracking-tight text-white font-light leading-[1.12] mb-4 sm:mb-5">
             See what gets built when you plan it properly first.
           </h2>
 
-          <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl">
             Drag the slider to compare our architectural blueprint against the completed, delivered structure in Hyderabad.
           </p>
         </div>

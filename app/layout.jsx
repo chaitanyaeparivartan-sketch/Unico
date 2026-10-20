@@ -16,9 +16,18 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "UNICO | Build For The Life Inside",
+  title: "UNICO | Builders & Developers",
   description:
     "We design and build enduring spaces where everyday moments thrive. From solid foundations to intentional layouts, every detail is engineered to support the way you truly live.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

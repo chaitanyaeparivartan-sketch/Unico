@@ -7,22 +7,22 @@ export default function CtaSection({ onOpenContact }) {
   return (
     <section className="relative w-full min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] flex items-center justify-center overflow-hidden select-none border-t border-white/5">
       {/* Background Architectural Image */}
+      {/* Background Architectural Image - Clean, bright, and vibrant */}
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/images/Tropical Bungalow Garden Walkway.png"
           alt="Tropical Bungalow Garden Walkway"
           fill
           priority
-          quality={90}
-          className="object-cover object-center filter brightness-[0.7] contrast-[1.05]"
+          quality={95}
+          className="object-cover object-center filter brightness-[0.92] contrast-[1.02]"
           sizes="100vw"
         />
       </div>
 
-      {/* Cinematic Dark Overlays & Smooth Vignette to blend into page/footer */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#090b0e]/85 via-transparent to-[#090c10]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.65)_100%)] pointer-events-none" />
+      {/* Gentle Edge Blends & Soft Scrim to ensure the background is clearly visible while text is crisp */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#090c10]/75 via-transparent to-[#090c10]/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.42)_0%,rgba(0,0,0,0.15)_60%,transparent_100%)] pointer-events-none" />
 
       {/* Center Call To Action Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center py-20 sm:py-24 lg:py-28">
@@ -35,14 +35,14 @@ export default function CtaSection({ onOpenContact }) {
         </div>
 
         {/* Main Headline */}
-        <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.8rem] text-white font-light tracking-tight leading-[1.14] mb-6 sm:mb-7 text-center max-w-4xl drop-shadow-md">
+        <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.8rem] text-white font-normal tracking-tight leading-[1.14] mb-6 sm:mb-7 text-center max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.75)]">
           Tell us what you want to build.
           <br className="hidden sm:inline" />
-          <span className="text-white/95"> We will tell you honestly if we can help.</span>
+          <span className="text-white"> We will tell you honestly if we can help.</span>
         </h2>
 
         {/* Description Paragraph */}
-        <p className="text-neutral-300 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-3xl text-center mb-10 sm:mb-12">
+        <p className="text-white/95 text-sm sm:text-base md:text-[16.5px] font-normal leading-relaxed max-w-3xl text-center mb-10 sm:mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
           A quick call or a site visit — that is all it takes to get started. No long presentations, no obligation. Whether you are planning a new home, expanding a school, developing a piece of land, or building a factory — just get in touch and we will take it from there.
         </p>
 

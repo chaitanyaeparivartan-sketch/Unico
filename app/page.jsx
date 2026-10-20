@@ -8,11 +8,12 @@ import StorySection from "@/components/StorySection";
 import ServicesSection from "@/components/ServicesSection";
 import FeaturedDevelopments from "@/components/FeaturedDevelopments";
 import DrawingToDoneSection from "@/components/DrawingToDoneSection";
+import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import IsoSection from "@/components/IsoSection";
+import QualitySection from "@/components/QualitySection";
 import CtaSection from "@/components/CtaSection";
 import ContactModal from "@/components/ContactModal";
-import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -40,11 +41,14 @@ export default function Home() {
       {/* Interactive Blueprint to Reality Comparison Slider: 'FROM DRAWING TO DONE' */}
       <DrawingToDoneSection />
 
+      {/* The Process Section: 'HOW WE WORK' */}
+      <ProcessSection />
+
       {/* Testimonials Section: 'CLIENT VOICES' */}
       <TestimonialsSection />
 
-      {/* ISO Certified Excellence Section: 'QUALITY & STANDARDS' */}
-      <IsoSection />
+      {/* Quality Promise & Standards Section: 'QUALITY STANDARDS' */}
+      <QualitySection />
 
       {/* CTA Section: 'YOUR NEXT ADDRESS STARTS HERE' */}
       <CtaSection onOpenContact={() => setContactOpen(true)} />
@@ -55,35 +59,8 @@ export default function Home() {
         onClose={() => setContactOpen(false)}
       />
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-12 px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-neutral-400 tracking-wider uppercase bg-[#090c10]">
-        <div className="flex items-center gap-4">
-          <div className="relative w-32 h-10">
-            <Image
-              src="/images/unico-logo-cropped.png"
-              alt="UNICO Logo"
-              fill
-              className="object-contain object-left"
-              sizes="140px"
-            />
-          </div>
-          <span className="text-neutral-500">|</span>
-          <span>© 2026 UNICO Atelier</span>
-        </div>
-        <div className="flex items-center gap-8 text-[11px] tracking-[0.16em]">
-          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-          <a href="#metrics" className="hover:text-white transition-colors">Metrics</a>
-          <a href="#services" className="hover:text-white transition-colors">Services</a>
-          <a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a>
-          <a href="#quality" className="hover:text-white transition-colors">Quality</a>
-          <button
-            onClick={() => setContactOpen(true)}
-            className="hover:text-amber-400 transition-colors cursor-pointer text-white"
-          >
-            Start a Project
-          </button>
-        </div>
-      </footer>
+      {/* Luxury Atelier Footer */}
+      <Footer onOpenContact={() => setContactOpen(true)} />
     </main>
   );
 }

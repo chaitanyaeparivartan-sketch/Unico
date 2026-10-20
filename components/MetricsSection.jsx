@@ -109,7 +109,7 @@ export default function MetricsSection() {
                   CONSTRUCTION METRICS
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] xl:text-[2.65rem] font-medium tracking-tight leading-[1.2] text-white max-w-xl">
+              <h2 className="font-canela text-2xl sm:text-3xl lg:text-[2.6rem] font-light tracking-tight leading-[1.18] text-white max-w-xl">
                 Building and developing across India since 1985.
               </h2>
             </div>

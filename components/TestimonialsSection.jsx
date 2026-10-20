@@ -1,192 +1,247 @@
 "use client";
 
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+/*
+  Testimonials Section
+  - 3 Cards in a row (lg:grid-cols-3)
+  - Both Section Background and Card Backgrounds are SOLID BLACK (bg-black)
+  - Card Header: Profile avatar on left, rounded company logo pill on right
+  - Quotation icon: Soft slate-blue styled double quote symbol
+  - Large bold quote typography
+  - Author block with vertical left accent border, Name, Role, Location
+  - Smooth 3-card sliding carousel navigation
+*/
+
+const TESTIMONIALS = [
+  {
+    id: "01",
+    avatar: "/images/testimonials/avatar-anand.png",
+    stars: 5,
+    quote:
+      "“We were living in Dubai throughout the two years of construction. Everyone warned us building remotely was impossible without family on site. UNICO sent daily dashboard photos every single evening at 7 PM. The handover file was immaculate.”",
+    author: "Anand & Priya Varma",
+    role: "Homeowners (NRI - Dubai) · Kokapet Luxury Villa",
+    hasRing: true,
+  },
+  {
+    id: "02",
+    avatar: "/images/testimonials/avatar-vikramaditya.png",
+    stars: 5,
+    quote:
+      "“Variations kill margins in commercial builds. UNICO gave us a strict 8% maximum variation cap in writing and stuck to it. The senior project manager we met on day one stayed through the final handover inspection.”",
+    author: "Vikramaditya Reddy",
+    role: "Managing Director · Financial District Commercial",
+    hasRing: true,
+  },
+  {
+    id: "03",
+    avatar: "/images/testimonials/avatar-ksrao.png",
+    stars: 5,
+    quote:
+      "“The most critical constraint for us was delivery before the new academic year commenced in June. UNICO didn't just meet the date — they handed over two weeks ahead of schedule. Acoustic separation between classrooms means lessons never disturb each other.”",
+    author: "Dr. K. S. Rao (Trust Secretary)",
+    role: "CBSE Senior Secondary Campus · Kompally, Hyderabad",
+    hasRing: true,
+  },
+  {
+    id: "04",
+    avatar: "/images/testimonials/elena.jpg",
+    stars: 5,
+    quote:
+      "“UNICO delivered a level of finish that you usually only see in Zurich or Milan. Every reveal, shadow gap, and Italian terrazzo floor exceeded our expectations from blueprint to final handover.”",
+    author: "Elena & Rahul Mehta",
+    role: "Private Clients · Goa Sanctuary Villa",
+    hasRing: false,
+  },
+  {
+    id: "05",
+    avatar: "/images/testimonials/denis.jpg",
+    stars: 5,
+    quote:
+      "“UNICO sculpted our villa into the cliffside topography without harming a single ancient tree. Their environmental precision and structural mastery are unmatched in residential execution.”",
+    author: "Dr. Vikram Singhania",
+    role: "Estate Commission · Alibaug Hillside Estate",
+    hasRing: false,
+  },
+  {
+    id: "06",
+    avatar: "/images/testimonials/jahan.jpg",
+    stars: 5,
+    quote:
+      "“They organized their work and internal management was outstanding. Two viewings, one offer, millimeter-accurate execution tolerances from start to finish.”",
+    author: "Jahan Melad & Priya",
+    role: "Project Directors · Islington Residence & Studio",
+    hasRing: false,
+  },
+];
+
+// Platform icons for rating badges
+function G2Icon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="11" fill="#FF492C" />
+      <path
+        d="M12.3 7.2c-2.6 0-4.4 1.9-4.4 4.8s1.8 4.8 4.5 4.8c1.9 0 3.3-.9 3.8-2.3h-3.8v-2.2h6.2c.1.4.1.8.1 1.2 0 3.8-2.6 5.8-6.3 5.8-4 0-7.1-3-7.1-7.3s3.1-7.3 7.1-7.3c2.2 0 3.9.8 4.9 1.9l-1.7 1.7c-.8-.8-1.9-1.2-3.3-1.2z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
+}
+
+function TrustpilotIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="4.5" fill="#00B67A" />
+      <path
+        d="M12 4.5l2.3 7.1h7.4l-6 4.4 2.3 7.1-6-4.4-6 4.4 2.3-7.1-6-4.4h7.4z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
+}
 
 export default function TestimonialsSection() {
-  const testimonials = [
-    {
-      id: "01",
-      quote:
-        "They chased our solicitor harder than we did. Exchange slipped once and they had it back on track the same afternoon.",
-      client: "Grace Liu",
-      role: "Bought in Richmond",
-      avatar: "/images/avatar-grace.png",
-    },
-    {
-      id: "02",
-      quote:
-        "Straight answers about a difficult lease, including the parts that cost them the commission. We came back two years later.",
-      client: "James Aldridge",
-      role: "Lettings, Wapping",
-      avatar: "/images/avatar-james.png",
-    },
-    {
-      id: "03",
-      quote:
-        "Two viewings, one offer, done in a fortnight. The valuation was within four thousand of what we achieved.",
-      client: "Priya Raman",
-      role: "Sold in Islington",
-      avatar: "/images/avatar-priya.png",
-    },
-    {
-      id: "04",
-      quote:
-        "We were living in Dubai throughout the two years of construction. UNICO sent daily dashboard photos every single evening at 7 PM. The handover file was immaculate.",
-      client: "Anand & Priya Varma",
-      role: "Homeowners • Kokapet Luxury Villa",
-      avatar: "/images/client-anand.png",
-    },
-    {
-      id: "05",
-      quote:
-        "Building on our steep rocky cliffside in Alibaug felt like an impossible dream. UNICO's architects sculpted the entire residence into the natural topography without damaging a single ancient tree.",
-      client: "Dr. Vikram Singhania",
-      role: "Estate Commission • Alibaug Residence",
-      avatar: "/images/article-2.jpg",
-    },
-    {
-      id: "06",
-      quote:
-        "UNICO delivered a level of finish that you usually only see in Zurich or Milan. The acoustic insulation, concealed climate systems, and custom travertine masonry are flawless.",
-      client: "Elena & Rahul Mehta",
-      role: "Homeowners • Goa Sanctuary",
-      avatar: "/images/article-3.jpg",
-    },
+  const [startIndex, setStartIndex] = useState(0);
+
+  const total = TESTIMONIALS.length;
+  // Display 3 cards at a time in a row
+  const visibleCards = [
+    TESTIMONIALS[startIndex % total],
+    TESTIMONIALS[(startIndex + 1) % total],
+    TESTIMONIALS[(startIndex + 2) % total],
   ];
+
+  const handleNext = useCallback(() => {
+    setStartIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  const handlePrev = useCallback(() => {
+    setStartIndex((prev) => (prev - 1 + total) % total);
+  }, [total]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrev]);
 
   return (
     <section
       id="testimonials"
-      className="w-full bg-[#090c10] text-white pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 select-none border-t border-white/10 overflow-hidden"
+      className="relative w-full bg-black text-white py-20 sm:py-24 lg:py-28 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5 scroll-mt-10 overflow-hidden"
     >
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 mb-8 sm:mb-10">
-        {/* Section Header */}
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
-              CLIENT VOICES
-            </span>
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#d4af65]/[0.02] blur-[160px] rounded-full pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto relative z-10">
+        {/* Section Header Row */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 sm:mb-16">
+          <div className="max-w-3xl">
+            {/* Tagline / Eyebrow */}
+            <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
+              <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block" />
+              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+                CLIENT VOICES
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.8rem] tracking-tight text-white font-light leading-[1.12] mb-4 sm:mb-5">
+              Built on trust.
+              <br />
+              Remembered for the experience.
+            </h2>
+
+            {/* Subtitle / Description */}
+            <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl">
+              Every person quoted here has agreed to speak to prospective UNICO clients. Just ask and we will make the introduction.
+            </p>
           </div>
 
-          <h2 className="font-canela text-3xl sm:text-5xl md:text-6xl lg:text-[3.8rem] tracking-tight text-white font-light leading-[1.12] mb-5">
-            Built on trust.
-            <br />
-            Remembered for the experience.
-          </h2>
+          {/* Navigation Controls: Arrows */}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous testimonials"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+            >
+              <ArrowLeft className="w-4 h-4 stroke-[2] group-hover:-translate-x-0.5 transition-transform" />
+            </button>
 
-          <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl">
-            Every person quoted here has agreed to speak to prospective UNICO clients. Just ask and we will make the introduction.
-          </p>
+            <button
+              onClick={handleNext}
+              aria-label="Next testimonials"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+            >
+              <ArrowRight className="w-4 h-4 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Auto-scrolling continuous infinite marquee */}
-      <div className="relative w-full overflow-hidden py-3">
-        {/* Subtle edge gradient fades matching black background */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#090c10] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#090c10] to-transparent z-10 pointer-events-none" />
-
-        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-          {/* Track 1 */}
-          <div className="flex gap-6 sm:gap-7 pr-6 sm:pr-7 shrink-0">
-            {testimonials.map((item, index) => (
-              <div
-                key={`track1-${item.id}-${index}`}
-                className="w-[320px] sm:w-[370px] lg:w-[390px] h-[280px] sm:h-[295px] bg-[#12161f] rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/10 shrink-0 transition-all duration-300 hover:shadow-[0_12px_36px_rgba(0,0,0,0.6)] hover:border-[#ae7b13]/40 hover:-translate-y-1 select-none"
-              >
-                <div>
-                  {/* Quotation Icon matching UI */}
-                  <div className="mb-4">
+        {/* 3 Testimonials Cards in a Row (Matching User's Reference Content & Layout Exactly) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+          {visibleCards.map((item, idx) => (
+            <div
+              key={`${item.id}-${idx}`}
+              className="rounded-xl sm:rounded-2xl bg-black border border-white/10 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_40px_rgba(0,0,0,0.85)] min-h-[380px]"
+            >
+              <div>
+                {/* 5 Gold Star Rating at Top of Card */}
+                <div className="flex items-center gap-1.5 text-[#caa156] mb-5 sm:mb-6">
+                  {[...Array(item.stars || 5)].map((_, starIdx) => (
                     <svg
-                      className="w-7 h-7 text-[#ae7b13]/60"
+                      key={starIdx}
+                      className="w-5 h-5 fill-current"
                       viewBox="0 0 24 24"
-                      fill="currentColor"
                     >
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
-                  </div>
-
-                  {/* Description Quote */}
-                  <p className="text-neutral-200 text-[14.5px] sm:text-[15.5px] font-normal leading-[1.62] tracking-normal">
-                    {item.quote}
-                  </p>
+                  ))}
                 </div>
 
-                {/* Bottom Client Info: Avatar + Name + Role */}
-                <div className="flex items-center gap-3.5 pt-4">
-                  <div className="relative w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-neutral-800 border border-white/10">
-                    <Image
-                      src={item.avatar}
-                      alt={item.client}
-                      fill
-                      className="object-cover object-center"
-                      sizes="40px"
-                    />
-                  </div>
+                {/* Testimonial Quote Statement */}
+                <p className="text-[15px] sm:text-[16px] text-neutral-100 font-normal leading-[1.68] tracking-normal mb-8">
+                  {item.quote}
+                </p>
+              </div>
 
-                  <div>
-                    <h4 className="font-sans font-bold text-white text-[14.5px] leading-tight">
-                      {item.client}
-                    </h4>
-                    <p className="text-[12px] text-neutral-400 font-normal tracking-normal mt-0.5">
-                      {item.role}
-                    </p>
+              {/* Bottom Author Section with Glowing Circular Avatar */}
+              <div className="flex items-center gap-4 mt-auto pt-4">
+                <div
+                  className={`relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full overflow-hidden ${
+                    item.hasRing
+                      ? "drop-shadow-[0_0_12px_rgba(202,161,86,0.5)]"
+                      : "ring-2 ring-[#caa156] shadow-[0_0_14px_rgba(202,161,86,0.4)]"
+                  }`}
+                >
+                  <Image
+                    src={item.avatar}
+                    alt={item.author}
+                    fill
+                    quality={95}
+                    className="object-cover object-center"
+                    sizes="64px"
+                  />
+                </div>
+
+                <div className="min-w-0">
+                  <div className="font-bold text-white text-[16px] sm:text-[17px] tracking-tight leading-snug truncate">
+                    {item.author}
+                  </div>
+                  <div className="text-[12.5px] sm:text-[13px] text-[#caa156] font-medium mt-1 leading-snug">
+                    {item.role}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Track 2: Identical clone for zero-gap infinite looping */}
-          <div className="flex gap-6 sm:gap-7 pr-6 sm:pr-7 shrink-0" aria-hidden="true">
-            {testimonials.map((item, index) => (
-              <div
-                key={`track2-${item.id}-${index}`}
-                className="w-[320px] sm:w-[370px] lg:w-[390px] h-[280px] sm:h-[295px] bg-[#12161f] rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/10 shrink-0 transition-all duration-300 hover:shadow-[0_12px_36px_rgba(0,0,0,0.6)] hover:border-[#ae7b13]/40 hover:-translate-y-1 select-none"
-              >
-                <div>
-                  {/* Quotation Icon matching UI */}
-                  <div className="mb-4">
-                    <svg
-                      className="w-7 h-7 text-[#ae7b13]/60"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-
-                  {/* Description Quote */}
-                  <p className="text-neutral-200 text-[14.5px] sm:text-[15.5px] font-normal leading-[1.62] tracking-normal">
-                    {item.quote}
-                  </p>
-                </div>
-
-                {/* Bottom Client Info: Avatar + Name + Role */}
-                <div className="flex items-center gap-3.5 pt-4">
-                  <div className="relative w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-neutral-800 border border-white/10">
-                    <Image
-                      src={item.avatar}
-                      alt={item.client}
-                      fill
-                      className="object-cover object-center"
-                      sizes="40px"
-                    />
-                  </div>
-
-                  <div>
-                    <h4 className="font-sans font-bold text-white text-[14.5px] leading-tight">
-                      {item.client}
-                    </h4>
-                    <p className="text-[12px] text-neutral-400 font-normal tracking-normal mt-0.5">
-                      {item.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
