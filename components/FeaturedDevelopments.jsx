@@ -8,7 +8,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
   const [hoveredId, setHoveredId] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState("featured");
+  const [showAll, setShowAll] = useState(false);
 
   const developments = [
     {
@@ -16,7 +16,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "institutional",
       tag: "Institutional",
       title: "School Building",
-      subtitle: "Institutional Campus Development",
+      subtitle: "INSTITUTIONAL CAMPUS DEVELOPMENT",
       desc: "A flagship modern institutional campus development delivered turnkey in Hyderabad. Featuring specialized educational spaces, seismic structural reinforcement, acoustic privacy partitioning, and tested non-toxic environmental materials.",
       image: "/images/featured/school/sancta-maria-02.webp",
       alt: "School Building - Institutional Campus Development",
@@ -30,7 +30,6 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       details: {
         Client: "Sancta Maria",
         "Built-Up Area": "1,20,000 sq. ft.",
-        Location: "Hyderabad",
         Year: "2026",
         Role: "Turnkey EPC",
       },
@@ -40,7 +39,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "industrial",
       tag: "Cleanroom",
       title: "Industrial",
-      subtitle: "Medical Device Facility",
+      subtitle: "MEDICAL DEVICE FACILITY",
       desc: "A high-precision ISO-certified medical equipment assembly plant for B&A Health. Incorporates clinical-grade seamless antimicrobial epoxy flooring, multi-stage HEPA air filtration systems, and vibration-damped foundation slabs.",
       image: "/images/featured/industrial/ba-frame-5.webp",
       alt: "Industrial - Medical Device Facility",
@@ -62,7 +61,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "residential",
       tag: "Residential",
       title: "Luxury Villa",
-      subtitle: "Custom-Engineered Luxury Residence",
+      subtitle: "CUSTOM-ENGINEERED LUXURY RESIDENCE",
       desc: "An ultra-premium private estate engineering feat featuring dramatic pitched tiled roofs, low-E solar control glazing, integrated multi-zone climate automation, natural stone patios, and bespoke architectural woodwork.",
       image: "/images/featured/villa/villa-01.webp",
       alt: "Luxury Villa - Custom-Engineered Luxury Residence",
@@ -82,7 +81,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "commercial",
       tag: "Commercial",
       title: "Commercial",
-      subtitle: "Enterprise Commercial Development",
+      subtitle: "ENTERPRISE COMMERCIAL DEVELOPMENT",
       desc: "An enterprise commercial and learning center delivered on an accelerated timeline. Built with column-free flexible meeting spaces, heavy-duty fire-rated acoustic assemblies, and automated energy monitoring systems.",
       image: "/images/featured/commercial/commercial-01.webp",
       alt: "Commercial - Enterprise Commercial Development",
@@ -105,7 +104,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "commercial",
       tag: "Retail",
       title: "Retail Complex",
-      subtitle: "High-Street Retail Promenade",
+      subtitle: "HIGH-STREET RETAIL PROMENADE",
       desc: "A prime multi-tenant commercial arcade engineering marvel featuring seamless spider-glass curtain walls, subterranean multi-level vehicle parking, and high-efficiency central VRF cooling infrastructure.",
       image: "/images/featured/retail/prime-retail1.webp",
       alt: "Retail Complex - High-Street Retail Promenade",
@@ -126,7 +125,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       category: "residential",
       tag: "Hospitality",
       title: "Hospitality",
-      subtitle: "Luxury Beachfront Villas & Dining",
+      subtitle: "LUXURY BEACHFRONT VILLAS & DINING",
       desc: "A beachfront hospitality destination comprising private timber cottages and an open-air coastal restaurant deck. Crafted with marine-grade weather-resistant finishes, custom teak woodwork, and climate-resilient insulation designed to endure severe tropical conditions.",
       image: "/images/featured/hospitality/project-legala-01.webp",
       alt: "Hospitality - Luxury Beachfront Villas & Dining",
@@ -201,7 +200,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
   return (
     <section
       id="projects"
-      className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
+      className="w-full bg-[#090c10] text-white pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12 lg:pb-14 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
       <span id="developments" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
@@ -221,67 +220,18 @@ export default function FeaturedDevelopments({ onOpenContact }) {
           <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl">
             Explore our engineered landmarks across institutional, cleanroom, hospitality, and custom residential developments.
           </p>
-
-          {/* Toggle Button for Featured and More Projects */}
-          <div className="mt-8 flex items-center">
-            <div className="inline-flex p-1 bg-white/[0.04] border border-white/10 backdrop-blur-sm">
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveTab("featured");
-                  setHoveredId(null);
-                }}
-                className={`relative px-5 py-2.5 text-[12px] sm:text-[12.5px] font-semibold tracking-[0.08em] uppercase transition-all duration-300 flex items-center gap-2.5 cursor-pointer select-none ${
-                  activeTab === "featured"
-                    ? "bg-[#ae7b13] text-white shadow-lg shadow-[#ae7b13]/25"
-                    : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-                aria-pressed={activeTab === "featured"}
-              >
-                <span
-                  className={`w-1.5 h-1.5 rotate-45 transition-colors duration-300 ${
-                    activeTab === "featured" ? "bg-white" : "bg-neutral-500"
-                  }`}
-                />
-                <span>Featured</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveTab("more");
-                  setHoveredId(null);
-                }}
-                className={`relative px-5 py-2.5 text-[12px] sm:text-[12.5px] font-semibold tracking-[0.08em] uppercase transition-all duration-300 flex items-center gap-2.5 cursor-pointer select-none ${
-                  activeTab === "more"
-                    ? "bg-[#ae7b13] text-white shadow-lg shadow-[#ae7b13]/25"
-                    : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
-                }`}
-                aria-pressed={activeTab === "more"}
-              >
-                <span
-                  className={`w-1.5 h-1.5 rotate-45 transition-colors duration-300 ${
-                    activeTab === "more" ? "bg-white" : "bg-neutral-500"
-                  }`}
-                />
-                <span>More Projects</span>
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Expanding Cards View (3 per row based on active tab) */}
-        <div key={activeTab} className="w-full animate-in fade-in duration-500">
+        {/* Landmark Developments Cards Grid */}
+        <div className="w-full space-y-5 sm:space-y-6">
+          {/* Row 1: First 3 Featured Developments */}
           {(() => {
-            const currentProjects =
-              activeTab === "featured"
-                ? developments.slice(0, 3)
-                : developments.slice(3, 6);
-            const isRowHovered = currentProjects.some((item) => item.id === hoveredId);
+            const row1 = developments.slice(0, 3);
+            const isRowHovered = row1.some((item) => item.id === hoveredId);
 
             return (
               <div className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px]">
-                {currentProjects.map((item, idx) => {
+                {row1.map((item, idx) => {
                   const isHovered = hoveredId === item.id;
 
                   return (
@@ -310,7 +260,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                         alt={item.alt}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={activeTab === "featured" && idx === 0}
+                        priority={idx === 0}
                         className={`object-cover object-center transition-transform duration-700 ease-out ${
                           isHovered ? "scale-105" : "scale-100"
                         }`}
@@ -375,6 +325,132 @@ export default function FeaturedDevelopments({ onOpenContact }) {
               </div>
             );
           })()}
+
+          {/* Row 2: Remaining Developments (Revealed when showAll is true) */}
+          {showAll &&
+            (() => {
+              const row2 = developments.slice(3, 6);
+              const isRowHovered = row2.some((item) => item.id === hoveredId);
+
+              return (
+                <div className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px] animate-in fade-in duration-500">
+                  {row2.map((item) => {
+                    const isHovered = hoveredId === item.id;
+
+                    return (
+                      <div
+                        key={item.id}
+                        onMouseEnter={() => setHoveredId(item.id)}
+                        onMouseLeave={() => setHoveredId(null)}
+                        onClick={() => {
+                          if (hoveredId === item.id) {
+                            handleOpenPreview(item);
+                          } else {
+                            setHoveredId(item.id);
+                          }
+                        }}
+                        className={`relative h-[420px] sm:h-[460px] lg:h-[510px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group border border-white/10 ${
+                          isHovered
+                            ? "md:flex-[2.6] shadow-[0_20px_60px_rgba(0,0,0,0.85)] border-white/30"
+                            : isRowHovered
+                            ? "md:flex-[0.8] opacity-75 md:opacity-85 hover:opacity-100"
+                            : "md:flex-1"
+                        }`}
+                      >
+                        {/* Background Image with Zoom on Hover */}
+                        <Image
+                          src={item.image}
+                          alt={item.alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className={`object-cover object-center transition-transform duration-700 ease-out ${
+                            isHovered ? "scale-105" : "scale-100"
+                          }`}
+                        />
+
+                        {/* Dark Gradient Overlay for optimal contrast */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/25 to-black/90 pointer-events-none" />
+
+                        {/* Card Top: Title & Subtitle */}
+                        <div className="absolute top-6 left-6 right-6 sm:top-8 sm:left-8 sm:right-8 z-10">
+                          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#ae7b13] block mb-1">
+                            {item.tag}
+                          </span>
+                          <h3 className="font-sans text-2xl sm:text-3xl lg:text-[30px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
+                            {item.title}
+                          </h3>
+                          <p className="text-neutral-300 text-xs sm:text-[13px] font-medium tracking-wide mt-1 drop-shadow">
+                            {item.subtitle}
+                          </p>
+
+                          {/* Description revealed on hover / expanded state */}
+                          <div
+                            className={`overflow-hidden transition-all duration-500 ease-out ${
+                              isHovered
+                                ? "max-h-36 opacity-100 mt-3"
+                                : "max-h-0 opacity-0 mt-0"
+                            }`}
+                          >
+                            <p className="text-neutral-200 text-xs sm:text-sm leading-relaxed max-w-md font-light drop-shadow">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Card Bottom: Header Style Split CTA Button */}
+                        <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleOpenPreview(item);
+                            }}
+                            className="group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
+                            aria-label={`Learn More about ${item.title}`}
+                          >
+                            <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-medium tracking-[0.06em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+                              Learn More
+                            </span>
+                            <span className="w-[1px] bg-neutral-300"></span>
+                            <span className="bg-white text-black px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+                              <ArrowUpRight
+                                size={15}
+                                strokeWidth={2.2}
+                                className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                              />
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+        </div>
+
+        {/* View All Button After the Cards */}
+        <div className="mt-10 sm:mt-12 lg:mt-14 flex justify-center items-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            className="group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
+            aria-label={showAll ? "Show Fewer Projects" : "View All Projects"}
+          >
+            <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-semibold tracking-[0.08em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+              {showAll ? "Show Less" : "View All"}
+            </span>
+            <span className="w-[1px] bg-neutral-300"></span>
+            <span className="bg-white text-black px-3 sm:px-3.5 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+              <ArrowUpRight
+                size={16}
+                strokeWidth={2.2}
+                className={`transition-transform duration-300 ${
+                  showAll ? "rotate-90" : "group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                }`}
+              />
+            </span>
+          </button>
         </div>
       </div>
 
@@ -391,33 +467,9 @@ export default function FeaturedDevelopments({ onOpenContact }) {
             className="relative w-full max-w-6xl max-h-[94vh] bg-[#0c1017] border border-white/15 rounded-none shadow-[0_25px_80px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top Bar: Title, Subtitle, Specs & Close Button */}
-            <div className="px-5 sm:px-8 py-4 sm:py-5 border-b border-white/10 flex items-center justify-between bg-[#090c10]/90">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block"></span>
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
-                    {selectedProject.subtitle}
-                  </span>
-                </div>
-                <h3 className="font-canela text-2xl sm:text-3xl text-white font-light tracking-tight">
-                  {selectedProject.title}
-                </h3>
-              </div>
-
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={handleClosePreview}
-                className="p-2 sm:p-2.5 rounded-none bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white transition-colors duration-200 border border-white/10 cursor-pointer"
-                aria-label="Close Preview"
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            {/* Main Stage: High-Resolution Photo Viewer */}
-            <div className="relative w-full h-[380px] sm:h-[480px] md:h-[540px] lg:h-[580px] bg-black flex items-center justify-center overflow-hidden">
+            {/* Main Stage: High-Resolution Photo Viewer with Info Cards Overlay */}
+            <div className="relative w-full h-[480px] sm:h-[560px] md:h-[620px] lg:h-[660px] bg-black flex items-center justify-center overflow-hidden">
+              {/* Full Image */}
               {selectedProject.gallery && selectedProject.gallery.length > 0 && (
                 <Image
                   key={selectedProject.gallery[activeImageIndex]}
@@ -425,10 +477,50 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                   alt={`${selectedProject.title} preview ${activeImageIndex + 1}`}
                   fill
                   priority
-                  className="object-contain object-center transition-all duration-300"
+                  className="object-cover sm:object-contain object-center transition-all duration-300"
                   sizes="(max-width: 1200px) 100vw, 1200px"
                 />
               )}
+
+              {/* Close Button Top Right */}
+              <button
+                type="button"
+                onClick={handleClosePreview}
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 p-2 sm:p-2.5 rounded-none bg-black/60 hover:bg-black/90 text-neutral-300 hover:text-white transition-colors duration-200 border border-white/20 backdrop-blur-md cursor-pointer"
+                aria-label="Close Preview"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Top Gradient & Info Content Cards Overlay (Matching User's Reference Screenshots) */}
+              <div className="absolute top-0 left-0 right-0 z-20 p-5 sm:p-7 md:p-8 bg-gradient-to-b from-black/95 via-black/65 to-transparent pr-16 sm:pr-20">
+                {/* Title */}
+                <h3 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-white tracking-tight leading-tight drop-shadow-md">
+                  {selectedProject.title}
+                </h3>
+
+                {/* Subtitle in Gold */}
+                <div className="text-[#caa156] font-bold text-[10.5px] sm:text-xs md:text-[13px] tracking-[0.14em] uppercase mt-1 mb-3.5 sm:mb-4 drop-shadow">
+                  {selectedProject.subtitle}
+                </div>
+
+                {/* Info Spec Cards (Exactly Matching User Reference Images) */}
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3">
+                  {Object.entries(selectedProject.details).map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="bg-[#1b1e24]/85 backdrop-blur-md border border-white/15 rounded-xl px-3.5 py-2 sm:px-5 sm:py-2.5 min-w-[125px] sm:min-w-[145px] shadow-lg"
+                    >
+                      <span className="text-[#caa156] text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.14em] uppercase block mb-0.5">
+                        {label}
+                      </span>
+                      <span className="text-white text-xs sm:text-[13.5px] font-semibold block truncate">
+                        {value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {/* Previous Button */}
               {selectedProject.gallery && selectedProject.gallery.length > 1 && (

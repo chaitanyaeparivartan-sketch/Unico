@@ -64,12 +64,12 @@ export default function DrawingToDoneSection() {
   return (
     <section
       id="work"
-      className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
+      className="w-full bg-[#090c10] text-white py-8 sm:py-10 lg:py-12 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
       <span id="drawing-to-done" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12 lg:mb-14 max-w-4xl">
+        <div className="mb-5 sm:mb-6 lg:mb-7 max-w-4xl">
           <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
             <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]"></span>
             <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
@@ -86,8 +86,8 @@ export default function DrawingToDoneSection() {
           </p>
         </div>
 
-        {/* Interactive Comparison Slider Container */}
-        <div className="w-full max-w-6xl mx-auto shadow-[0_25px_80px_rgba(0,0,0,0.85)]">
+        {/* Interactive Comparison Slider Container - Full Section Width */}
+        <div className="w-full shadow-[0_25px_80px_rgba(0,0,0,0.85)]">
           <div
             ref={containerRef}
             onClick={handleContainerClick}
@@ -101,7 +101,7 @@ export default function DrawingToDoneSection() {
                 handleMove(e.touches[0].clientX);
               }
             }}
-            className="relative w-full aspect-[3/2] sm:aspect-[16/10] md:aspect-[16/9] max-h-[640px] overflow-hidden select-none border border-white/10 cursor-ew-resize group bg-[#0d1117]"
+            className="relative w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-[2.35/1] max-h-[440px] sm:max-h-[470px] overflow-hidden select-none border border-white/10 cursor-ew-resize group bg-[#0d1117]"
             role="slider"
             aria-valuenow={Math.round(sliderPos)}
             aria-valuemin={0}
@@ -115,7 +115,7 @@ export default function DrawingToDoneSection() {
                 alt="Completed, delivered Prime Retail structure in Hyderabad"
                 fill
                 priority
-                sizes="(max-width: 1280px) 100vw, 1200px"
+                sizes="(max-width: 1440px) 100vw, 1440px"
                 className="object-cover object-center pointer-events-none select-none"
               />
 
@@ -139,7 +139,7 @@ export default function DrawingToDoneSection() {
                 alt="Architectural CAD blueprint drawing of Prime Retail"
                 fill
                 priority
-                sizes="(max-width: 1280px) 100vw, 1200px"
+                sizes="(max-width: 1440px) 100vw, 1440px"
                 className="object-cover object-center select-none contrast-[1.08] saturate-[1.15]"
               />
 

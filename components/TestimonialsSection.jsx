@@ -135,14 +135,14 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative w-full bg-black text-white py-20 sm:py-24 lg:py-28 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5 scroll-mt-10 overflow-hidden"
+      className="relative w-full bg-black text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5 scroll-mt-10 overflow-hidden"
     >
       {/* Background Subtle Ambient Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#d4af65]/[0.02] blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 sm:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8 sm:mb-10">
           <div className="max-w-3xl">
             {/* Tagline / Eyebrow */}
             <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
@@ -170,7 +170,7 @@ export default function TestimonialsSection() {
             <button
               onClick={handlePrev}
               aria-label="Previous testimonials"
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-none bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2] group-hover:-translate-x-0.5 transition-transform" />
             </button>
@@ -178,7 +178,7 @@ export default function TestimonialsSection() {
             <button
               onClick={handleNext}
               aria-label="Next testimonials"
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-none bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
             >
               <ArrowRight className="w-4 h-4 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -190,7 +190,7 @@ export default function TestimonialsSection() {
           {visibleCards.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="rounded-xl sm:rounded-2xl bg-black border border-white/10 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_40px_rgba(0,0,0,0.85)] min-h-[380px]"
+              className="rounded-none bg-black border border-white/10 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_40px_rgba(0,0,0,0.85)] min-h-[380px]"
             >
               <div>
                 {/* 5 Gold Star Rating at Top of Card */}

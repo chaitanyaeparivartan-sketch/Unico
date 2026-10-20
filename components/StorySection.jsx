@@ -141,7 +141,7 @@ export default function StorySection({ onOpenContact }) {
   return (
     <section
       id="story"
-      className="w-full bg-[#090c10] text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10 relative overflow-hidden"
+      className="w-full bg-[#090c10] text-white pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-10 lg:pb-12 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10 relative overflow-hidden"
     >
       {/* Subtle Ambient Background Lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#ae7b13]/10 blur-[140px] pointer-events-none rounded-full" />

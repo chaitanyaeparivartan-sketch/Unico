@@ -107,14 +107,14 @@ export default function QualitySection() {
   return (
     <section
       id="quality"
-      className="relative w-full bg-[#090c10] text-white py-20 sm:py-24 lg:py-28 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10 overflow-hidden"
+      className="relative w-full bg-[#090c10] text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10 overflow-hidden"
     >
       {/* Background Ambient Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#d4af65]/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header - Horizontally Centered */}
-        <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16 lg:mb-20 flex flex-col items-center">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10 lg:mb-12 flex flex-col items-center">
           {/* Eyebrow: Diamond + Quality Standards */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-3.5">
             <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block" />
@@ -145,7 +145,7 @@ export default function QualitySection() {
                 key={item.id}
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`w-full sm:w-[92%] md:w-[72%] lg:w-[62%] max-w-[580px] rounded-xl sm:rounded-2xl py-4 sm:py-5 px-5 sm:px-7 md:px-8 transition-all duration-300 border relative overflow-hidden min-h-[76px] sm:min-h-[84px] flex items-center ${
+                className={`w-full sm:w-[92%] md:w-[72%] lg:w-[62%] max-w-[580px] rounded-none py-4 sm:py-5 px-5 sm:px-7 md:px-8 transition-all duration-300 border relative overflow-hidden min-h-[76px] sm:min-h-[84px] flex items-center ${
                   isEven
                     ? "ml-auto mr-0 bg-gradient-to-r from-[#14120e] to-[#18140f] border-[#c9a35a]/25"
                     : "mr-auto ml-0 bg-gradient-to-r from-[#11141a] to-[#0c0f14] border-white/10"

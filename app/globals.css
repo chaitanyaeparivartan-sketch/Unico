@@ -105,4 +105,141 @@
   transform: rotateY(180deg);
 }
 
+/* ==========================================================================
+   LIGHT MODE THEME STYLES (Activated when data-theme="light")
+   ========================================================================== */
+html.light,
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html.light body,
+html.light main,
+html[data-theme="light"] body,
+html[data-theme="light"] main {
+  background-color: #f7f8fa !important;
+  color: #111827 !important;
+}
+
+/* Alternating Section Backgrounds */
+html.light section:not(#hero):not(#cta),
+html[data-theme="light"] section:not(#hero):not(#cta) {
+  background-color: #f7f8fa !important;
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light section#story,
+html.light section#projects,
+html.light section#how-we-work,
+html.light section#quality,
+html[data-theme="light"] section#story,
+html[data-theme="light"] section#projects,
+html[data-theme="light"] section#how-we-work,
+html[data-theme="light"] section#quality {
+  background-color: #ffffff !important;
+}
+
+html.light section#services,
+html.light section#how-we-build,
+html.light section#testimonials,
+html[data-theme="light"] section#services,
+html[data-theme="light"] section#how-we-build,
+html[data-theme="light"] section#testimonials {
+  background-color: #f3f5f8 !important;
+}
+
+/* Headings in Light Mode */
+html.light h1:not(#hero *),
+html.light h2:not(#hero *),
+html.light h3:not(#hero *),
+html.light h4:not(#hero *),
+html[data-theme="light"] h1:not(#hero *),
+html[data-theme="light"] h2:not(#hero *),
+html[data-theme="light"] h3:not(#hero *),
+html[data-theme="light"] h4:not(#hero *) {
+  color: #0f172a !important;
+}
+
+/* Paragraphs and Text Neutral */
+html.light p:not(#hero *):not(#cta *),
+html[data-theme="light"] p:not(#hero *):not(#cta *) {
+  color: #475569 !important;
+}
+
+/* Quality Section Cards */
+html.light #quality div[class*="rounded-none"],
+html[data-theme="light"] #quality div[class*="rounded-none"] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light #quality span[aria-hidden="true"],
+html[data-theme="light"] #quality span[aria-hidden="true"] {
+  color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Testimonials Section Cards & Arrows */
+html.light #testimonials div[class*="rounded-none"],
+html[data-theme="light"] #testimonials div[class*="rounded-none"] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light #testimonials div[class*="rounded-none"] p,
+html[data-theme="light"] #testimonials div[class*="rounded-none"] p {
+  color: #1e293b !important;
+}
+
+html.light #testimonials div[class*="rounded-none"] .text-white,
+html[data-theme="light"] #testimonials div[class*="rounded-none"] .text-white {
+  color: #0f172a !important;
+}
+
+html.light #testimonials button,
+html[data-theme="light"] #testimonials button {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light #testimonials button:hover,
+html[data-theme="light"] #testimonials button:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Bento and Process Cards */
+html.light #how-we-build .bg-gradient-to-b,
+html.light #how-we-build [class*="bg-\[\#"],
+html.light #how-we-work [class*="bg-\[\#"],
+html[data-theme="light"] #how-we-build .bg-gradient-to-b,
+html[data-theme="light"] #how-we-build [class*="bg-\[\#"],
+html[data-theme="light"] #how-we-work [class*="bg-\[\#"] {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Header when Scrolled in Light Mode */
+html.light header.bg-black\/75,
+html[data-theme="light"] header.bg-black\/75 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light header.bg-black\/75 nav a,
+html[data-theme="light"] header.bg-black\/75 nav a {
+  color: #1e293b !important;
+}
+
+html.light header.bg-black\/75 nav a:hover,
+html[data-theme="light"] header.bg-black\/75 nav a:hover {
+  color: #000000 !important;
+}
+
+
 

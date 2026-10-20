@@ -28,12 +28,12 @@ export default function ServicesSection({ onOpenContact }) {
   ];
 
   return (
-    <section id="services" className="w-full bg-[#090b0e] text-white pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5">
+    <section id="services" className="w-full bg-[#090b0e] text-white pt-8 sm:pt-10 lg:pt-12 pb-2 sm:pb-4 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5">
       <div className="max-w-[1440px] mx-auto">
         {/* Top Header Row with Reduced Heading Font Size */}
-        <div className="mb-8 sm:mb-10">
+        <div className="mb-5 sm:mb-6">
           {/* Tag */}
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2.5">
             <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
             <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
               SERVICES
@@ -47,14 +47,14 @@ export default function ServicesSection({ onOpenContact }) {
         </div>
 
         {/* Thin Divider Line */}
-        <div className="w-full border-t border-white/10 mb-10 sm:mb-12" />
+        <div className="w-full border-t border-white/10 mb-5 sm:mb-6" />
 
         {/* Vertical Scroll Cards with Uniform Height and Complete Overlap Closure */}
         <div className="relative pb-0">
           {services.map((service, idx) => (
             <div
               key={service.id}
-              className="sticky top-20 sm:top-24 lg:top-28 bg-[#090b0e] py-8 sm:py-10 lg:py-12 mb-0"
+              className="sticky top-20 sm:top-24 lg:top-28 bg-[#090b0e] py-4 sm:py-6 lg:py-7 mb-0"
               style={{
                 zIndex: idx + 1,
               }}

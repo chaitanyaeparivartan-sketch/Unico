@@ -84,11 +84,11 @@ export default function Footer({ onOpenContact }) {
           </div>
 
           {/* Column 3: CONTACT */}
-          <div>
+          <div className="lg:pl-6 xl:pl-8">
             <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#caa156] mb-5">
               CONTACT
             </h5>
-            <div className="space-y-5 text-[14px] text-neutral-300">
+            <div className="space-y-5 text-[14px] text-neutral-300 pl-3 sm:pl-4">
               {/* Office Address */}
               <div>
                 <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#caa156] mb-1.5">
