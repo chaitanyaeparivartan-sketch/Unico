@@ -8,17 +8,10 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 export default function Header({ onOpenContact }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeSection, setActiveSection] = useState("");
 
   const leftNavItems = [
-    { label: "Projects", href: "#projects", active: true },
+    { label: "Projects", href: "#projects" },
     { label: "Our Story", href: "#story" },
     { label: "Our Work", href: "#work" },
   ];
@@ -27,6 +20,51 @@ export default function Header({ onOpenContact }) {
     { label: "How We Build", href: "#how-we-build" },
     { label: "Quality", href: "#quality" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+
+      // Check if user is scrolled near bottom of page
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 120
+      ) {
+        setActiveSection("#quality");
+        return;
+      }
+
+      // Check sections from bottom to top to identify currently active section
+      const scrollPosition = window.scrollY + 220;
+      const sectionMap = [
+        { id: "quality", nav: "#quality" },
+        { id: "how-we-work", nav: "#how-we-build" },
+        { id: "how-we-build", nav: "#how-we-build" },
+        { id: "work", nav: "#work" },
+        { id: "projects", nav: "#projects" },
+        { id: "services", nav: "#work" },
+        { id: "story", nav: "#story" },
+      ];
+
+      let current = "";
+      for (const item of sectionMap) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= top) {
+            current = item.nav;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -71,21 +109,6 @@ export default function Header({ onOpenContact }) {
           }
         }
 
-        @keyframes dotGrowPulse {
-          0% {
-            transform: scale(0);
-            opacity: 0;
-          }
-          70% {
-            transform: scale(1.6);
-            box-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-
         @keyframes ctaGrowIn {
           0% {
             opacity: 0;
@@ -108,42 +131,49 @@ export default function Header({ onOpenContact }) {
           animation: logoGrowIn 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
         }
 
-        .animate-dot-grow {
-          animation: dotGrowPulse 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
-        }
-
         .animate-cta-grow {
           animation: ctaGrowIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) backwards;
         }
       `}</style>
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
-        {/* Left Navigation (Projects, Our Story, Our Work) with Growing Text Effect */}
-        <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
-          {leftNavItems.map((item, idx) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              style={{ animationDelay: `${idx * 120}ms` }}
-              className={`relative py-1 transition-all duration-300 flex items-center gap-2 group animate-nav-grow ${
-                item.active
-                  ? "text-white font-semibold"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              {item.active && (
+        {/* Left Navigation (Projects, Our Story, Our Work) with Active Indicator (No Dot) */}
+        <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase font-medium">
+          {leftNavItems.map((item, idx) => {
+            const isActive = activeSection === item.href;
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                style={{ animationDelay: `${idx * 120}ms` }}
+                className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${
+                  isActive
+                    ? "text-white font-semibold"
+                    : "text-white/75 hover:text-white"
+                }`}
+              >
                 <span
-                  style={{ animationDelay: "180ms" }}
-                  className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#ae7b13] group-hover:scale-150 transition-all duration-300 shadow-sm animate-pulse animate-dot-grow"
+                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-110 group-hover:tracking-[0.2em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
+                    isActive
+                      ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                      : ""
+                  }`}
+                >
+                  {item.label}
+                </span>
+
+                {/* Expanding Glowing Gold Underline on Active & Hover */}
+                <span
+                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af65] to-transparent transition-all duration-300 rounded-full ${
+                    isActive
+                      ? "w-full opacity-100 shadow-[0_0_8px_rgba(212,175,55,0.6)]"
+                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                  }`}
                 />
-              )}
-              <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-110 group-hover:tracking-[0.2em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
-                {item.label}
-              </span>
-              {/* Expanding glowing underline on hover */}
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#ae7b13] to-transparent transition-all duration-300 group-hover:w-full rounded-full" />
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Center UNICO Logo with Page Load Growing Bloom */}
@@ -165,23 +195,44 @@ export default function Header({ onOpenContact }) {
           </Link>
         </div>
 
-        {/* Right Navigation & CTA with Growing Text Effect */}
+        {/* Right Navigation & CTA with Active Indicator (No Dot) */}
         <div className="hidden xl:flex items-center space-x-8">
-          <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase text-white/90 font-medium">
-            {rightNavItems.map((item, idx) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                style={{ animationDelay: `${380 + idx * 120}ms` }}
-                className="relative py-1 text-white/80 hover:text-white transition-all duration-300 group flex items-center animate-nav-grow"
-              >
-                <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
-                  {item.label}
-                </span>
-                {/* Expanding glowing underline on hover */}
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#ae7b13] to-transparent transition-all duration-300 group-hover:w-full rounded-full" />
-              </Link>
-            ))}
+          <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase font-medium">
+            {rightNavItems.map((item, idx) => {
+              const isActive = activeSection === item.href;
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  style={{ animationDelay: `${380 + idx * 120}ms` }}
+                  className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${
+                    isActive
+                      ? "text-white font-semibold"
+                      : "text-white/75 hover:text-white"
+                  }`}
+                >
+                  <span
+                    className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
+                      isActive
+                        ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                        : ""
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+
+                  {/* Expanding Glowing Gold Underline on Active & Hover */}
+                  <span
+                    className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af65] to-transparent transition-all duration-300 rounded-full ${
+                      isActive
+                        ? "w-full opacity-100 shadow-[0_0_8px_rgba(212,175,55,0.6)]"
+                        : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Luxury Split CTA Button: 'Start a Project' with Growing Effect */}
@@ -242,24 +293,33 @@ export default function Header({ onOpenContact }) {
         </div>
       </div>
 
-      {/* Mobile Drawer with all requested items */}
+      {/* Mobile Drawer with active state detection */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-[#0c1016]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-8 animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col space-y-4 text-sm uppercase tracking-[0.16em]">
-            {[...leftNavItems, ...rightNavItems].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 transition-all duration-300 group flex items-center ${
-                  item.active ? "text-white font-semibold" : "text-white/80 hover:text-white"
-                }`}
-              >
-                <span className="inline-block transition-transform duration-300 group-hover:scale-105 group-hover:tracking-[0.2em] origin-left">
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+            {[...leftNavItems, ...rightNavItems].map((item) => {
+              const isActive = activeSection === item.href;
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`py-1.5 transition-all duration-300 group flex items-center justify-between border-b border-white/5 ${
+                    isActive
+                      ? "text-[#f3d690] font-semibold"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  <span className="inline-block transition-transform duration-300 group-hover:scale-105 group-hover:tracking-[0.2em] origin-left">
+                    {item.label}
+                  </span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13]" />
+                  )}
+                </Link>
+              );
+            })}
 
             <div className="pt-4 border-t border-white/10">
               <button
