@@ -54,7 +54,8 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:hover {
@@ -72,36 +73,36 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Organic breathing text growth animation */
-@keyframes textGrowSlow {
-  0%, 100% {
-    transform: scale(1);
-    letter-spacing: 0.08em;
-  }
-  50% {
-    transform: scale(1.028);
-    letter-spacing: 0.098em;
-  }
+/* 3D Flip Card Utilities */
+.flip-card {
+  perspective: 1200px;
 }
 
-.animate-text-grow {
-  animation: textGrowSlow 6s ease-in-out infinite;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-/* Nav items organic text growth animation */
-@keyframes navTextGrow {
-  0%, 100% {
-    transform: scale(1);
-    letter-spacing: 0.14em;
-  }
-  50% {
-    transform: scale(1.06);
-    letter-spacing: 0.18em;
-  }
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.animate-nav-grow {
-  animation: navTextGrow 4s ease-in-out infinite;
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 
 

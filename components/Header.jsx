@@ -52,11 +52,7 @@ export default function Header({ onOpenContact }) {
               {item.active && (
                 <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#ae7b13] group-hover:scale-150 transition-all duration-300 shadow-sm animate-pulse"></span>
               )}
-              <span
-                className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
-                  item.active ? "animate-nav-grow" : ""
-                }`}
-              >
+              <span className="inline-block transition-all duration-300 ease-out origin-center group-hover:scale-110 group-hover:tracking-[0.2em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
                 {item.label}
               </span>
               {/* Expanding glowing underline on hover */}
@@ -145,20 +141,7 @@ export default function Header({ onOpenContact }) {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <button
-            onClick={onOpenContact}
-            className="group flex items-stretch cursor-pointer select-none"
-          >
-            <span className="bg-white text-black text-xs font-medium px-3.5 py-2 flex items-center justify-center">
-              Start
-            </span>
-            <span className="w-[1px] bg-neutral-300"></span>
-            <span className="bg-white text-black px-2 py-2 flex items-center justify-center">
-              <ArrowUpRight size={14} />
-            </span>
-          </button>
-
+        <div className="flex items-center lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-white hover:text-neutral-300 transition-colors"
