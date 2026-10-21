@@ -101,7 +101,7 @@ export default function DrawingToDoneSection() {
                 handleMove(e.touches[0].clientX);
               }
             }}
-            className="relative w-full aspect-[16/10] sm:aspect-[2/1] lg:aspect-[2.35/1] max-h-[440px] sm:max-h-[470px] overflow-hidden select-none border border-white/10 cursor-ew-resize group bg-[#0d1117]"
+            className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] lg:aspect-[16/9] max-h-[620px] overflow-hidden select-none border border-white/10 cursor-ew-resize group bg-[#0d1117]"
             role="slider"
             aria-valuenow={Math.round(sliderPos)}
             aria-valuemin={0}
@@ -111,8 +111,8 @@ export default function DrawingToDoneSection() {
             {/* Background Layer: Completed / Reality Structure (Right side revealed as slider moves right) */}
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src="/images/featured/retail/prime-retail-reality.webp"
-                alt="Completed, delivered Prime Retail structure in Hyderabad"
+                src="/images/featured/retail/cad-front-elevation-reality-aligned.jpg"
+                alt="Completed, delivered SPAN Commercial structure in Banjara Hills, Hyderabad"
                 fill
                 priority
                 sizes="(max-width: 1440px) 100vw, 1440px"
@@ -135,56 +135,23 @@ export default function DrawingToDoneSection() {
             >
               {/* Base Blueprint Drawing */}
               <Image
-                src="/images/featured/retail/prime-retail-blueprint.webp"
-                alt="Architectural CAD blueprint drawing of Prime Retail"
+                src="/images/featured/retail/cad-front-elevation-blueprint.jpg"
+                alt="Architectural CAD elevation blueprint of SPAN Commercial Complex"
                 fill
                 priority
                 sizes="(max-width: 1440px) 100vw, 1440px"
-                className="object-cover object-center select-none contrast-[1.08] saturate-[1.15]"
+                className="object-cover object-center select-none"
               />
-
-              {/* Blueprint Paper Grid (Major & Minor Architectural Drafting Grid) */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-45 mix-blend-screen"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(to right, rgba(165, 215, 255, 0.28) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(165, 215, 255, 0.28) 1px, transparent 1px),
-                    linear-gradient(to right, rgba(165, 215, 255, 0.10) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(165, 215, 255, 0.10) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "80px 80px, 80px 80px, 16px 16px, 16px 16px",
-                }}
-              />
-
-              {/* Blueprint Paper Fiber / Grain Texture */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-25 mix-blend-overlay"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E")`,
-                }}
-              />
-
-              {/* Blueprint Paper Tonal Gradient & Subtle Vignette */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-[#051c38]/40 via-transparent to-[#002244]/25 mix-blend-multiply" />
-              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(3,20,45,0.75)]" />
-
-              {/* Subtle Drafting Paper Crease Lines */}
-              <div className="absolute top-0 bottom-0 left-1/3 w-[1px] bg-white/[0.04] pointer-events-none" />
-              <div className="absolute left-0 right-0 top-1/2 h-[1px] bg-white/[0.04] pointer-events-none" />
 
               {/* Engineering Corner Registration Marks */}
-              <div className="absolute top-3 left-3 text-cyan-300/40 text-[10px] font-mono select-none pointer-events-none">
-                + REG: 01
-              </div>
-              <div className="absolute bottom-3 left-3 text-cyan-300/40 text-[10px] font-mono select-none pointer-events-none">
-                + DWG: UN-HYD-04
+              <div className="absolute top-3 left-3 text-cyan-300/60 text-[10px] font-mono select-none pointer-events-none">
+                + DWG: FRONT-ELEVATION-1:100
               </div>
 
-              {/* Top-Left Badge: Architectural Paper Blueprint */}
-              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 px-3 sm:px-3.5 py-1.5 bg-[#07192f]/85 backdrop-blur-md border border-cyan-400/35 text-[10px] sm:text-[11px] font-medium tracking-[0.16em] uppercase text-cyan-200 pointer-events-none flex items-center gap-2 shadow-lg">
+              {/* Top-Left Badge: Architectural Blueprint */}
+              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 px-3 sm:px-3.5 py-1.5 bg-[#07192f]/90 backdrop-blur-md border border-cyan-400/40 text-[10px] sm:text-[11px] font-medium tracking-[0.16em] uppercase text-cyan-200 pointer-events-none flex items-center gap-2 shadow-lg">
                 <span className="w-1.5 h-1.5 rotate-45 bg-cyan-400 shadow-[0_0_6px_#22d3ee]"></span>
-                <span>Paper Blueprint</span>
+                <span>Architectural Blueprint</span>
               </div>
             </div>
 

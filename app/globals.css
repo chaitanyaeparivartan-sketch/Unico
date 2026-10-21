@@ -3,15 +3,19 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: var(--font-outfit), "Outfit", sans-serif;
   }
 
   :root {
-    --font-serif-family: var(--font-canela), "Canela", "Canela Deck", "Cormorant Garamond", Didot, "Bodoni MT", Georgia, serif;
-    --font-sans-family: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-sans: var(--font-outfit), "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: var(--font-outfit), "Outfit", sans-serif;
+    --font-canela: var(--font-outfit), "Outfit", sans-serif;
+    --font-serif-family: var(--font-outfit), "Outfit", sans-serif;
+    --font-sans-family: var(--font-outfit), "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   body {
-    font-family: var(--font-sans-family);
+    font-family: var(--font-outfit), "Outfit", sans-serif;
     background-color: #0b0f14;
     color: #ffffff;
     overflow-x: clip;
@@ -19,13 +23,21 @@
 }
 
 .font-canela {
-  font-family: var(--font-serif-family);
+  font-family: var(--font-outfit), "Outfit", sans-serif !important;
+}
+
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
 }
 
 .font-editorial {
-  font-family: var(--font-serif-family);
+  font-family: var(--font-outfit), "Outfit", sans-serif !important;
   font-feature-settings: "liga" 1, "kern" 1;
   text-rendering: optimizeLegibility;
+}
+
+.font-sans {
+  font-family: var(--font-outfit), "Outfit", sans-serif !important;
 }
 
 /* Custom luxury button styling */

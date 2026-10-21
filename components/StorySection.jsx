@@ -207,7 +207,7 @@ export default function StorySection({ onOpenContact }) {
                     </div>
 
                     {/* Back Face: Revealed on 3D Flip Hover */}
-                    <div className="flip-card-back bg-gradient-to-br from-[#121926] via-[#0f1522] to-[#0a0f18] border border-[#ae7b13]/60 shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-6 sm:p-7 flex flex-col justify-between text-left">
+                    <div className="flip-card-back font-sans bg-gradient-to-br from-[#121926] via-[#0f1522] to-[#0a0f18] border border-[#ae7b13]/60 shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-6 sm:p-7 flex flex-col justify-between text-left">
                       <div>
                         {/* Back Top: Year Milestone + Icon */}
                         <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2.5">
@@ -550,14 +550,14 @@ export default function StorySection({ onOpenContact }) {
             <button
               type="button"
               onClick={onOpenContact}
-              className="whitespace-nowrap group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
+              className="whitespace-nowrap group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
               aria-label="Start a Project with UNICO"
             >
-              <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-medium tracking-[0.06em] uppercase px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
-                Start Your Project
+              <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+                START A PROJECT
               </span>
-              <span className="w-[1px] bg-neutral-300"></span>
-              <span className="bg-white text-black px-3 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+              <span className="w-[1px] bg-white/25"></span>
+              <span className="bg-[#bf900e] text-white px-3 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
                 <ArrowUpRight
                   size={15}
                   strokeWidth={2.2}

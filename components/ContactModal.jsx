@@ -160,13 +160,13 @@ export default function ContactModal({ isOpen, onClose }) {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full group flex items-stretch cursor-pointer select-none"
+                  className="w-full group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden"
                 >
-                  <span className="flex-1 bg-white text-black text-[13px] font-medium tracking-[0.08em] uppercase py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f3ede3]">
+                  <span className="flex-1 bg-[#bf900e] text-white text-[13px] font-bold tracking-[0.12em] uppercase py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
                     Submit Private Inquiry
                   </span>
-                  <span className="w-[1px] bg-neutral-300"></span>
-                  <span className="bg-white text-black px-4 py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f3ede3]">
+                  <span className="w-[1px] bg-white/25"></span>
+                  <span className="bg-[#bf900e] text-white px-4 py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
                     <ArrowUpRight
                       size={18}
                       className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

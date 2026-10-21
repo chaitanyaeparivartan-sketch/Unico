@@ -35,6 +35,28 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       },
     },
     {
+      id: "tech-complex",
+      category: "commercial",
+      tag: "Commercial & Tech",
+      title: "Commercial Complex",
+      subtitle: "ENTERPRISE COMMERCIAL & TECH DEVELOPMENT",
+      desc: "A multi-tower landmark commercial and tech park featuring modern architectural block facades, integrated sky bridges, landscaped central courtyards, and open-air recreational decks.",
+      image: "/images/featured/tech/complex-commercials-1.webp",
+      alt: "Commercial Complex - Enterprise Commercial & Tech Development",
+      gallery: [
+        "/images/featured/tech/complex-commercials-1.webp",
+        "/images/featured/tech/complex-commercials-2.webp",
+        "/images/featured/tech/complex-commercials-3.webp",
+      ],
+      details: {
+        Client: "Enterprise Commercial & Tech Park",
+        "Built-Up Area": "85,000 sq. ft.",
+        Location: "Hyderabad",
+        Year: "2025",
+        Role: "Turnkey Commercial EPC",
+      },
+    },
+    {
       id: "industrial",
       category: "industrial",
       tag: "Cleanroom",
@@ -74,29 +96,6 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         Location: "Western Hills",
         Year: "2025",
         Role: "Turnkey Builder",
-      },
-    },
-    {
-      id: "commercial",
-      category: "commercial",
-      tag: "Commercial",
-      title: "Commercial",
-      subtitle: "ENTERPRISE COMMERCIAL DEVELOPMENT",
-      desc: "An enterprise commercial and learning center delivered on an accelerated timeline. Built with column-free flexible meeting spaces, heavy-duty fire-rated acoustic assemblies, and automated energy monitoring systems.",
-      image: "/images/featured/commercial/commercial-01.webp",
-      alt: "Commercial - Enterprise Commercial Development",
-      gallery: [
-        "/images/featured/commercial/commercial-01.webp",
-        "/images/featured/commercial/commercial-02.webp",
-        "/images/featured/commercial/commercial-03.webp",
-        "/images/featured/commercial/commercial-04.webp",
-        "/images/featured/commercial/commercial-05.webp",
-      ],
-      details: {
-        Tenant: "Modulus Education",
-        "Built-Up Area": "32,000 sq. ft.",
-        Year: "2024",
-        Role: "Commercial EPC",
       },
     },
     {
@@ -207,8 +206,8 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         {/* Section Header */}
         <div className="mb-10 sm:mb-12 lg:mb-14">
           <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
               FEATURED DEVELOPMENTS
             </span>
           </div>
@@ -269,48 +268,35 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       {/* Dark Gradient Overlay for optimal contrast */}
                       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/25 to-black/90 pointer-events-none" />
 
-                      {/* Card Top: Title & Subtitle */}
+                      {/* Card Top: Title Only */}
                       <div className="absolute top-6 left-6 right-6 sm:top-8 sm:left-8 sm:right-8 z-10">
-                        <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#ae7b13] block mb-1">
-                          {item.tag}
-                        </span>
-                        <h3 className="font-sans text-2xl sm:text-3xl lg:text-[30px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
+                        <h3 className="font-sans text-2xl sm:text-3xl lg:text-[32px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
                           {item.title}
                         </h3>
-                        <p className="text-neutral-300 text-xs sm:text-[13px] font-medium tracking-wide mt-1 drop-shadow">
-                          {item.subtitle}
-                        </p>
-
-                        {/* Description revealed on hover / expanded state */}
-                        <div
-                          className={`overflow-hidden transition-all duration-500 ease-out ${
-                            isHovered
-                              ? "max-h-36 opacity-100 mt-3"
-                              : "max-h-0 opacity-0 mt-0"
-                          }`}
-                        >
-                          <p className="text-neutral-200 text-xs sm:text-sm leading-relaxed max-w-md font-light drop-shadow">
-                            {item.desc}
-                          </p>
-                        </div>
                       </div>
 
-                      {/* Card Bottom: Header Style Split CTA Button */}
-                      <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">
+                      {/* Card Bottom: Header Style Split CTA Button - Appears only on hover on lg/xl */}
+                      <div
+                        className={`absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10 transition-all duration-300 ease-out ${
+                          isHovered
+                            ? "opacity-100 translate-y-0 pointer-events-auto"
+                            : "opacity-100 sm:opacity-100 lg:opacity-0 lg:translate-y-3 lg:pointer-events-none"
+                        }`}
+                      >
                         <button
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleOpenPreview(item);
                           }}
-                          className="group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
-                          aria-label={`Learn More about ${item.title}`}
+                          className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-2xl"
+                          aria-label={`View More about ${item.title}`}
                         >
-                          <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-medium tracking-[0.06em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
-                            Learn More
+                          <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+                            View More
                           </span>
-                          <span className="w-[1px] bg-neutral-300"></span>
-                          <span className="bg-white text-black px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+                          <span className="w-[1px] bg-white/25"></span>
+                          <span className="bg-[#bf900e] text-white px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
                             <ArrowUpRight
                               size={15}
                               strokeWidth={2.2}
@@ -371,48 +357,35 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                         {/* Dark Gradient Overlay for optimal contrast */}
                         <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/25 to-black/90 pointer-events-none" />
 
-                        {/* Card Top: Title & Subtitle */}
+                        {/* Card Top: Title Only */}
                         <div className="absolute top-6 left-6 right-6 sm:top-8 sm:left-8 sm:right-8 z-10">
-                          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#ae7b13] block mb-1">
-                            {item.tag}
-                          </span>
-                          <h3 className="font-sans text-2xl sm:text-3xl lg:text-[30px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
+                          <h3 className="font-sans text-2xl sm:text-3xl lg:text-[32px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
                             {item.title}
                           </h3>
-                          <p className="text-neutral-300 text-xs sm:text-[13px] font-medium tracking-wide mt-1 drop-shadow">
-                            {item.subtitle}
-                          </p>
-
-                          {/* Description revealed on hover / expanded state */}
-                          <div
-                            className={`overflow-hidden transition-all duration-500 ease-out ${
-                              isHovered
-                                ? "max-h-36 opacity-100 mt-3"
-                                : "max-h-0 opacity-0 mt-0"
-                            }`}
-                          >
-                            <p className="text-neutral-200 text-xs sm:text-sm leading-relaxed max-w-md font-light drop-shadow">
-                              {item.desc}
-                            </p>
-                          </div>
                         </div>
 
-                        {/* Card Bottom: Header Style Split CTA Button */}
-                        <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">
+                        {/* Card Bottom: Header Style Split CTA Button - Appears only on hover on lg/xl */}
+                        <div
+                          className={`absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10 transition-all duration-300 ease-out ${
+                            isHovered
+                              ? "opacity-100 translate-y-0 pointer-events-auto"
+                              : "opacity-100 sm:opacity-100 lg:opacity-0 lg:translate-y-3 lg:pointer-events-none"
+                          }`}
+                        >
                           <button
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleOpenPreview(item);
                             }}
-                            className="group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
-                            aria-label={`Learn More about ${item.title}`}
+                            className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-2xl"
+                            aria-label={`View More about ${item.title}`}
                           >
-                            <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-medium tracking-[0.06em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
-                              Learn More
+                            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+                              View More
                             </span>
-                            <span className="w-[1px] bg-neutral-300"></span>
-                            <span className="bg-white text-black px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+                            <span className="w-[1px] bg-white/25"></span>
+                            <span className="bg-[#bf900e] text-white px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
                               <ArrowUpRight
                                 size={15}
                                 strokeWidth={2.2}
@@ -434,14 +407,14 @@ export default function FeaturedDevelopments({ onOpenContact }) {
           <button
             type="button"
             onClick={() => setShowAll((prev) => !prev)}
-            className="group/btn flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
+            className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
             aria-label={showAll ? "Show Fewer Projects" : "View All Projects"}
           >
-            <span className="bg-white text-black text-[12px] sm:text-[12.5px] font-semibold tracking-[0.08em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
               {showAll ? "Show Less" : "View All"}
             </span>
-            <span className="w-[1px] bg-neutral-300"></span>
-            <span className="bg-white text-black px-3 sm:px-3.5 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#f2efe9]">
+            <span className="w-[1px] bg-white/25"></span>
+            <span className="bg-[#bf900e] text-white px-3 sm:px-3.5 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
@@ -467,8 +440,52 @@ export default function FeaturedDevelopments({ onOpenContact }) {
             className="relative w-full max-w-6xl max-h-[94vh] bg-[#0c1017] border border-white/15 rounded-none shadow-[0_25px_80px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Main Stage: High-Resolution Photo Viewer with Info Cards Overlay */}
-            <div className="relative w-full h-[480px] sm:h-[560px] md:h-[620px] lg:h-[660px] bg-black flex items-center justify-center overflow-hidden">
+            {/* Top Header Bar: Title, Subtitle, Spec Chips & Close Button (NOT overlaying the image) */}
+            <div className="p-4 sm:p-5 md:px-7 md:py-4 bg-[#090c10] border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 shrink-0">
+              {/* Title & Subtitle */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rotate-45 bg-[#bf900e]" />
+                  <span className="text-[#caa156] font-bold text-[10px] sm:text-[11px] tracking-[0.16em] uppercase">
+                    {selectedProject.subtitle}
+                  </span>
+                </div>
+                <h3 className="font-sans text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight truncate">
+                  {selectedProject.title}
+                </h3>
+              </div>
+
+              {/* Right Side: Info Spec Chips & Close Button */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                {selectedProject.details &&
+                  Object.entries(selectedProject.details).map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="bg-[#141820] border border-white/10 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-1.5 shadow-sm"
+                    >
+                      <span className="text-[#caa156] text-[9px] sm:text-[9.5px] font-bold tracking-[0.14em] uppercase block leading-none mb-0.5">
+                        {label}
+                      </span>
+                      <span className="text-white text-xs sm:text-[12.5px] font-medium block leading-tight whitespace-nowrap">
+                        {value}
+                      </span>
+                    </div>
+                  ))}
+
+                {/* Close Button Top Right */}
+                <button
+                  type="button"
+                  onClick={handleClosePreview}
+                  className="p-2 sm:p-2.5 rounded-lg bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white transition-colors duration-200 border border-white/10 ml-1 cursor-pointer"
+                  aria-label="Close Preview"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Main Stage: 100% Clean Image Viewer without Any Text Overlay */}
+            <div className="relative w-full flex-1 min-h-[380px] sm:min-h-[480px] md:min-h-[540px] lg:min-h-[580px] bg-black flex items-center justify-center overflow-hidden">
               {/* Full Image */}
               {selectedProject.gallery && selectedProject.gallery.length > 0 && (
                 <Image
@@ -477,57 +494,17 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                   alt={`${selectedProject.title} preview ${activeImageIndex + 1}`}
                   fill
                   priority
-                  className="object-cover sm:object-contain object-center transition-all duration-300"
-                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  className="object-contain object-center transition-all duration-300"
+                  sizes="(max-width: 1400px) 100vw, 1400px"
                 />
               )}
-
-              {/* Close Button Top Right */}
-              <button
-                type="button"
-                onClick={handleClosePreview}
-                className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 p-2 sm:p-2.5 rounded-none bg-black/60 hover:bg-black/90 text-neutral-300 hover:text-white transition-colors duration-200 border border-white/20 backdrop-blur-md cursor-pointer"
-                aria-label="Close Preview"
-              >
-                <X size={20} />
-              </button>
-
-              {/* Top Gradient & Info Content Cards Overlay (Matching User's Reference Screenshots) */}
-              <div className="absolute top-0 left-0 right-0 z-20 p-5 sm:p-7 md:p-8 bg-gradient-to-b from-black/95 via-black/65 to-transparent pr-16 sm:pr-20">
-                {/* Title */}
-                <h3 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-white tracking-tight leading-tight drop-shadow-md">
-                  {selectedProject.title}
-                </h3>
-
-                {/* Subtitle in Gold */}
-                <div className="text-[#caa156] font-bold text-[10.5px] sm:text-xs md:text-[13px] tracking-[0.14em] uppercase mt-1 mb-3.5 sm:mb-4 drop-shadow">
-                  {selectedProject.subtitle}
-                </div>
-
-                {/* Info Spec Cards (Exactly Matching User Reference Images) */}
-                <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3">
-                  {Object.entries(selectedProject.details).map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="bg-[#1b1e24]/85 backdrop-blur-md border border-white/15 rounded-xl px-3.5 py-2 sm:px-5 sm:py-2.5 min-w-[125px] sm:min-w-[145px] shadow-lg"
-                    >
-                      <span className="text-[#caa156] text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.14em] uppercase block mb-0.5">
-                        {label}
-                      </span>
-                      <span className="text-white text-xs sm:text-[13.5px] font-semibold block truncate">
-                        {value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               {/* Previous Button */}
               {selectedProject.gallery && selectedProject.gallery.length > 1 && (
                 <button
                   type="button"
                   onClick={handlePrevImage}
-                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#ae7b13] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#bf900e] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
                   aria-label="Previous image"
                 >
                   <ChevronLeft
@@ -542,7 +519,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                 <button
                   type="button"
                   onClick={handleNextImage}
-                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#ae7b13] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#bf900e] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
                   aria-label="Next image"
                 >
                   <ChevronRight
@@ -554,7 +531,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
 
               {/* Image Counter Badge */}
               {selectedProject.gallery && (
-                <div className="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md text-white text-[11px] sm:text-xs font-mono font-medium tracking-wider px-3 py-1.5 border border-white/15">
+                <div className="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md text-white text-[11px] sm:text-xs font-mono font-medium tracking-wider px-3 py-1.5 border border-white/15 z-10">
                   {String(activeImageIndex + 1).padStart(2, "0")} /{" "}
                   {String(selectedProject.gallery.length).padStart(2, "0")}
                 </div>
@@ -573,7 +550,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       onClick={() => setActiveImageIndex(imgIdx)}
                       className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${
                         activeImageIndex === imgIdx
-                          ? "border-[#ae7b13] ring-2 ring-[#ae7b13]/60 scale-105"
+                          ? "border-[#bf900e] ring-2 ring-[#bf900e]/60 scale-105"
                           : "border-white/15 opacity-60 hover:opacity-100"
                       }`}
                     >

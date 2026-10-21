@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ServicesSection({ onOpenContact }) {
   const services = [
@@ -34,8 +35,8 @@ export default function ServicesSection({ onOpenContact }) {
         <div className="mb-5 sm:mb-6">
           {/* Tag */}
           <div className="flex items-center gap-2 mb-2.5">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
               SERVICES
             </span>
           </div>
@@ -85,12 +86,23 @@ export default function ServicesSection({ onOpenContact }) {
                     {service.desc}
                   </p>
 
-                  <button
-                    onClick={onOpenContact}
-                    className="border border-white/20 text-white bg-transparent hover:bg-white hover:text-black px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-[13px] font-medium uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer shadow-sm"
+                  <a
+                    href="#projects"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById("projects");
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="border border-white/20 text-white bg-transparent hover:bg-[#bf900e] hover:border-[#bf900e] hover:text-white px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-[13px] font-medium uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer shadow-sm inline-flex items-center gap-2 group/btn"
                   >
-                    View Service
-                  </button>
+                    <span>View Our Services</span>
+                    <ArrowUpRight
+                      size={14}
+                      className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                    />
+                  </a>
                 </div>
               </div>
             </div>

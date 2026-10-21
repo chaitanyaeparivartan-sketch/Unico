@@ -47,7 +47,7 @@ export default function Hero() {
   // Text starts at normal scale (1.0) and grows smoothly as user scrolls down
   const scrollProgress = Math.min(Math.max(scrollY / 450, 0), 1);
   const textScale = 1 + scrollProgress * 0.25;
-  const trackingValue = (0.08 + scrollProgress * 0.035).toFixed(4);
+  const trackingValue = (0.005 + scrollProgress * 0.01).toFixed(4);
 
   const [entranceComplete, setEntranceComplete] = useState(false);
 
@@ -66,18 +66,18 @@ export default function Hero() {
           0% {
             opacity: 0;
             transform: scale(0.8);
-            letter-spacing: 0.02em;
+            letter-spacing: 0em;
             filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
           }
           65% {
             transform: scale(1.06);
-            letter-spacing: 0.09em;
+            letter-spacing: 0.015em;
             filter: drop-shadow(0 4px 28px rgba(212, 175, 55, 0.45));
           }
           100% {
             opacity: 1;
             transform: scale(1);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.005em;
             filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.9));
           }
         }
@@ -145,7 +145,7 @@ export default function Hero() {
           }}
         >
           <h1
-            className={`font-canela text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-light leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
+            className={`font-bricolage text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
               !entranceComplete && scrollY === 0 ? "animate-hero-title" : ""
             }`}
             style={
@@ -164,9 +164,9 @@ export default function Hero() {
 
         {/* Philosophy Paragraph with Growing Entrance */}
         <p className="max-w-xl text-white/85 text-[11px] sm:text-xs md:text-[13px] lg:text-[14px] font-light leading-relaxed tracking-wide drop-shadow-md cursor-default select-none animate-hero-sub opacity-0">
-          We design and build enduring spaces where everyday moments thrive.
-          From solid foundations to intentional layouts, every detail is
-          engineered to support the way you truly live.
+          Crafting timeless spaces where life unfolds effortlessly. From
+          enduring foundations to purposeful design, every detail is shaped
+          around how you truly live.
         </p>
       </div>
 

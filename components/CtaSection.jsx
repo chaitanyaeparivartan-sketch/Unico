@@ -51,14 +51,14 @@ export default function CtaSection({ onOpenContact }) {
           {/* 1. Request a call back: Crisp White UI with Phone Icon */}
           <button
             onClick={onOpenContact}
-            className="group flex items-stretch cursor-pointer select-none transition-all duration-300 hover:scale-[1.02] shadow-xl rounded-[2px] overflow-hidden"
+            className="group flex items-stretch cursor-pointer select-none transition-all duration-300 hover:scale-[1.02] shadow-xl rounded-[4px] overflow-hidden"
             aria-label="Request a call back"
           >
-            <span className="bg-white text-black text-[13px] font-medium tracking-[0.06em] px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
+            <span className="bg-[#bf900e] text-white text-[13px] font-bold tracking-[0.12em] uppercase px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
               Request a call back
             </span>
-            <span className="w-[1px] bg-neutral-300"></span>
-            <span className="bg-white text-black px-3.5 py-3 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
+            <span className="w-[1px] bg-white/25"></span>
+            <span className="bg-[#bf900e] text-white px-3.5 py-3 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
               <PhoneCall
                 size={16}
                 strokeWidth={2.2}

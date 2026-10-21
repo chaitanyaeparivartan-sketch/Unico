@@ -135,16 +135,6 @@ export default function MetricsSection() {
                 onPause={() => setIsPlaying(false)}
               />
 
-              {/* Gradient Vignettes */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 pointer-events-none transition-opacity duration-300 group-hover:from-black/90" />
-
-              {/* Top Status Indicator */}
-              <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-2">
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/60 backdrop-blur-md border border-white/15 text-[10px] uppercase font-bold tracking-[0.14em] text-neutral-200">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>{isPlaying ? "Playing Reel" : "Paused"}</span>
-                </div>
-              </div>
 
               {/* Center Play Overlay when paused */}
               {!isPlaying && (
@@ -181,10 +171,6 @@ export default function MetricsSection() {
                     </span>
                   </button>
                 </div>
-
-                <span className="text-[10px] tracking-widest uppercase font-semibold text-neutral-400 bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 hidden sm:inline">
-                  UNICO FILM · 4K
-                </span>
               </div>
             </div>
           </div>
@@ -198,8 +184,8 @@ export default function MetricsSection() {
             {/* Top Part: Title & Tag placed right above stats */}
             <div className="mb-8 lg:mb-10">
               <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-                <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-                <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+                <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
+                <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
                   CONSTRUCTION METRICS
                 </span>
               </div>
@@ -213,14 +199,27 @@ export default function MetricsSection() {
               {metrics.map((metric, idx) => (
                 <div
                   key={idx}
-                  className={`flex flex-col justify-end pb-1 sm:px-5 lg:px-6 ${
+                  className={`flex flex-col justify-start ${
+                    idx === 0
+                      ? "sm:pr-5 lg:pr-6 sm:pl-0"
+                      : idx === metrics.length - 1
+                      ? "sm:pl-5 lg:pl-6 sm:pr-0"
+                      : "sm:px-5 lg:px-6"
+                  } ${
                     idx < metrics.length - 1
                       ? "sm:border-r border-white/10"
                       : ""
                   }`}
                 >
                   <div>
-                    <span className="font-light text-4xl sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] tracking-tight leading-none text-white block font-canela">
+                    <span
+                      className="font-light text-4xl sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] tracking-tight leading-none block font-canela w-fit bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: "linear-gradient(135deg, #FCEDBA 0%, #E5C985 45%, #D5B26C 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
                       {metric.value}
                     </span>
                     <span className="text-[11px] sm:text-[11.5px] font-bold tracking-[0.16em] uppercase text-neutral-300 mt-3 sm:mt-4 block">

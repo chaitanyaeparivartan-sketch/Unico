@@ -70,8 +70,8 @@ export default function Header({ onOpenContact }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-black/75 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
-          : "bg-transparent py-5 sm:py-6"
+          ? "bg-black/80 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
+          : "bg-gradient-to-b from-black/60 via-black/25 to-transparent py-5 sm:py-6"
       }`}
     >
       {/* Page Load Growing Animations */}
@@ -149,25 +149,25 @@ export default function Header({ onOpenContact }) {
                 style={{ animationDelay: `${idx * 120}ms` }}
                 className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${
                   isActive
-                    ? "text-white font-semibold"
-                    : "text-white/75 hover:text-white"
+                    ? "text-[#d4af37] font-semibold"
+                    : "text-white/85 hover:text-white"
                 }`}
               >
                 <span
-                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-110 group-hover:tracking-[0.2em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
+                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
                     isActive
-                      ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-                      : ""
+                      ? "text-[#d4af37]"
+                      : "group-hover:text-white"
                   }`}
                 >
                   {item.label}
                 </span>
 
-                {/* Expanding Glowing Gold Underline on Active & Hover */}
+                {/* Solid Gold Underline on Active & Hover */}
                 <span
-                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af65] to-transparent transition-all duration-300 rounded-full ${
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#d4af37] transition-all duration-300 ${
                     isActive
-                      ? "w-full opacity-100 shadow-[0_0_8px_rgba(212,175,55,0.6)]"
+                      ? "w-full opacity-100"
                       : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
                   }`}
                 />
@@ -208,25 +208,25 @@ export default function Header({ onOpenContact }) {
                   style={{ animationDelay: `${380 + idx * 120}ms` }}
                   className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${
                     isActive
-                      ? "text-white font-semibold"
-                      : "text-white/75 hover:text-white"
+                      ? "text-[#d4af37] font-semibold"
+                      : "text-white/85 hover:text-white"
                   }`}
                 >
                   <span
-                    className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-115 group-hover:tracking-[0.22em] group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] ${
+                    className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
                       isActive
-                        ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-                        : ""
+                        ? "text-[#d4af37]"
+                        : "group-hover:text-white"
                     }`}
                   >
                     {item.label}
                   </span>
 
-                  {/* Expanding Glowing Gold Underline on Active & Hover */}
+                  {/* Solid Gold Underline on Active & Hover */}
                   <span
-                    className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af65] to-transparent transition-all duration-300 rounded-full ${
+                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#d4af37] transition-all duration-300 ${
                       isActive
-                        ? "w-full opacity-100 shadow-[0_0_8px_rgba(212,175,55,0.6)]"
+                        ? "w-full opacity-100"
                         : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
                     }`}
                   />
@@ -235,20 +235,20 @@ export default function Header({ onOpenContact }) {
             })}
           </nav>
 
-          {/* Luxury Split CTA Button: 'Start a Project' with Growing Effect */}
+          {/* Luxury Split CTA Button: 'START A PROJECT' with Growing Effect */}
           <button
             onClick={onOpenContact}
             style={{ animationDelay: "620ms" }}
-            className="group flex items-stretch cursor-pointer select-none transition-transform duration-300 hover:scale-[1.04] animate-cta-grow"
+            className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.04] animate-cta-grow shadow-md hover:shadow-[0_4px_20px_rgba(191,144,14,0.4)]"
             aria-label="Start a Project"
           >
-            <span className="bg-white text-black text-[13px] font-medium tracking-[0.06em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
-              <span className="inline-block transition-all duration-300 group-hover:scale-110 group-hover:tracking-[0.12em]">
-                Start a Project
+            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.12em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
+              <span className="inline-block transition-all duration-300 group-hover:scale-105 group-hover:tracking-[0.16em]">
+                START A PROJECT
               </span>
             </span>
-            <span className="w-[1px] bg-neutral-300"></span>
-            <span className="bg-white text-black px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#f2efe9]">
+            <span className="w-[1px] bg-white/25"></span>
+            <span className="bg-[#bf900e] text-white px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
@@ -262,13 +262,13 @@ export default function Header({ onOpenContact }) {
         <div className="hidden lg:flex xl:hidden items-center space-x-5">
           <button
             onClick={onOpenContact}
-            className="group flex items-stretch cursor-pointer select-none"
+            className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-md"
           >
-            <span className="bg-white text-black text-xs font-medium tracking-wider uppercase px-4 py-2">
-              Start a Project
+            <span className="bg-[#bf900e] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#ce9e16]">
+              START A PROJECT
             </span>
-            <span className="w-[1px] bg-neutral-300"></span>
-            <span className="bg-white text-black px-2.5 py-2 flex items-center justify-center">
+            <span className="w-[1px] bg-white/25"></span>
+            <span className="bg-[#bf900e] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#ce9e16]">
               <ArrowUpRight size={14} />
             </span>
           </button>
@@ -307,7 +307,7 @@ export default function Header({ onOpenContact }) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`py-1.5 transition-all duration-300 group flex items-center justify-between border-b border-white/5 ${
                     isActive
-                      ? "text-[#f3d690] font-semibold"
+                      ? "text-[#d4af37] font-semibold"
                       : "text-white/80 hover:text-white"
                   }`}
                 >
@@ -315,7 +315,7 @@ export default function Header({ onOpenContact }) {
                     {item.label}
                   </span>
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13]" />
+                    <span className="w-1.5 h-1.5 rotate-45 bg-[#d4af37]" />
                   )}
                 </Link>
               );
@@ -327,13 +327,13 @@ export default function Header({ onOpenContact }) {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full group flex items-stretch cursor-pointer select-none"
+                className="w-full group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden shadow-md"
               >
-                <span className="flex-1 bg-white text-black px-5 py-3 font-medium tracking-wider text-xs uppercase flex items-center justify-center">
-                  Start a Project
+                <span className="flex-1 bg-[#bf900e] text-white px-5 py-3 font-bold tracking-wider text-xs uppercase flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
+                  START A PROJECT
                 </span>
-                <span className="w-[1px] bg-neutral-300"></span>
-                <span className="bg-white text-black px-4 py-3 flex items-center justify-center">
+                <span className="w-[1px] bg-white/25"></span>
+                <span className="bg-[#bf900e] text-white px-4 py-3 flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
                   <ArrowUpRight size={16} />
                 </span>
               </button>
