@@ -247,106 +247,24 @@ export default function FeaturedDevelopments({ onOpenContact }) {
           </p>
         </div>
 
-        {/* Landmark Developments Cards Grid */}
+        {/* Landmark Developments Cards Grid: 3 cards per row on large and extra-large screens */}
         <div className="w-full space-y-5 sm:space-y-6">
-          {/* Row 1: First 3 Featured Developments */}
           {(() => {
-            const row1 = developments.slice(0, 3);
-            const isRowHovered = row1.some((item) => item.id === hoveredId);
+            const visibleDevelopments = showAll ? developments : developments.slice(0, 3);
+            const rows = [];
+            for (let i = 0; i < visibleDevelopments.length; i += 3) {
+              rows.push(visibleDevelopments.slice(i, i + 3));
+            }
 
-            return (
-              <div className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px]">
-                {row1.map((item, idx) => {
-                  const isHovered = hoveredId === item.id;
-
-                  return (
-                    <div
-                      key={item.id}
-                      onMouseEnter={() => setHoveredId(item.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                      onClick={() => {
-                        if (hoveredId === item.id) {
-                          handleOpenPreview(item);
-                        } else {
-                          setHoveredId(item.id);
-                        }
-                      }}
-                      className={`relative h-[420px] sm:h-[460px] lg:h-[510px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group border border-white/10 ${
-                        isHovered
-                          ? "md:flex-[2.6] shadow-[0_20px_60px_rgba(0,0,0,0.85)] border-white/30"
-                          : isRowHovered
-                          ? "md:flex-[0.8] opacity-75 md:opacity-85 hover:opacity-100"
-                          : "md:flex-1"
-                      }`}
-                    >
-                      {/* Background Image with Zoom on Hover */}
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={idx === 0}
-                        className={`object-cover object-center transition-transform duration-700 ease-out ${
-                          isHovered ? "scale-105" : "scale-100"
-                        }`}
-                      />
-
-                      {/* Dark Gradient Overlay for optimal contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/25 to-black/90 pointer-events-none" />
-
-                      {/* Card Top: Title Only */}
-                      <div className="absolute top-6 left-6 right-6 sm:top-8 sm:left-8 sm:right-8 z-10">
-                        <h3 className="font-sans text-2xl sm:text-3xl lg:text-[32px] font-bold text-white tracking-tight leading-[1.18] max-w-sm drop-shadow-md">
-                          {item.title}
-                        </h3>
-                      </div>
-
-                      {/* Card Bottom: Header Style Split CTA Button - Appears only on hover on lg/xl */}
-                      <div
-                        className={`absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10 transition-all duration-300 ease-out ${
-                          isHovered
-                            ? "opacity-100 translate-y-0 pointer-events-auto"
-                            : "opacity-100 sm:opacity-100 lg:opacity-0 lg:translate-y-3 lg:pointer-events-none"
-                        }`}
-                      >
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleOpenPreview(item);
-                          }}
-                          className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-2xl"
-                          aria-label={`View More about ${item.title}`}
-                        >
-                          <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
-                            View More
-                          </span>
-                          <span className="w-[1px] bg-white/25"></span>
-                          <span className="bg-[#bf900e] text-white px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
-                            <ArrowUpRight
-                              size={15}
-                              strokeWidth={2.2}
-                              className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                            />
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
-
-          {/* Row 2: Remaining Developments (Revealed when showAll is true) */}
-          {showAll &&
-            (() => {
-              const row2 = developments.slice(3);
-              const isRowHovered = row2.some((item) => item.id === hoveredId);
+            return rows.map((row, rowIndex) => {
+              const isRowHovered = row.some((item) => item.id === hoveredId);
 
               return (
-                <div className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px] animate-in fade-in duration-500">
-                  {row2.map((item) => {
+                <div
+                  key={`row-${rowIndex}`}
+                  className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px] animate-in fade-in duration-500"
+                >
+                  {row.map((item, idx) => {
                     const isHovered = hoveredId === item.id;
 
                     return (
@@ -375,6 +293,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                           alt={item.alt}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={rowIndex === 0 && idx === 0}
                           className={`object-cover object-center transition-transform duration-700 ease-out ${
                             isHovered ? "scale-105" : "scale-100"
                           }`}
@@ -423,9 +342,20 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       </div>
                     );
                   })}
+
+                  {/* If the row has fewer than 3 items, preserve the 3-column width structure */}
+                  {row.length < 3 &&
+                    Array.from({ length: 3 - row.length }).map((_, sIdx) => (
+                      <div
+                        key={`spacer-${sIdx}`}
+                        className="hidden md:block md:flex-1 pointer-events-none"
+                        aria-hidden="true"
+                      />
+                    ))}
                 </div>
               );
-            })()}
+            });
+          })()}
         </div>
 
         {/* View All Button After the Cards */}
@@ -466,8 +396,18 @@ export default function FeaturedDevelopments({ onOpenContact }) {
             className="relative w-full max-w-6xl max-h-[94vh] bg-[#0c1017] border border-white/15 rounded-none shadow-[0_25px_80px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top Header Bar: Title, Subtitle, Spec Chips & Close Button (NOT overlaying the image) */}
-            <div className="p-4 sm:p-5 md:px-7 md:py-4 bg-[#090c10] border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 shrink-0">
+            {/* Top Dedicated Close Button (Always Anchored Top-Right) */}
+            <button
+              type="button"
+              onClick={handleClosePreview}
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-5 z-30 p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-[#bf900e] text-white border border-white/20 hover:border-[#bf900e] transition-all duration-200 backdrop-blur-md shadow-lg cursor-pointer group"
+              aria-label="Close Preview"
+            >
+              <X size={18} className="transition-transform group-hover:scale-110" />
+            </button>
+
+            {/* Top Header Bar: Title, Subtitle & Spec Chips */}
+            <div className="p-4 sm:p-5 md:px-7 md:py-4 pr-14 sm:pr-16 md:pr-16 bg-[#090c10] border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 shrink-0">
               {/* Title & Subtitle */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
@@ -481,7 +421,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                 </h3>
               </div>
 
-              {/* Right Side: Info Spec Chips & Close Button */}
+              {/* Right Side: Info Spec Chips */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                 {selectedProject.details &&
                   Object.entries(selectedProject.details).map(([label, value]) => (
@@ -497,16 +437,6 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       </span>
                     </div>
                   ))}
-
-                {/* Close Button Top Right */}
-                <button
-                  type="button"
-                  onClick={handleClosePreview}
-                  className="p-2 sm:p-2.5 rounded-lg bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white transition-colors duration-200 border border-white/10 ml-1 cursor-pointer"
-                  aria-label="Close Preview"
-                >
-                  <X size={18} />
-                </button>
               </div>
             </div>
 
