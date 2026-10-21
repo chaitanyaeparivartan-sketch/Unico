@@ -112,7 +112,9 @@ export default function ProcessSection() {
       `}</style>
 
       {/* Subtle Ambient Background Lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#d4af65]/[0.025] blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#d4af65]/[0.025] blur-[140px] rounded-full" />
+      </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header */}

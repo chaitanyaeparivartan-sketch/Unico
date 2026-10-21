@@ -192,7 +192,7 @@ export default function Header({ onOpenContact }) {
           <Link href="/" className="relative flex items-center group">
             <div
               style={{ animationDelay: "220ms" }}
-              className="relative h-14 sm:h-16 md:h-15 w-38 sm:w-44 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
+              className="relative h-14 sm:h-16 md:h-15 w-36 sm:w-44 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
             >
               <Image
                 src="/images/unico-logo-cropped.png"
@@ -309,7 +309,7 @@ export default function Header({ onOpenContact }) {
 
       {/* Mobile Drawer with active state detection */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#0c1016]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-8 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="xl:hidden bg-[#0c1016]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-8 max-h-[calc(100dvh-80px)] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col space-y-4 text-sm uppercase tracking-[0.16em]">
             {[...leftNavItems, ...rightNavItems].map((item) => {
               const isActive = activeSection === item.href;

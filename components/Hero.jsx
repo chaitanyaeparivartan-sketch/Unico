@@ -145,7 +145,7 @@ export default function Hero() {
           }}
         >
           <h1
-            className={`font-bricolage text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
+            className={`font-bricolage text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] sm:whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
               !entranceComplete && scrollY === 0 ? "animate-hero-title" : ""
             }`}
             style={

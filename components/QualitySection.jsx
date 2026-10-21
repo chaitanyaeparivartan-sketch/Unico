@@ -230,7 +230,9 @@ export default function QualitySection() {
       className="relative w-full bg-[#090c10] text-white pt-12 sm:pt-16 lg:pt-24 border-t border-white/5 scroll-mt-10"
     >
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#d4af65]/[0.02] blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#d4af65]/[0.02] blur-[150px] rounded-full" />
+      </div>
 
       {/* Section Header */}
       <div className="max-w-[1440px] mx-auto relative z-10 px-5 sm:px-8 lg:px-12 mb-6 sm:mb-8 lg:mb-12">
