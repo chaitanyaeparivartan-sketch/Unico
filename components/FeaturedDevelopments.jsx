@@ -264,6 +264,14 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                   key={`row-${rowIndex}`}
                   className="flex flex-col md:flex-row gap-5 sm:gap-6 items-stretch w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[510px] animate-in fade-in duration-500"
                 >
+                  {/* When a row has only 1 card, place an equal spacer on the left to horizontally center it on md/lg/xl */}
+                  {row.length === 1 && (
+                    <div
+                      className="hidden md:block md:flex-1 pointer-events-none"
+                      aria-hidden="true"
+                    />
+                  )}
+
                   {row.map((item, idx) => {
                     const isHovered = hoveredId === item.id;
 
@@ -343,15 +351,13 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                     );
                   })}
 
-                  {/* If the row has fewer than 3 items, preserve the 3-column width structure */}
-                  {row.length < 3 &&
-                    Array.from({ length: 3 - row.length }).map((_, sIdx) => (
-                      <div
-                        key={`spacer-${sIdx}`}
-                        className="hidden md:block md:flex-1 pointer-events-none"
-                        aria-hidden="true"
-                      />
-                    ))}
+                  {/* Right-side spacer to maintain symmetric 3-column grid structure */}
+                  {row.length < 3 && (
+                    <div
+                      className="hidden md:block md:flex-1 pointer-events-none"
+                      aria-hidden="true"
+                    />
+                  )}
                 </div>
               );
             });
