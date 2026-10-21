@@ -118,12 +118,6 @@ export default function DrawingToDoneSection() {
                 sizes="(max-width: 1440px) 100vw, 1440px"
                 className="object-cover object-center pointer-events-none select-none"
               />
-
-              {/* Top-Right Badge: Delivered Structure */}
-              <div className="absolute top-4 right-4 sm:top-5 sm:right-5 z-10 px-3 sm:px-3.5 py-1.5 bg-black/70 backdrop-blur-md border border-white/15 text-[10px] sm:text-[11px] font-medium tracking-[0.16em] uppercase text-neutral-200 pointer-events-none flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span>Delivered Structure</span>
-              </div>
             </div>
 
             {/* Foreground Layer: Architectural Blueprint (Left side, clipped by sliderPos) */}
@@ -146,12 +140,6 @@ export default function DrawingToDoneSection() {
               {/* Engineering Corner Registration Marks */}
               <div className="absolute top-3 left-3 text-cyan-300/60 text-[10px] font-mono select-none pointer-events-none">
                 + DWG: FRONT-ELEVATION-1:100
-              </div>
-
-              {/* Top-Left Badge: Architectural Blueprint */}
-              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 px-3 sm:px-3.5 py-1.5 bg-[#07192f]/90 backdrop-blur-md border border-cyan-400/40 text-[10px] sm:text-[11px] font-medium tracking-[0.16em] uppercase text-cyan-200 pointer-events-none flex items-center gap-2 shadow-lg">
-                <span className="w-1.5 h-1.5 rotate-45 bg-cyan-400 shadow-[0_0_6px_#22d3ee]"></span>
-                <span>Architectural Blueprint</span>
               </div>
             </div>
 
