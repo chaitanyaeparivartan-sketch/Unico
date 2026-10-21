@@ -59,7 +59,7 @@ export default function ProcessSection() {
   return (
     <section
       id="how-we-build"
-      className="relative bg-[#0a0a0b] text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10 overflow-hidden"
+      className="relative bg-[#0a0a0b] text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 border-t border-white/5 scroll-mt-10"
     >
       {/* Anchor for process links */}
       <span id="process" className="absolute -top-16 left-0 opacity-0 pointer-events-none" />

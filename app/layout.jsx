@@ -8,13 +8,6 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  viewportFit: "cover",
-};
-
 export const metadata = {
   title: "UNICO | Builders & Developers",
   description:
