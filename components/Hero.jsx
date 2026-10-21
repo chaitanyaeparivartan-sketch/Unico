@@ -134,7 +134,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Centered Content Area with Page Load & Scroll Growing Effect */}
-      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 sm:px-8 lg:px-12 pb-6 sm:pb-8 lg:pb-10 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-12 md:pb-8 lg:pb-10 -translate-y-4 sm:-translate-y-3 md:translate-y-0 flex flex-col items-center text-center">
         {/* Single-line Headline: BUILD FOR THE LIFE INSIDE with Page-Load + Scroll-Driven Growth */}
         <div
           className={`origin-center ${

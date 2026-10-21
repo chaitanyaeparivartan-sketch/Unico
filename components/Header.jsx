@@ -66,6 +66,17 @@ export default function Header({ onOpenContact }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToCta = (e) => {
+    if (e?.preventDefault) e.preventDefault();
+    setMobileMenuOpen(false);
+    const el = document.getElementById("cta");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.hash = "#cta";
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -181,7 +192,7 @@ export default function Header({ onOpenContact }) {
           <Link href="/" className="relative flex items-center group">
             <div
               style={{ animationDelay: "220ms" }}
-              className="relative h-12 sm:h-14 md:h-15 w-32 sm:w-36 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
+              className="relative h-14 sm:h-16 md:h-15 w-38 sm:w-44 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
             >
               <Image
                 src="/images/unico-logo-cropped.png"
@@ -189,7 +200,7 @@ export default function Header({ onOpenContact }) {
                 fill
                 priority
                 className="object-contain filter drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]"
-                sizes="(max-width: 768px) 130px, 180px"
+                sizes="(max-width: 768px) 180px, 180px"
               />
             </div>
           </Link>
@@ -235,9 +246,10 @@ export default function Header({ onOpenContact }) {
             })}
           </nav>
 
-          {/* Luxury Split CTA Button: 'START A PROJECT' with Growing Effect */}
-          <button
-            onClick={onOpenContact}
+          {/* Luxury Split CTA Button: 'START A PROJECT' Redirecting to #cta Section */}
+          <a
+            href="#cta"
+            onClick={scrollToCta}
             style={{ animationDelay: "620ms" }}
             className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.04] animate-cta-grow shadow-md hover:shadow-[0_4px_20px_rgba(191,144,14,0.4)]"
             aria-label="Start a Project"
@@ -255,14 +267,16 @@ export default function Header({ onOpenContact }) {
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-125"
               />
             </span>
-          </button>
+          </a>
         </div>
 
         {/* Medium screens layout (lg to xl) */}
         <div className="hidden lg:flex xl:hidden items-center space-x-5">
-          <button
-            onClick={onOpenContact}
+          <a
+            href="#cta"
+            onClick={scrollToCta}
             className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-md"
+            aria-label="Start a Project"
           >
             <span className="bg-[#bf900e] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#ce9e16]">
               START A PROJECT
@@ -271,13 +285,13 @@ export default function Header({ onOpenContact }) {
             <span className="bg-[#bf900e] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#ce9e16]">
               <ArrowUpRight size={14} />
             </span>
-          </button>
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-white hover:text-neutral-300"
+            className="p-2 text-[#caa156] hover:text-[#e6c669] transition-colors"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
           </button>
         </div>
 
@@ -285,10 +299,10 @@ export default function Header({ onOpenContact }) {
         <div className="flex items-center lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-white hover:text-neutral-300 transition-colors"
+            className="p-1 text-[#caa156] hover:text-[#e6c669] transition-colors"
             aria-label="Toggle Navigation"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={34} strokeWidth={2.2} /> : <Menu size={34} strokeWidth={2.2} />}
           </button>
         </div>
       </div>
@@ -322,12 +336,11 @@ export default function Header({ onOpenContact }) {
             })}
 
             <div className="pt-4 border-t border-white/10">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenContact();
-                }}
+              <a
+                href="#cta"
+                onClick={scrollToCta}
                 className="w-full group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden shadow-md"
+                aria-label="Start a Project"
               >
                 <span className="flex-1 bg-[#bf900e] text-white px-5 py-3 font-bold tracking-wider text-xs uppercase flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
                   START A PROJECT
@@ -336,7 +349,7 @@ export default function Header({ onOpenContact }) {
                 <span className="bg-[#bf900e] text-white px-4 py-3 flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
                   <ArrowUpRight size={16} />
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

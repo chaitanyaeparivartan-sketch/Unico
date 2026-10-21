@@ -182,8 +182,8 @@ export default function TestimonialsSection() {
             </p>
           </div>
 
-          {/* Navigation Controls: Arrows */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Navigation Controls: Arrows (Desktop & Tablet) */}
+          <div className="hidden md:flex items-center gap-3 shrink-0">
             <button
               onClick={handlePrev}
               aria-label="Previous testimonials"
@@ -272,8 +272,27 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
+        {/* Mobile Navigation Controls: Horizontally Centered Under Cards */}
+        <div className="flex md:hidden items-center justify-center gap-3.5 mt-6">
+          <button
+            onClick={handlePrev}
+            aria-label="Previous testimonial"
+            className="w-11 h-11 rounded-none bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+          >
+            <ArrowLeft className="w-4 h-4 stroke-[2] group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            aria-label="Next testimonial"
+            className="w-11 h-11 rounded-none bg-black border border-white/15 hover:border-white/30 hover:bg-white/[0.05] transition-all flex items-center justify-center text-white shadow-sm cursor-pointer active:scale-95 group"
+          >
+            <ArrowRight className="w-4 h-4 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+          </button>
+        </div>
+
         {/* Mobile Pagination Indicator Dots */}
-        <div className="flex md:hidden items-center justify-center gap-1.5 mt-6">
+        <div className="flex md:hidden items-center justify-center gap-1.5 mt-4">
           {TESTIMONIALS.map((_, i) => (
             <button
               key={i}

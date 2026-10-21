@@ -546,26 +546,29 @@ export default function StorySection({ onOpenContact }) {
             </p>
           </div>
 
-          {onOpenContact && (
-            <button
-              type="button"
-              onClick={onOpenContact}
-              className="whitespace-nowrap group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
-              aria-label="Start a Project with UNICO"
-            >
-              <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
-                START A PROJECT
-              </span>
-              <span className="w-[1px] bg-white/25"></span>
-              <span className="bg-[#bf900e] text-white px-3 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
-                <ArrowUpRight
-                  size={15}
-                  strokeWidth={2.2}
-                  className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                />
-              </span>
-            </button>
-          )}
+          <a
+            href="#cta"
+            onClick={(e) => {
+              if (e?.preventDefault) e.preventDefault();
+              const el = document.getElementById("cta");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+              else window.location.hash = "#cta";
+            }}
+            className="whitespace-nowrap group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
+            aria-label="Start a Project with UNICO"
+          >
+            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-5 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+              START A PROJECT
+            </span>
+            <span className="w-[1px] bg-white/25"></span>
+            <span className="bg-[#bf900e] text-white px-3 py-3 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+              <ArrowUpRight
+                size={15}
+                strokeWidth={2.2}
+                className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+              />
+            </span>
+          </a>
         </div>
       </div>
     </section>

@@ -57,6 +57,27 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       },
     },
     {
+      id: "tech-park",
+      category: "commercial",
+      tag: "Commercial & Tech",
+      title: "Tech Park",
+      subtitle: "ENTERPRISE TECH CAMPUS & COURTYARD",
+      desc: "A flagship commercial and enterprise tech campus featuring lush landscaped podium terraces, central courtyard atriums, geometric water elements, and interconnected high-rise towers.",
+      image: "/images/tech/complex-commercials-3.webp",
+      alt: "Tech Park - Enterprise Tech Campus & Courtyard",
+      gallery: [
+        "/images/tech/complex-commercials-3.webp",
+        "/images/tech/complex-commercials-2.webp",
+      ],
+      details: {
+        Client: "Enterprise Commercial & Tech Park",
+        "Built-Up Area": "95,000 sq. ft.",
+        Location: "Hyderabad",
+        Year: "2025",
+        Role: "Turnkey Commercial EPC",
+      },
+    },
+    {
       id: "industrial",
       category: "industrial",
       tag: "Cleanroom",
@@ -315,7 +336,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
           {/* Row 2: Remaining Developments (Revealed when showAll is true) */}
           {showAll &&
             (() => {
-              const row2 = developments.slice(3, 6);
+              const row2 = developments.slice(3);
               const isRowHovered = row2.some((item) => item.id === hoveredId);
 
               return (

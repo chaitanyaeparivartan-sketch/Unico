@@ -5,7 +5,7 @@ import { PhoneCall, FileDown } from "lucide-react";
 
 export default function CtaSection({ onOpenContact }) {
   return (
-    <section className="relative w-full min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] flex items-center justify-center overflow-hidden select-none border-t border-white/5">
+    <section id="cta" className="relative w-full min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] flex items-center justify-center overflow-hidden select-none border-t border-white/5 scroll-mt-20">
       {/* Background Architectural Image */}
       {/* Background Architectural Image - Clean, bright, and vibrant */}
       <div className="absolute inset-0 w-full h-full">
