@@ -26,6 +26,13 @@ export default function ServicesSection({ onOpenContact }) {
       image: "/images/image-3.png",
       alt: "Commercial Complex Architecture",
     },
+    {
+      id: "04",
+      title: "Industrial Buildings",
+      desc: "Turnkey industrial infrastructure, advanced manufacturing plants, and cleanroom facilities engineered for operational precision, structural resilience, and high-efficiency workflows.",
+      image: "/images/industrial-building.jpg",
+      alt: "Industrial Buildings and Modern Manufacturing Architecture",
+    },
   ];
 
   return (
