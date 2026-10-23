@@ -158,7 +158,7 @@ export default function Hero() {
                 : {}
             }
           >
-            Build For The Life Inside
+            Built For The Life Inside
           </h1>
         </div>
 
