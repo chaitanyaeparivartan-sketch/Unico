@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full bg-[#0a0c10] text-white selection:bg-[#c5a059]/30 selection:text-white">
+      <body className="min-h-full bg-[#0a0c10] text-white selection:bg-[#7F5E12]/30 selection:text-white">
         {children}
       </body>
     </html>

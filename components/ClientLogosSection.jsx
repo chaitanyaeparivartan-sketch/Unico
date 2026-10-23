@@ -153,7 +153,7 @@ export default function ClientLogosSection() {
       className="w-full bg-[#080b0f] text-white py-16 sm:py-20 lg:py-24 px-3 sm:px-8 lg:px-12 select-none border-t border-b border-white/10 relative overflow-hidden"
     >
       {/* Subtle Background Architectural Ambient Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(174,123,19,0.06),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(127, 94, 18,0.06),transparent)] pointer-events-none" />
 
       {/* 3-Row Ticker Keyframes */}
       <style>{`
@@ -206,8 +206,8 @@ export default function ClientLogosSection() {
           <div className="max-w-2xl">
             {/* Tag */}
             <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-              <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+              <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
                 BRANDS ASSOCIATED WITH OUR WORK
               </span>
             </div>
@@ -234,8 +234,8 @@ export default function ClientLogosSection() {
             {/* Row 1 Name Chip - Strictly Single-Line & Horizontally Centered */}
             <div className="flex items-center justify-center w-full px-1 sm:px-4">
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#ae7b13]/50 text-[#caa156] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
-                <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block shrink-0" />
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#7F5E12]/50 text-[#7F5E12] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
+                <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12] inline-block shrink-0" />
                 <span>Direct Corporate &amp; Institutional Clients</span>
               </span>
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
@@ -259,7 +259,7 @@ export default function ClientLogosSection() {
                         className="max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
                       />
                     </div>
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#7F5E12]/70 group-hover:bg-[#7F5E12] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(127, 94, 18,0.5)]" />
                   </div>
                 ))}
               </div>
@@ -274,8 +274,8 @@ export default function ClientLogosSection() {
             {/* Row 2 Name Chip - Strictly Single-Line & Horizontally Centered */}
             <div className="flex items-center justify-center w-full px-1 sm:px-4">
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#ae7b13]/50 text-[#caa156] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
-                <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block shrink-0" />
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#7F5E12]/50 text-[#7F5E12] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
+                <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12] inline-block shrink-0" />
                 <span>Brands at Properties Constructed By Us</span>
               </span>
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
@@ -299,7 +299,7 @@ export default function ClientLogosSection() {
                         className={`max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300 ${brand.scale || ""}`}
                       />
                     </div>
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#7F5E12]/70 group-hover:bg-[#7F5E12] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(127, 94, 18,0.5)]" />
                   </div>
                 ))}
               </div>
@@ -314,8 +314,8 @@ export default function ClientLogosSection() {
             {/* Row 3 Name Chip - Strictly Single-Line & Horizontally Centered */}
             <div className="flex items-center justify-center w-full px-1 sm:px-4">
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#ae7b13]/50 text-[#caa156] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
-                <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block shrink-0" />
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 rounded-none bg-[#141822] border border-[#7F5E12]/50 text-[#7F5E12] text-[9px] min-[390px]:text-[10px] sm:text-[12px] font-bold tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase backdrop-blur-md shadow-sm select-none whitespace-nowrap mx-1 sm:mx-3">
+                <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12] inline-block shrink-0" />
                 <span>Our Partners Have Worked With These Brands</span>
               </span>
               <span className="h-[1px] w-6 sm:w-28 bg-white/10 hidden md:block" />
@@ -339,7 +339,7 @@ export default function ClientLogosSection() {
                         className="max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
                       />
                     </div>
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#7F5E12]/70 group-hover:bg-[#7F5E12] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(127, 94, 18,0.5)]" />
                   </div>
                 ))}
               </div>

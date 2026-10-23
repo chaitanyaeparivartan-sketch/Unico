@@ -33,7 +33,7 @@ export default function ContactModal({ isOpen, onClose }) {
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-xl bg-[#0c1017] border border-amber-500/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-6 sm:p-10 z-10 text-white rounded-none">
+      <div className="relative w-full max-w-xl bg-[#0c1017] border border-[#7F5E12]/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-6 sm:p-10 z-10 text-white rounded-none">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -45,7 +45,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
         {submitted ? (
           <div className="py-12 text-center flex flex-col items-center">
-            <CheckCircle2 size={56} className="text-amber-400 mb-4 animate-bounce" />
+            <CheckCircle2 size={56} className="text-[#7F5E12] mb-4 animate-bounce" />
             <h3 className="font-canela text-3xl font-light text-white mb-2 uppercase tracking-wide">
               Inquiry Received
             </h3>
@@ -56,7 +56,7 @@ export default function ContactModal({ isOpen, onClose }) {
         ) : (
           <div>
             <div className="mb-8">
-              <span className="text-[11px] uppercase tracking-[0.25em] text-amber-400/90 font-medium block mb-1">
+              <span className="text-[11px] uppercase tracking-[0.25em] text-[#7F5E12]/90 font-medium block mb-1">
                 Bespoke Architecture & Design
               </span>
               <h2 className="font-canela text-3xl sm:text-4xl font-light uppercase tracking-wide text-white">
@@ -80,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#7F5E12] transition-colors"
                 />
               </div>
 
@@ -97,7 +97,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#7F5E12] transition-colors"
                   />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#7F5E12] transition-colors"
                   />
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, projectType: e.target.value })
                   }
-                  className="w-full bg-[#111622] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors cursor-pointer"
+                  className="w-full bg-[#111622] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-[#7F5E12] transition-colors cursor-pointer"
                 >
                   <option value="Villa Architectural Design">
                     Mediterranean Villa Architecture
@@ -153,7 +153,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#7F5E12] transition-colors resize-none"
                 />
               </div>
 
@@ -162,11 +162,11 @@ export default function ContactModal({ isOpen, onClose }) {
                   type="submit"
                   className="w-full group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden"
                 >
-                  <span className="flex-1 bg-[#bf900e] text-white text-[13px] font-bold tracking-[0.12em] uppercase py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
+                  <span className="flex-1 bg-[#7F5E12] text-white text-[13px] font-bold tracking-[0.12em] uppercase py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
                     Submit Private Inquiry
                   </span>
                   <span className="w-[1px] bg-white/25"></span>
-                  <span className="bg-[#bf900e] text-white px-4 py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
+                  <span className="bg-[#7F5E12] text-white px-4 py-3.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
                     <ArrowUpRight
                       size={18}
                       className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

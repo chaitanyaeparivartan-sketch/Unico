@@ -169,7 +169,7 @@ export default function QualitySection() {
     >
       {/* Background Ambient Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#d4af65]/[0.02] blur-[150px] rounded-full" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#7F5E12]/[0.02] blur-[150px] rounded-full" />
       </div>
 
       {/* Section Header */}
@@ -177,8 +177,8 @@ export default function QualitySection() {
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-2 mb-2.5 sm:mb-3.5">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block" />
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block" />
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               QUALITY STANDARDS
             </span>
           </div>
@@ -216,19 +216,19 @@ export default function QualitySection() {
                         key={item.id}
                         data-card-id={item.id}
                         onClick={() => jumpToStep(item.id)}
-                        className={`group cursor-pointer w-full py-3.5 sm:py-4 lg:py-3.5 px-4 sm:px-6 transition-all duration-300 border relative overflow-hidden min-h-[60px] sm:min-h-[66px] lg:min-h-[62px] flex items-center bg-gradient-to-r from-[#17140f] to-[#12100c] border-[#d4af37]/85 shadow-[0_4px_20px_rgba(212,175,55,0.14)] opacity-100 scale-100 ${
+                        className={`group cursor-pointer w-full py-3.5 sm:py-4 lg:py-3.5 px-4 sm:px-6 transition-all duration-300 border relative overflow-hidden min-h-[60px] sm:min-h-[66px] lg:min-h-[62px] flex items-center bg-gradient-to-r from-[#7F5E12] to-[#7F5E12] border-[#7F5E12]/85 shadow-[0_4px_20px_rgba(127, 94, 18,0.14)] opacity-100 scale-100 ${
                           isActive
-                            ? "lg:bg-gradient-to-r lg:from-[#17140f] lg:to-[#12100c] lg:border-[#d4af37]/85 lg:shadow-[0_6px_25px_rgba(212,175,55,0.18)] lg:opacity-100 lg:scale-100"
+                            ? "lg:bg-gradient-to-r lg:from-[#7F5E12] lg:to-[#7F5E12] lg:border-[#7F5E12]/85 lg:shadow-[0_6px_25px_rgba(127, 94, 18,0.18)] lg:opacity-100 lg:scale-100"
                             : isEven
-                            ? "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#14120e] lg:to-[#18140f] lg:border-[#c9a35a]/15 hover:lg:opacity-75 hover:lg:border-white/30"
+                            ? "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#14120e] lg:to-[#7F5E12] lg:border-[#7F5E12]/15 hover:lg:opacity-75 hover:lg:border-white/30"
                             : "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#11141a] lg:to-[#0c0f14] lg:border-white/5 hover:lg:opacity-75 hover:lg:border-white/30"
                         }`}
                       >
                         {/* Left Gold Accent Pip (Always active on mobile, step-activated on desktop) */}
                         <span
-                          className={`absolute left-0 top-0 bottom-0 w-[4px] bg-[#d4af37] transition-all duration-300 opacity-100 shadow-[0_0_10px_rgba(212,175,55,0.9)] ${
+                          className={`absolute left-0 top-0 bottom-0 w-[4px] bg-[#7F5E12] transition-all duration-300 opacity-100 shadow-[0_0_10px_rgba(127, 94, 18,0.9)] ${
                             isActive
-                              ? "lg:opacity-100 lg:shadow-[0_0_10px_rgba(212,175,55,0.9)]"
+                              ? "lg:opacity-100 lg:shadow-[0_0_10px_rgba(127, 94, 18,0.9)]"
                               : "lg:opacity-0 lg:shadow-none group-hover:lg:opacity-40"
                           }`}
                         />
@@ -236,10 +236,10 @@ export default function QualitySection() {
                         {/* Title (Always bright gold on mobile, step-activated on desktop) */}
                         <div className="relative z-10 pr-12 sm:pr-18">
                           <h3
-                            className={`text-[13.5px] sm:text-[15.5px] lg:text-[16.5px] font-bold tracking-tight leading-snug transition-colors duration-300 text-[#d4af37] ${
+                            className={`text-[13.5px] sm:text-[15.5px] lg:text-[16.5px] font-bold tracking-tight leading-snug transition-colors duration-300 ${
                               isActive
-                                ? "lg:text-[#d4af37]"
-                                : "lg:text-[#caa156] group-hover:lg:text-white"
+                                ? "text-white"
+                                : "text-[#7F5E12] lg:group-hover:text-white"
                             }`}
                           >
                             {item.title}
@@ -250,10 +250,10 @@ export default function QualitySection() {
                         <div className="absolute right-3.5 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none">
                           <span
                             aria-hidden="true"
-                            className={`font-sans font-black text-3xl sm:text-5xl md:text-[54px] tracking-tight leading-none select-none transition-all duration-300 text-[#d4af37]/35 scale-105 ${
+                            className={`font-sans font-black text-3xl sm:text-5xl md:text-[54px] tracking-tight leading-none select-none transition-all duration-300 ${
                               isActive
-                                ? "lg:text-[#d4af37]/35 lg:scale-105"
-                                : "lg:text-white/[0.06] lg:scale-100"
+                                ? "text-white scale-105"
+                                : "text-[#7F5E12]/35 scale-105 lg:text-white/[0.06] lg:scale-100"
                             }`}
                           >
                             {item.id}
@@ -301,7 +301,7 @@ export default function QualitySection() {
                         <button
                           onClick={handlePrev}
                           disabled={currentIndex === 0}
-                          className="p-1.5 border border-white/10 hover:border-[#d4af37] text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                          className="p-1.5 border border-white/10 hover:border-[#7F5E12] text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
                           aria-label="Previous Step"
                         >
                           <ChevronLeft size={16} />
@@ -309,7 +309,7 @@ export default function QualitySection() {
                         <button
                           onClick={handleNext}
                           disabled={currentIndex === COMMITMENTS.length - 1}
-                          className="p-1.5 border border-white/10 hover:border-[#d4af37] text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                          className="p-1.5 border border-white/10 hover:border-[#7F5E12] text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
                           aria-label="Next Step"
                         >
                           <ChevronRight size={16} />
@@ -327,7 +327,7 @@ export default function QualitySection() {
                             onClick={() => jumpToStep(item.id)}
                             className={`h-1.5 transition-all duration-300 rounded-full ${
                               activeId === item.id
-                                ? "w-6 bg-[#d4af37]"
+                                ? "w-6 bg-[#7F5E12]"
                                 : "w-2 bg-white/20 hover:bg-white/50"
                             }`}
                             aria-label={`Jump to step ${item.id}`}

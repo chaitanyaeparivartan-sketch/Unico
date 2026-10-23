@@ -92,12 +92,12 @@ export default function MetricsSection() {
           0% {
             opacity: 0;
             transform: scale(0.85) translateY(36px);
-            box-shadow: 0 0 0 rgba(174, 123, 19, 0);
+            box-shadow: 0 0 0 rgba(127, 94, 18, 0);
           }
           65% {
             opacity: 1;
             transform: scale(1.03) translateY(-4px);
-            box-shadow: 0 20px 45px rgba(174, 123, 19, 0.4);
+            box-shadow: 0 20px 45px rgba(127, 94, 18, 0.4);
           }
           100% {
             opacity: 1;
@@ -184,8 +184,8 @@ export default function MetricsSection() {
             {/* Top Part: Title & Tag placed right above stats */}
             <div className="mb-8 lg:mb-10">
               <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-                <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
-                <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
+                <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+                <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
                   CONSTRUCTION METRICS
                 </span>
               </div>
@@ -215,7 +215,7 @@ export default function MetricsSection() {
                     <span
                       className="font-light text-4xl sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] tracking-tight leading-none block font-canela w-fit bg-clip-text text-transparent"
                       style={{
-                        backgroundImage: "linear-gradient(135deg, #FCEDBA 0%, #E5C985 45%, #D5B26C 100%)",
+                        backgroundImage: "linear-gradient(135deg, #7F5E12 0%, #7F5E12 45%, #7F5E12 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}

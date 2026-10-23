@@ -71,8 +71,8 @@ export default function DrawingToDoneSection() {
         {/* Section Header */}
         <div className="mb-5 sm:mb-6 lg:mb-7 max-w-4xl">
           <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block shadow-[0_0_8px_rgba(127, 94, 18,0.6)]"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               FROM DRAWING TO DONE
             </span>
           </div>
@@ -117,6 +117,7 @@ export default function DrawingToDoneSection() {
                 priority
                 sizes="(max-width: 1440px) 100vw, 1440px"
                 className="object-cover object-center pointer-events-none select-none"
+                style={{ transform: "translate(-1%, 3%) scale(1.04)" }}
               />
             </div>
 
@@ -145,11 +146,11 @@ export default function DrawingToDoneSection() {
 
             {/* Center Vertical Divider Line */}
             <div
-              className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#ae7b13]/40 via-[#ae7b13] to-[#ae7b13]/40 shadow-[0_0_14px_rgba(174,123,19,0.9)] -translate-x-1/2 pointer-events-none z-20"
+              className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#7F5E12]/40 via-[#7F5E12] to-[#7F5E12]/40 shadow-[0_0_14px_rgba(127, 94, 18,0.9)] -translate-x-1/2 pointer-events-none z-20"
               style={{ left: `${sliderPos}%` }}
             >
               {/* Circular Slider Handle Knob */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#ae7b13] hover:bg-[#c89226] text-white flex items-center justify-center shadow-[0_0_22px_rgba(174,123,19,0.7),0_4px_14px_rgba(0,0,0,0.7)] border-2 border-white/90 transition-transform duration-150 group-hover:scale-105 active:scale-95 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#7F5E12] hover:bg-[#7F5E12] text-white flex items-center justify-center shadow-[0_0_22px_rgba(127, 94, 18,0.7),0_4px_14px_rgba(0,0,0,0.7)] border-2 border-white/90 transition-transform duration-150 group-hover:scale-105 active:scale-95 pointer-events-none">
                 <ChevronsLeftRight size={19} strokeWidth={2.5} className="drop-shadow" />
               </div>
             </div>
@@ -188,8 +189,8 @@ export default function DrawingToDoneSection() {
               <span className="block text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mb-1.5">
                 EXECUTION STATUS
               </span>
-              <span className="text-xs sm:text-[14px] lg:text-[15px] font-semibold text-[#d4af37] tracking-wide flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_#d4af37]"></span>
+              <span className="text-xs sm:text-[14px] lg:text-[15px] font-semibold text-[#7F5E12] tracking-wide flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#7F5E12] shadow-[0_0_8px_#7F5E12]"></span>
                 Delivered & Handed Over
               </span>
             </div>

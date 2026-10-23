@@ -28,8 +28,8 @@ export default function CtaSection({ onOpenContact }) {
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center py-20 sm:py-24 lg:py-28">
         {/* Tag: ■ LET'S TALK */}
         <div className="flex items-center justify-center gap-2.5 mb-5 sm:mb-6">
-          <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-          <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#ae7b13]">
+          <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+          <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#7F5E12]">
             LET&apos;S TALK
           </span>
         </div>
@@ -50,7 +50,7 @@ export default function CtaSection({ onOpenContact }) {
         <div className="w-full max-w-4xl flex flex-col sm:flex-row items-center sm:items-start justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 text-center">
           {/* Office Address */}
           <div className="flex flex-col items-center max-w-md sm:max-w-sm">
-            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#caa156] mb-2 sm:mb-2.5">
+            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12] mb-2 sm:mb-2.5">
               OFFICE ADDRESS
             </div>
             <p className="text-white font-normal text-sm sm:text-[14.5px] leading-relaxed drop-shadow-md">
@@ -67,12 +67,12 @@ export default function CtaSection({ onOpenContact }) {
 
           {/* Email */}
           <div className="flex flex-col items-center">
-            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#caa156] mb-2 sm:mb-2.5">
+            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12] mb-2 sm:mb-2.5">
               EMAIL
             </div>
             <a
               href="mailto:contact@unicospaces.com"
-              className="text-white hover:text-[#caa156] font-normal text-sm sm:text-[14.5px] leading-relaxed transition-colors duration-200 drop-shadow-md underline-offset-4 hover:underline"
+              className="text-white hover:text-[#7F5E12] font-normal text-sm sm:text-[14.5px] leading-relaxed transition-colors duration-200 drop-shadow-md underline-offset-4 hover:underline"
             >
               contact@unicospaces.com
             </a>

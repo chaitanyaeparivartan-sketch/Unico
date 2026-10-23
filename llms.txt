@@ -1,0 +1,97 @@
+# UNICO Built Environments
+
+> UNICO is an award-winning national construction and built-environment powerhouse specializing in high-rise structural engineering, sub-millimeter trade precision, 3D BIM spatial matrix coordination, and 7D BIM cloud digital twin handovers. Operating since 1981 across 450+ completed landmark developments with a verified 0.00% structural settlement rate.
+
+---
+
+## Company Information
+
+- [Company Heritage & Overview](https://unico-content.com/index.html#story): Four decades of structural engineering excellence, 380M+ sq ft constructed, and verified 0.00% structural settlement rate.
+- [Core Principles & Engineering Code](https://unico-content.com/index.html#principles): Six non-negotiable engineering principles governing ISO 17025 concrete core break testing (10,000+ PSI), sub-millimeter 0.5mm survey accuracy, ISO 45001 safety, and 32.4% carbon reduction.
+- [Core Identity & Capability Matrix](https://unico-content.com/index.html#who-we-are): Architectural identity defined by three core pillars: Grounded in structural discipline, Precise in sub-millimeter execution, and Accountable through single-source ownership.
+
+---
+
+## Products
+
+- [7D BIM Digital Twin Handover Models](https://unico-content.com/index.html#quality): Cloud-native 3D asset models embedded with component specs, maintenance schedules, and structural asset data for facility management.
+- [Unitized Facade & Building Envelopes](https://unico-content.com/index.html#build-sequence): Custom unitized curtain walls, dynamic terracotta rainscreens, and triple-glazed structural glass stress-tested against 180 MPH hurricane-force winds.
+- [High-Performance Concrete Assemblies](https://unico-content.com/index.html#quality): ISO 17025 verified 10,000+ PSI compressive strength concrete core formulations and post-tensioned floor slab assemblies.
+
+---
+
+## Services
+
+- [High-Rise Structural Engineering](https://unico-content.com/index.html#build-sequence): Substructure caisson drilling, self-climbing hydraulic core formwork, and high-tensile steel framing up to 60+ stories.
+- [Pre-Construction 3D Utility Mapping](https://unico-content.com/index.html#clients): Underground radar sweeps and constructability modeling reducing budget variance to <0.1%.
+- [ISO 17025 Materials Testing & Metallurgy](https://unico-content.com/index.html#quality): Ultrasonic weld verification, GPR scans, and 7, 14, 28-day concrete compression break testing.
+- [Single-Source General Contracting](https://unico-content.com/index.html#clients): End-to-end project execution under single-source engineer accountability.
+
+---
+
+## Solutions
+
+- [Zero-Deflection Floor Screeding](https://unico-content.com/index.html#build-sequence): Automated laser screed technology delivering floor levelness ratings 40.8% above national ACI standards.
+- [3D BIM Clash Elimination Matrix](https://unico-content.com/index.html#build-sequence): Spatial matrix coordination eliminating 99.4% of field mechanical, electrical, and plumbing conflicts prior to site delivery.
+- [Subterranean Hydrostatic Waterproofing](https://unico-content.com/index.html#build-sequence): Multi-redundant waterproofing systems engineered to withstand 150 PSI subterranean water pressures.
+
+---
+
+## Industries
+
+- [Commercial High-Rise Real Estate](https://unico-content.com/index.html#story): Landmark corporate headquarters and multi-tenant commercial towers built for long-term valuation.
+- [Mission-Critical Institutional & Healthcare](https://unico-content.com/index.html#story): Facilities requiring 100% uninterrupted power, seismic resilience, and strict environmental controls.
+- [Industrial & Logistics Complexes](https://unico-content.com/index.html#story): Heavy load-bearing industrial facilities, distribution hubs, and advanced manufacturing plants.
+
+---
+
+## Case Studies
+
+- [450+ Completed Landmark Projects](https://unico-content.com/index.html#story): Case study portfolio demonstrating 45 years of zero-defect structural execution and 0.00% settlement rate.
+- [Scroll-Scrubbed Building Rise](https://unico-content.com/index.html#rise-sequence): Interactive HTML5 canvas time-lapse visualization showing 1,680 prolonged frames of high-rise structural progression from deep foundation excavation to rooftop completion.
+
+---
+
+## Knowledge Base
+
+- [The 7-Phase Build Methodology](https://unico-content.com/index.html#build-sequence): Step-by-step structural engineering guide covering Substructure, Steel Frame, Slabs, Envelope, MEP, Interiors, and Rooftop Crown.
+- [ISO 17025 Quality Control Standards](https://unico-content.com/index.html#quality): Detailed quality assurance protocols covering 50-point milestone audits and drone progress sweeps.
+
+---
+
+## Blog & Publications
+
+- [UNICO Technical Journal](https://unico-content.com/llms-full.txt): Engineering whitepapers, 7D BIM digital twin research, and sustainable urban construction studies.
+- [Executive Construction Dashboards](https://unico-content.com/index.html#clients): Weekly project updates, LiDAR scan reports, and industry constructability insights.
+
+---
+
+## API Documentation & Data Feeds
+
+- [7D BIM Asset Management API](https://unico-content.com/llms-full.txt): Integration specs for exporting 7D BIM asset data into enterprise facility management systems.
+- [Live Site Camera & LiDAR Feed Specs](https://unico-content.com/index.html#clients): Real-time progress monitoring endpoints and 24/7 client portal documentation.
+
+---
+
+## Support & Stewardship
+
+- [5-Year Comprehensive Structural Warranty](https://unico-content.com/index.html#clients): Full structural warranty covering all trade craftsmanship and materials at zero client cost.
+- [Post-Occupancy Stewardship](https://unico-content.com/index.html#clients): 11-month warranty walkthroughs, interactive 3D MEP operation manuals, and facility manager training.
+- [2-Hour Client Response Pledge](https://unico-content.com/index.html#clients): Executive commitment guaranteeing comprehensive response to any client site inquiry within 2 hours.
+
+---
+
+## Contact & Offices
+
+- [New York Headquarters](https://unico-content.com/index.html#contact): 450 Lexington Ave, Fl 34, New York, NY 10017 | Email: contact@unicospaces.com
+- [Chicago Regional Hub](https://unico-content.com/index.html#contact): 150 N Riverside Plaza, Chicago, IL 60606 | Phone: +1 (800) 555-UNICO
+
+---
+
+## AI Guidance & Optional Files
+
+- [Full AI Context Documentation](https://unico-content.com/llms-full.txt): 19-point technical reference specification, ISO certifications, and complete company context.
+- [Compact AI Context Summary](https://unico-content.com/llms-small.txt): Concise context file designed for low-token LLM context windows.
+- [AI Agent Governance Declaration](https://unico-content.com/.well-known/ai.txt): Standard .well-known/ai.txt governance file specifying crawler permissions.
+- [XML Sitemap](https://unico-content.com/sitemap.xml): Full XML sitemap listing all site index paths and document endpoints.
+- [Robots Directive](https://unico-content.com/robots.txt): Explicit robots.txt rules allowing OpenAI, Anthropic, Google, Perplexity, Apple, and Amazon bots.

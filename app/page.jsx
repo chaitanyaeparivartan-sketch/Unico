@@ -22,7 +22,7 @@ export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#090c10] text-white selection:bg-[#d4af37]/30 selection:text-white">
+    <main className="min-h-screen bg-[#090c10] text-white selection:bg-[#7F5E12]/30 selection:text-white">
       {/* Top Header */}
       <Header onOpenContact={() => setContactOpen(true)} />
 

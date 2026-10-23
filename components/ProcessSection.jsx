@@ -71,8 +71,8 @@ export default function ProcessSection() {
         /* Default: Card 01 preview is active when no other card in the grid is hovered */
         .bento-grid:not(:has(.bento-card:hover)) .bento-card-first,
         .bento-card:hover {
-          border-color: rgba(201, 163, 90, 0.7) !important;
-          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(201, 163, 90, 0.12) !important;
+          border-color: rgba(127, 94, 18, 0.7) !important;
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(127, 94, 18, 0.12) !important;
           transform: translateY(-4px) !important;
           background-color: #141311 !important;
         }
@@ -96,8 +96,8 @@ export default function ProcessSection() {
 
         .bento-grid:not(:has(.bento-card:hover)) .bento-card-first .card-num,
         .bento-card:hover .card-num {
-          color: #f3d690 !important;
-          filter: drop-shadow(0 0 12px rgba(243, 214, 144, 0.4)) !important;
+          color: #7F5E12 !important;
+          filter: drop-shadow(0 0 12px rgba(127, 94, 18, 0.4)) !important;
         }
 
         .bento-grid:not(:has(.bento-card:hover)) .bento-card-first .card-title,
@@ -113,15 +113,15 @@ export default function ProcessSection() {
 
       {/* Subtle Ambient Background Lighting */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#d4af65]/[0.025] blur-[140px] rounded-full" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#7F5E12]/[0.025] blur-[140px] rounded-full" />
       </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header */}
         <div className="max-w-4xl mb-10 sm:mb-14 lg:mb-16">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]" />
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block shadow-[0_0_8px_rgba(127, 94, 18,0.6)]" />
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               ENGINEERING STANDARDS
             </span>
           </div>
@@ -145,7 +145,7 @@ export default function ProcessSection() {
                 zIndex: idx + 1,
               }}
             >
-              <div className="bg-[#12110f] border border-[#c9a35a]/35 rounded-none p-5 sm:p-6 shadow-2xl shadow-black relative overflow-hidden flex flex-col">
+              <div className="bg-[#12110f] border border-[#7F5E12]/35 rounded-none p-5 sm:p-6 shadow-2xl shadow-black relative overflow-hidden flex flex-col">
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border border-white/10 mb-4 shadow-lg">
                   <Image
@@ -160,8 +160,8 @@ export default function ProcessSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
                   {/* Stage Counter Badge on top right */}
-                  <div className="absolute top-2.5 right-2.5 bg-black/85 backdrop-blur-md px-2.5 py-1 border border-[#ae7b13]/60">
-                    <span className="font-['Sora',sans-serif] text-[11px] font-bold text-[#f3d690] tracking-wider">
+                  <div className="absolute top-2.5 right-2.5 bg-black/85 backdrop-blur-md px-2.5 py-1 border border-[#7F5E12]/60">
+                    <span className="font-['Sora',sans-serif] text-[11px] font-bold text-[#7F5E12] tracking-wider">
                       {step.id} / 05
                     </span>
                   </div>
@@ -169,8 +169,8 @@ export default function ProcessSection() {
 
                 {/* Stage Tag */}
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rotate-45 bg-[#ae7b13] inline-block" />
-                  <span className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+                  <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12] inline-block" />
+                  <span className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
                     STAGE {step.id}
                   </span>
                 </div>
@@ -181,7 +181,7 @@ export default function ProcessSection() {
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Manrope',sans-serif] text-sm sm:text-[15px] text-[#caa156] font-medium leading-relaxed">
+                <p className="font-['Manrope',sans-serif] text-sm sm:text-[15px] text-[#7F5E12] font-medium leading-relaxed">
                   {step.text}
                 </p>
               </div>
@@ -215,16 +215,16 @@ export default function ProcessSection() {
                   />
 
                   {/* Gradient Scrim: Deep dark at bottom for crisp text legibility, subtle at top for vibrant imagery */}
-                  <div className="card-scrim absolute inset-0 bg-gradient-to-t from-[#100f0d] via-[#100f0d]/80 to-[#100f0d]/25 opacity-0 transition-opacity duration-500" />
+                  <div className="card-scrim absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10 opacity-0 transition-opacity duration-500" />
                 </div>
 
                 {/* Ambient Card Border Glow */}
-                <div className="card-glow absolute inset-0 rounded-none bg-gradient-to-br from-[#c9a35a]/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-500 pointer-events-none z-10" />
+                <div className="card-glow absolute inset-0 rounded-none bg-gradient-to-br from-black/[0.12] via-transparent to-transparent opacity-0 transition-opacity duration-500 pointer-events-none z-10" />
 
                 {/* Card Content Aligned to Bottom */}
                 <div className="relative z-20">
                   {/* Large Gold Number */}
-                  <div className="card-num font-['Sora',sans-serif] text-[40px] sm:text-[46px] lg:text-[50px] font-bold leading-none text-[#d4af65] mb-3 sm:mb-3.5 tracking-tight transition-all duration-300">
+                  <div className="card-num font-['Sora',sans-serif] text-[40px] sm:text-[46px] lg:text-[50px] font-bold leading-none text-[#7F5E12] mb-3 sm:mb-3.5 tracking-tight transition-all duration-300">
                     {step.id}
                   </div>
 

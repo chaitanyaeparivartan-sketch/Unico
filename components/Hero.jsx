@@ -27,19 +27,19 @@ export default function Hero() {
   const slides = [
     {
       src: "/images/hero/hero-slide-1.webp",
-      alt: "Sunlit Tropical Villa Courtyard",
+      alt: "Tropical villa with landscaped courtyard",
     },
     {
       src: "/images/hero/hero-slide-2.webp",
-      alt: "Modern Architectural Landmark Estate",
+      alt: "Aerial view of a modern residential development",
     },
     {
       src: "/images/hero/hero-slide-3.webp",
-      alt: "Contemporary Luxury Residence Architecture",
+      alt: "Contemporary red and white institutional building",
     },
     {
       src: "/images/hero/hero-slide-4.webp",
-      alt: "Sunny Tropical Bungalow Pathway",
+      alt: "Sunny tropical bungalow pathway",
     },
   ];
 
@@ -75,12 +75,12 @@ export default function Hero() {
             opacity: 0;
             transform: scale(0.8);
             letter-spacing: 0em;
-            filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            filter: drop-shadow(0 0 0px rgba(127, 94, 18, 0));
           }
           65% {
             transform: scale(1.06);
             letter-spacing: 0.015em;
-            filter: drop-shadow(0 4px 28px rgba(212, 175, 55, 0.45));
+            filter: drop-shadow(0 4px 28px rgba(127, 94, 18, 0.45));
           }
           100% {
             opacity: 1;

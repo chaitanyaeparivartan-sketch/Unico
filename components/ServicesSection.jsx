@@ -30,8 +30,8 @@ export default function ServicesSection({ onOpenContact }) {
       id: "04",
       title: "Industrial Buildings",
       desc: "Turnkey industrial infrastructure, advanced manufacturing plants, and cleanroom facilities engineered for operational precision, structural resilience, and high-efficiency workflows.",
-      image: "/images/services/service-industrial.webp",
-      alt: "Industrial Buildings and Modern Manufacturing Architecture",
+      image: "/images/featured/industrial/ba-frame-5.webp",
+      alt: "Industrial manufacturing machinery and equipment",
     },
   ];
 
@@ -42,8 +42,8 @@ export default function ServicesSection({ onOpenContact }) {
         <div className="mb-5 sm:mb-6">
           {/* Tag */}
           <div className="flex items-center gap-2 mb-2.5">
-            <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               SERVICES
             </span>
           </div>
@@ -102,7 +102,7 @@ export default function ServicesSection({ onOpenContact }) {
                         el.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="border border-white/20 text-white bg-transparent hover:bg-[#bf900e] hover:border-[#bf900e] hover:text-white px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-[13px] font-medium uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer shadow-sm inline-flex items-center gap-2 group/btn"
+                    className="border border-white/20 text-white bg-transparent hover:bg-[#7F5E12] hover:border-[#7F5E12] hover:text-white px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-[13px] font-medium uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer shadow-sm inline-flex items-center gap-2 group/btn"
                   >
                     <span>View Our Services</span>
                     <ArrowUpRight

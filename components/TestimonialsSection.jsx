@@ -155,7 +155,7 @@ export default function TestimonialsSection() {
       className="relative w-full bg-black text-white py-10 sm:py-12 lg:py-14 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5 scroll-mt-10 overflow-hidden"
     >
       {/* Background Subtle Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#d4af65]/[0.02] blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#7F5E12]/[0.02] blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header Row */}
@@ -163,8 +163,8 @@ export default function TestimonialsSection() {
           <div className="max-w-3xl">
             {/* Tagline / Eyebrow */}
             <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-              <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block" />
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+              <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block" />
+              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
                 CLIENT VOICES
               </span>
             </div>
@@ -222,7 +222,7 @@ export default function TestimonialsSection() {
             >
               <div>
                 {/* 5 Gold Star Rating at Top of Card */}
-                <div className="flex items-center gap-1.5 text-[#caa156] mb-5 sm:mb-6">
+                <div className="flex items-center gap-1.5 text-[#7F5E12] mb-5 sm:mb-6">
                   {[...Array(item.stars || 5)].map((_, starIdx) => (
                     <svg
                       key={starIdx}
@@ -246,7 +246,7 @@ export default function TestimonialsSection() {
                   className={`relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full overflow-hidden ${
                     item.hasRing
                       ? "drop-shadow-[0_0_12px_rgba(202,161,86,0.5)]"
-                      : "ring-2 ring-[#caa156] shadow-[0_0_14px_rgba(202,161,86,0.4)]"
+                      : "ring-2 ring-[#7F5E12] shadow-[0_0_14px_rgba(202,161,86,0.4)]"
                   }`}
                 >
                   <Image
@@ -263,7 +263,7 @@ export default function TestimonialsSection() {
                   <div className="font-bold text-white text-[16px] sm:text-[17px] tracking-tight leading-snug truncate">
                     {item.author}
                   </div>
-                  <div className="text-[12.5px] sm:text-[13px] text-[#caa156] font-medium mt-1 leading-snug">
+                  <div className="text-[12.5px] sm:text-[13px] text-[#7F5E12] font-medium mt-1 leading-snug">
                     {item.role}
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function TestimonialsSection() {
               onClick={() => setStartIndex(i)}
               className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                 i === startIndex % total
-                  ? "w-6 bg-[#caa156]"
+                  ? "w-6 bg-[#7F5E12]"
                   : "w-1.5 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}

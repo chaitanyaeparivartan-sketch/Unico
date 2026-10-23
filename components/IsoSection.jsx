@@ -13,7 +13,7 @@ function IsoBadge({ number }) {
           cy="60"
           r="54"
           fill="none"
-          stroke="#ae7b13"
+          stroke="#7F5E12"
           strokeWidth="1.2"
           strokeDasharray="2 3.5"
           className="opacity-75"
@@ -24,15 +24,15 @@ function IsoBadge({ number }) {
           cy="60"
           r="46"
           fill="#0c1017"
-          stroke="#ae7b13"
+          stroke="#7F5E12"
           strokeWidth="1.5"
-          className="transition-colors duration-300 group-hover:stroke-[#d4af37]"
+          className="transition-colors duration-300 group-hover:stroke-[#7F5E12]"
         />
       </svg>
 
       {/* Center ISO & Number */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
-        <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-[#d4af37] mb-0.5">
+        <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-[#7F5E12] mb-0.5">
           ISO
         </span>
         <span className="text-[22px] sm:text-[24px] font-bold tracking-tight text-white">
@@ -74,8 +74,8 @@ export default function IsoSection() {
         {/* Section Header */}
         <div className="max-w-3xl mb-14 sm:mb-16 lg:mb-20">
           <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               STANDARDS & ACCREDITATIONS
             </span>
           </div>

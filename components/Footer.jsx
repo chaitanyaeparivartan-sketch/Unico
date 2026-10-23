@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer({ onOpenContact }) {
   return (
-    <footer className="relative bg-[#0d0907] text-white overflow-hidden select-none border-t border-white/10">
+    <footer className="relative bg-[#080808] text-white overflow-hidden select-none border-t border-white/10">
       {/* Background Brick Texture with Moody Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -17,7 +17,7 @@ export default function Footer({ onOpenContact }) {
           quality={90}
         />
         {/* Dark Vignette & Shading Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0705]/85 via-[#0a0705]/75 to-[#080504]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/85 via-[#080808]/75 to-[#050505]/90" />
       </div>
 
       {/* Main Footer Container */}
@@ -42,7 +42,7 @@ export default function Footer({ onOpenContact }) {
 
           {/* Column 2: NAVIGATION (Side-by-side with Social Links on Mobile) */}
           <div className="col-span-1 lg:col-span-1 order-2 lg:order-none">
-            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#caa156] mb-4 sm:mb-5">
+            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#7F5E12] mb-4 sm:mb-5">
               NAVIGATION
             </h5>
             <ul className="space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] text-neutral-300 font-normal">
@@ -95,7 +95,7 @@ export default function Footer({ onOpenContact }) {
 
           {/* Column 4: SOCIAL LINKS (Side-by-side with Navigation on Mobile) */}
           <div className="col-span-1 lg:col-span-1 order-3 lg:order-none">
-            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#caa156] mb-4 sm:mb-5">
+            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#7F5E12] mb-4 sm:mb-5">
               SOCIAL LINKS
             </h5>
             <div className="space-y-4">
@@ -105,7 +105,7 @@ export default function Footer({ onOpenContact }) {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#caa156] transition-colors duration-200 text-[14px] sm:text-[15px]"
+                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#7F5E12] transition-colors duration-200 text-[14px] sm:text-[15px]"
                 >
                   <span>Instagram</span>
                   <ArrowUpRight size={14} className="stroke-[2.2]" />
@@ -121,7 +121,7 @@ export default function Footer({ onOpenContact }) {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#caa156] transition-colors duration-200 text-[14px] sm:text-[15px]"
+                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#7F5E12] transition-colors duration-200 text-[14px] sm:text-[15px]"
                 >
                   <span>LinkedIn</span>
                   <ArrowUpRight size={14} className="stroke-[2.2]" />
@@ -137,7 +137,7 @@ export default function Footer({ onOpenContact }) {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#caa156] transition-colors duration-200 text-[14px] sm:text-[15px]"
+                  className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#7F5E12] transition-colors duration-200 text-[14px] sm:text-[15px]"
                 >
                   <span>YouTube</span>
                   <ArrowUpRight size={14} className="stroke-[2.2]" />
@@ -151,13 +151,13 @@ export default function Footer({ onOpenContact }) {
 
           {/* Column 3: CONTACT (Full width below Nav & Socials on Mobile) */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 order-4 lg:order-none lg:pl-6 xl:pl-8">
-            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#caa156] mb-4 sm:mb-5">
+            <h5 className="text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase text-[#7F5E12] mb-4 sm:mb-5">
               CONTACT
             </h5>
             <div className="space-y-4 sm:space-y-5 text-[14px] text-neutral-300">
               {/* Office Address */}
               <div>
-                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#caa156] mb-1.5">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#7F5E12] mb-1.5">
                   OFFICE ADDRESS
                 </div>
                 <p className="text-neutral-300 font-normal text-[13.5px] sm:text-[14px] leading-relaxed max-w-sm md:max-w-xs">
@@ -167,7 +167,7 @@ export default function Footer({ onOpenContact }) {
 
               {/* Email */}
               <div>
-                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#caa156] mb-1.5">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#7F5E12] mb-1.5">
                   EMAIL
                 </div>
                 <a
@@ -180,7 +180,7 @@ export default function Footer({ onOpenContact }) {
 
               {/* WhatsApp */}
               {/* <div>
-                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#caa156] mb-1.5">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#7F5E12] mb-1.5">
                   WHATSAPP
                 </div>
                 <a

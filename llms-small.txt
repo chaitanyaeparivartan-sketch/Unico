@@ -1,0 +1,6 @@
+# UNICO Built Environments
+
+> National commercial, residential, and industrial construction leader specializing in high-rise structural engineering, sub-millimeter trade precision, and 7D BIM digital twin handovers. Operating since 1981.
+
+- [Website](https://unico-content.com/index.html): Built environment solutions, project portfolio, and client collaboration framework
+- [Full Context Documentation](https://unico-content.com/llms-full.txt): Complete technical specifications, ISO certifications, and 7-phase build methodology

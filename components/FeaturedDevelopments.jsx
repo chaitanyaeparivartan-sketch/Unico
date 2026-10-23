@@ -237,8 +237,8 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         {/* Section Header */}
         <div className="mb-10 sm:mb-12 lg:mb-14">
           <div className="flex items-center gap-2 mb-3 sm:mb-3.5">
-            <span className="w-2 h-2 rotate-45 bg-[#bf900e] inline-block"></span>
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#bf900e]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block"></span>
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               FEATURED DEVELOPMENTS
             </span>
           </div>
@@ -339,11 +339,11 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                             className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-2xl"
                             aria-label={`View More about ${item.title}`}
                           >
-                            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+                            <span className="bg-[#7F5E12] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-4 sm:px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#7F5E12]">
                               View More
                             </span>
                             <span className="w-[1px] bg-white/25"></span>
-                            <span className="bg-[#bf900e] text-white px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+                            <span className="bg-[#7F5E12] text-white px-2.5 sm:px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#7F5E12]">
                               <ArrowUpRight
                                 size={15}
                                 strokeWidth={2.2}
@@ -377,11 +377,11 @@ export default function FeaturedDevelopments({ onOpenContact }) {
             className="group/btn flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-2xl"
             aria-label={showAll ? "Show Fewer Projects" : "View All Projects"}
           >
-            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white text-[12px] sm:text-[12.5px] font-bold tracking-[0.12em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#7F5E12]">
               {showAll ? "Show Less" : "View All"}
             </span>
             <span className="w-[1px] bg-white/25"></span>
-            <span className="bg-[#bf900e] text-white px-3 sm:px-3.5 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white px-3 sm:px-3.5 py-3 sm:py-3.5 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#7F5E12]">
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
@@ -411,7 +411,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
             <button
               type="button"
               onClick={handleClosePreview}
-              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-5 z-30 p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-[#bf900e] text-white border border-white/20 hover:border-[#bf900e] transition-all duration-200 backdrop-blur-md shadow-lg cursor-pointer group"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-5 z-30 p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-[#7F5E12] text-white border border-white/20 hover:border-[#7F5E12] transition-all duration-200 backdrop-blur-md shadow-lg cursor-pointer group"
               aria-label="Close Preview"
             >
               <X size={18} className="transition-transform group-hover:scale-110" />
@@ -422,8 +422,8 @@ export default function FeaturedDevelopments({ onOpenContact }) {
               {/* Title & Subtitle */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rotate-45 bg-[#bf900e]" />
-                  <span className="text-[#caa156] font-bold text-[10px] sm:text-[11px] tracking-[0.16em] uppercase">
+                  <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12]" />
+                  <span className="text-[#7F5E12] font-bold text-[10px] sm:text-[11px] tracking-[0.16em] uppercase">
                     {selectedProject.subtitle}
                   </span>
                 </div>
@@ -440,7 +440,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       key={label}
                       className="bg-[#141820] border border-white/10 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-1.5 shadow-sm"
                     >
-                      <span className="text-[#caa156] text-[9px] sm:text-[9.5px] font-bold tracking-[0.14em] uppercase block leading-none mb-0.5">
+                      <span className="text-[#7F5E12] text-[9px] sm:text-[9.5px] font-bold tracking-[0.14em] uppercase block leading-none mb-0.5">
                         {label}
                       </span>
                       <span className="text-white text-xs sm:text-[12.5px] font-medium block leading-tight whitespace-nowrap">
@@ -471,7 +471,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                 <button
                   type="button"
                   onClick={handlePrevImage}
-                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#bf900e] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#7F5E12] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
                   aria-label="Previous image"
                 >
                   <ChevronLeft
@@ -486,7 +486,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                 <button
                   type="button"
                   onClick={handleNextImage}
-                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#bf900e] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/60 hover:bg-[#7F5E12] text-white border border-white/20 transition-all duration-200 backdrop-blur-md shadow-2xl group cursor-pointer z-10"
                   aria-label="Next image"
                 >
                   <ChevronRight
@@ -517,7 +517,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       onClick={() => setActiveImageIndex(imgIdx)}
                       className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${
                         activeImageIndex === imgIdx
-                          ? "border-[#bf900e] ring-2 ring-[#bf900e]/60 scale-105"
+                          ? "border-[#7F5E12] ring-2 ring-[#7F5E12]/60 scale-105"
                           : "border-white/15 opacity-60 hover:opacity-100"
                       }`}
                     >

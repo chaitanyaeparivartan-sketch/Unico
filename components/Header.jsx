@@ -82,9 +82,13 @@ export default function Header({ onOpenContact }) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-black/80 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
-          : "bg-gradient-to-b from-black/60 via-black/25 to-transparent py-5 sm:py-6"
+          : "bg-transparent py-5 sm:py-6"
       }`}
     >
+      {!isScrolled && (
+        <div className="absolute inset-x-0 top-0 h-52 sm:h-60 bg-gradient-to-b from-black/90 via-black/55 to-transparent pointer-events-none" />
+      )}
+
       {/* Page Load Growing Animations */}
       <style>{`
         @keyframes navGrowIn {
@@ -107,16 +111,16 @@ export default function Header({ onOpenContact }) {
           0% {
             opacity: 0;
             transform: scale(0.78);
-            filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            filter: drop-shadow(0 0 0px rgba(127, 94, 18, 0));
           }
           65% {
             transform: scale(1.08);
-            filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.75));
+            filter: drop-shadow(0 0 28px rgba(127, 94, 18, 0.75));
           }
           100% {
             opacity: 1;
             transform: scale(1);
-            filter: drop-shadow(0 2px 12px rgba(212, 175, 55, 0.4));
+            filter: drop-shadow(0 2px 12px rgba(127, 94, 18, 0.4));
           }
         }
 
@@ -147,7 +151,7 @@ export default function Header({ onOpenContact }) {
         }
       `}</style>
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
         {/* Left Navigation (Projects, Our Story, Our Work) with Active Indicator (No Dot) */}
         <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase font-medium">
           {leftNavItems.map((item, idx) => {
@@ -160,14 +164,14 @@ export default function Header({ onOpenContact }) {
                 style={{ animationDelay: `${idx * 120}ms` }}
                 className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${
                   isActive
-                    ? "text-[#d4af37] font-semibold"
+                    ? "text-[#7F5E12] font-semibold"
                     : "text-white/85 hover:text-white"
                 }`}
               >
                 <span
                   className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
                     isActive
-                      ? "text-[#d4af37]"
+                      ? "text-[#7F5E12]"
                       : "group-hover:text-white"
                   }`}
                 >
@@ -176,7 +180,7 @@ export default function Header({ onOpenContact }) {
 
                 {/* Solid Gold Underline on Active & Hover */}
                 <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#d4af37] transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${
                     isActive
                       ? "w-full opacity-100"
                       : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
@@ -199,7 +203,7 @@ export default function Header({ onOpenContact }) {
                 alt="UNICO Logo"
                 fill
                 priority
-                className="object-contain filter drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]"
+                className="object-contain filter drop-shadow-[0_2px_12px_rgba(127, 94, 18,0.4)]"
                 sizes="(max-width: 768px) 180px, 180px"
               />
             </div>
@@ -219,14 +223,14 @@ export default function Header({ onOpenContact }) {
                   style={{ animationDelay: `${380 + idx * 120}ms` }}
                   className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${
                     isActive
-                      ? "text-[#d4af37] font-semibold"
+                      ? "text-[#7F5E12] font-semibold"
                       : "text-white/85 hover:text-white"
                   }`}
                 >
                   <span
                     className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
                       isActive
-                        ? "text-[#d4af37]"
+                        ? "text-[#7F5E12]"
                         : "group-hover:text-white"
                     }`}
                   >
@@ -235,7 +239,7 @@ export default function Header({ onOpenContact }) {
 
                   {/* Solid Gold Underline on Active & Hover */}
                   <span
-                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#d4af37] transition-all duration-300 ${
+                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${
                       isActive
                         ? "w-full opacity-100"
                         : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
@@ -254,13 +258,13 @@ export default function Header({ onOpenContact }) {
             className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.04] animate-cta-grow shadow-md hover:shadow-[0_4px_20px_rgba(191,144,14,0.4)]"
             aria-label="Start a Project"
           >
-            <span className="bg-[#bf900e] text-white text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.12em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.12em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
               <span className="inline-block transition-all duration-300 group-hover:scale-105 group-hover:tracking-[0.16em]">
                 START A PROJECT
               </span>
             </span>
             <span className="w-[1px] bg-white/25"></span>
-            <span className="bg-[#bf900e] text-white px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
@@ -278,17 +282,17 @@ export default function Header({ onOpenContact }) {
             className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-md"
             aria-label="Start a Project"
           >
-            <span className="bg-[#bf900e] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#7F5E12]">
               START A PROJECT
             </span>
             <span className="w-[1px] bg-white/25"></span>
-            <span className="bg-[#bf900e] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#ce9e16]">
+            <span className="bg-[#7F5E12] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#7F5E12]">
               <ArrowUpRight size={14} />
             </span>
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#caa156] hover:text-[#e6c669] transition-colors"
+            className="p-2 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
@@ -299,7 +303,7 @@ export default function Header({ onOpenContact }) {
         <div className="flex items-center lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1 text-[#caa156] hover:text-[#e6c669] transition-colors"
+            className="p-1 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X size={34} strokeWidth={2.2} /> : <Menu size={34} strokeWidth={2.2} />}
@@ -321,7 +325,7 @@ export default function Header({ onOpenContact }) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`py-1.5 transition-all duration-300 group flex items-center justify-between border-b border-white/5 ${
                     isActive
-                      ? "text-[#d4af37] font-semibold"
+                      ? "text-[#7F5E12] font-semibold"
                       : "text-white/80 hover:text-white"
                   }`}
                 >
@@ -329,7 +333,7 @@ export default function Header({ onOpenContact }) {
                     {item.label}
                   </span>
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rotate-45 bg-[#d4af37]" />
+                    <span className="w-1.5 h-1.5 rotate-45 bg-[#7F5E12]" />
                   )}
                 </Link>
               );
@@ -342,11 +346,11 @@ export default function Header({ onOpenContact }) {
                 className="w-full group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden shadow-md"
                 aria-label="Start a Project"
               >
-                <span className="flex-1 bg-[#bf900e] text-white px-5 py-3 font-bold tracking-wider text-xs uppercase flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
+                <span className="flex-1 bg-[#7F5E12] text-white px-5 py-3 font-bold tracking-wider text-xs uppercase flex items-center justify-center transition-colors group-hover:bg-[#7F5E12]">
                   START A PROJECT
                 </span>
                 <span className="w-[1px] bg-white/25"></span>
-                <span className="bg-[#bf900e] text-white px-4 py-3 flex items-center justify-center transition-colors group-hover:bg-[#ce9e16]">
+                <span className="bg-[#7F5E12] text-white px-4 py-3 flex items-center justify-center transition-colors group-hover:bg-[#7F5E12]">
                   <ArrowUpRight size={16} />
                 </span>
               </a>

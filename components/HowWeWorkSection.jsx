@@ -41,8 +41,8 @@ export default function HowWeWorkSection() {
         <div className="relative py-8 sm:py-12 lg:sticky lg:top-28 lg:flex lg:h-[70vh] lg:flex-col lg:justify-center lg:self-start lg:py-0">
           {/* Eyebrow: Diamond + THE PROCESS */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block shadow-[0_0_8px_rgba(174,123,19,0.6)]" />
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
+            <span className="w-2 h-2 rotate-45 bg-[#7F5E12] inline-block shadow-[0_0_8px_rgba(127, 94, 18,0.6)]" />
+            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12]">
               THE PROCESS
             </span>
           </div>
@@ -75,8 +75,8 @@ export default function HowWeWorkSection() {
                 {/* Number in Signature Gold */}
                 <span
                   aria-hidden="true"
-                  className={`m-0 origin-left font-sans font-extrabold leading-[0.85] tracking-[-0.04em] transition-all duration-500 text-[clamp(80px,18vw,140px)] sm:text-[clamp(90px,14vw,160px)] lg:text-[clamp(110px,11vw,180px)] text-[#ae7b13] ${
-                    isActive ? "scale-[1.03] drop-shadow-[0_0_24px_rgba(174,123,19,0.35)]" : ""
+                  className={`m-0 origin-left font-sans font-extrabold leading-[0.85] tracking-[-0.04em] transition-all duration-500 text-[clamp(80px,18vw,140px)] sm:text-[clamp(90px,14vw,160px)] lg:text-[clamp(110px,11vw,180px)] text-[#7F5E12] ${
+                    isActive ? "scale-[1.03] drop-shadow-[0_0_24px_rgba(127, 94, 18,0.35)]" : ""
                   }`}
                 >
                   {pad(i + 1)}
@@ -84,7 +84,7 @@ export default function HowWeWorkSection() {
 
                 <h3 className="max-w-[20em] text-lg sm:text-xl lg:text-2xl font-light leading-[1.4] text-white">
                   {title}
-                  <span className="mt-3.5 block h-0.5 w-10 bg-[#ae7b13]" />
+                  <span className="mt-3.5 block h-0.5 w-10 bg-[#7F5E12]" />
                 </h3>
               </article>
             );
