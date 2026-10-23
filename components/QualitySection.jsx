@@ -16,117 +16,55 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
   - ISO Accreditations: 3-column layout with vertical dividers and rotating medallion IsoBadge
 */
 
-// Restored Original IsoBadge with rotating outer ring on hover
-function IsoBadge({ number }) {
-  return (
-    <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mb-8 group cursor-default">
-      <svg
-        viewBox="0 0 120 120"
-        className="w-full h-full transition-transform duration-700 ease-out group-hover:rotate-45"
-      >
-        {/* Outer Dotted / Ticked Ring */}
-        <circle
-          cx="60"
-          cy="60"
-          r="54"
-          fill="none"
-          stroke="#ae7b13"
-          strokeWidth="1.2"
-          strokeDasharray="2 3.5"
-          className="opacity-75"
-        />
-        {/* Inner Solid Gold Ring */}
-        <circle
-          cx="60"
-          cy="60"
-          r="46"
-          fill="#0c1017"
-          stroke="#ae7b13"
-          strokeWidth="1.5"
-          className="transition-colors duration-300 group-hover:stroke-[#d4af37]"
-        />
-      </svg>
-
-      {/* Center ISO & Number */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
-        <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-[#d4af37] mb-0.5">
-          ISO
-        </span>
-        <span className="text-[22px] sm:text-[24px] font-bold tracking-tight text-white">
-          {number}
-        </span>
-      </div>
-    </div>
-  );
-}
-
 const COMMITMENTS = [
   {
     id: "01",
     title: "Approved materials from trusted sources",
     tag: "Certified Supply Chain",
     desc: "Rigorous laboratory testing and tier-1 vendor verification for all cement, structural steel, aggregates, and engineered components.",
-    image: "/images/quality/Construction Material List for House Building India _ AECORD Blog.jpg",
+    image: "/images/quality/quality-01-materials.webp",
   },
   {
     id: "02",
     title: "Quality checks at every critical stage",
     tag: "Multi-Tier Inspections",
     desc: "Comprehensive engineering audits, slump & cube-strength testing at every milestone prior to subsequent phase clearance.",
-    image: "/images/quality/Construction Quality Inspection at Daylight.png",
+    image: "/images/quality/quality-02-inspections.webp",
   },
   {
     id: "03",
     title: "Strong site supervision & execution control",
     tag: "Site Governance",
     desc: "Dedicated senior site engineers and certified safety supervisors maintaining round-the-clock precision and tolerance standards.",
-    image: "/images/quality/Supervisor Directing a Busy Construction Site.png",
+    image: "/images/quality/quality-03-supervision.webp",
   },
   {
     id: "04",
     title: "Progress & QC updates shared regularly",
     tag: "Transparent Reporting",
     desc: "Weekly photographic audits, digital milestones, and quality control reports shared directly with property owners and partners.",
-    image: "/images/quality/Construction Planning at the Site.png",
+    image: "/images/quality/quality-04-reporting.webp",
   },
   {
     id: "05",
     title: "Safety, finish & long-term performance",
     tag: "Enduring Finishes",
     desc: "Zero-compromise safety protocols coupled with architectural finish tolerances engineered to perform flawlessly for generations.",
-    image: "/images/quality/Residential Building Inspection.png",
+    image: "/images/quality/quality-05-safety.webp",
   },
   {
     id: "06",
     title: "Complete drawings, records & documentation",
     tag: "As-Built Archives",
     desc: "Detailed architectural drawings, structural calculations, and MEP warranties catalogued for lifelong reference and transparency.",
-    image: "/images/quality/Construction Engineers Reviewing Plans Onsite.png",
+    image: "/images/quality/quality-06-documentation.webp",
   },
   {
     id: "07",
     title: "Support continuing after completion",
     tag: "Lifecycle Warranty",
     desc: "Post-handover transition assistance, structured maintenance checks, and long-term structural guarantee stewardship.",
-    image: "/images/quality/Modern Home Handover Inspection.png",
-  },
-];
-
-const ISO_STANDARDS = [
-  {
-    number: "9001",
-    title: "Quality Management",
-    desc: "Consistent, documented processes from groundbreaking to handover.",
-  },
-  {
-    number: "14001",
-    title: "Environmental Management",
-    desc: "Responsible construction that respects people and the planet.",
-  },
-  {
-    number: "45001",
-    title: "Health & Safety",
-    desc: "Safe sites and safe teams, with safety built into every stage of work.",
+    image: "/images/quality/quality-07-support.webp",
   },
 ];
 
@@ -402,56 +340,6 @@ export default function QualitySection() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Restored Original 3-Column ISO Layout with Vertical Dividers & Rotating Medallion Badges */}
-      <div className="border-t border-white/10 pt-16 sm:pt-20 lg:pt-24 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-18 lg:pb-24">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-14 lg:mb-16 text-center md:text-left flex flex-col items-center md:items-start mx-auto md:mx-0">
-          <div className="flex items-center justify-center md:justify-start gap-2.5 mb-3.5">
-            <span className="w-2 h-2 rotate-45 bg-[#ae7b13] inline-block" />
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#ae7b13]">
-              STANDARDS & ACCREDITATIONS
-            </span>
-          </div>
-
-          <h3 className="font-canela text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-white font-light leading-[1.12] mb-4">
-            ISO Certified Excellence
-          </h3>
-
-          <p className="text-neutral-400 text-sm sm:text-base md:text-[16.5px] font-light leading-relaxed max-w-2xl">
-            Internationally recognised standards behind every site and handover.
-          </p>
-        </div>
-
-        {/* 3-Column Grid with Vertical Hairline Dividers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-white/10 md:divide-x md:divide-white/10">
-          {ISO_STANDARDS.map((item, idx) => (
-            <div
-              key={item.number}
-              className={`py-10 sm:py-12 md:py-14 flex flex-col items-center text-center md:items-start md:text-left ${
-                idx === 0
-                  ? "md:pr-10 lg:pr-14"
-                  : idx === 1
-                  ? "md:px-10 lg:px-14 border-t border-white/10 md:border-t-0"
-                  : "md:pl-10 lg:pl-14 border-t border-white/10 md:border-t-0"
-              }`}
-            >
-              {/* Rotating Medallion Badge */}
-              <IsoBadge number={item.number} />
-
-              {/* Title */}
-              <h4 className="font-sans text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
-                {item.title}
-              </h4>
-
-              {/* Description */}
-              <p className="text-neutral-400 text-sm sm:text-[15px] font-light leading-relaxed max-w-sm mx-auto md:mx-0">
-                {item.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

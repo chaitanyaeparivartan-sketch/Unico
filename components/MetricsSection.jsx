@@ -126,7 +126,7 @@ export default function MetricsSection() {
               <video
                 ref={videoRef}
                 src="/video/updated_UNICO.mp4"
-                poster="/images/video-poster.jpg"
+                poster="/images/metrics/metrics-video-poster.webp"
                 playsInline
                 loop
                 muted={isMuted}

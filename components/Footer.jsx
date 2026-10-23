@@ -10,7 +10,7 @@ export default function Footer({ onOpenContact }) {
       {/* Background Brick Texture with Moody Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/footer-brick-bg.jpg"
+          src="/images/footer/footer-brick-bg.webp"
           alt="Architectural Brick Background"
           fill
           className="object-cover object-center opacity-40 mix-blend-luminosity brightness-75 contrast-125"
@@ -30,7 +30,7 @@ export default function Footer({ onOpenContact }) {
               className="relative w-64 sm:w-72 lg:w-[335px] h-48 sm:h-56 lg:h-[250px] block group mx-auto md:mx-0"
             >
               <Image
-                src="/images/unico-logo-cropped.png"
+                src="/images/logo/unico-logo.png"
                 alt="UNICO - Built for the life inside."
                 fill
                 className="object-contain object-center md:object-left-top transition-transform duration-300 group-hover:scale-[1.02]"
@@ -179,7 +179,7 @@ export default function Footer({ onOpenContact }) {
               </div>
 
               {/* WhatsApp */}
-              <div>
+              {/* <div>
                 <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#caa156] mb-1.5">
                   WHATSAPP
                 </div>
@@ -191,7 +191,7 @@ export default function Footer({ onOpenContact }) {
                 >
                   +91 0000000000
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

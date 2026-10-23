@@ -22,43 +22,43 @@ import Image from "next/image";
 const ROW_1_BRANDS = [
   {
     name: "Sancta Maria International School",
-    src: "/images/brands/sancta-maria.webp",
+    src: "/images/clients/sancta-maria.webp",
     width: 200,
     height: 100,
   },
   {
     name: "St. Mary's Educational Society",
-    src: "/images/brands/st-marys.webp",
+    src: "/images/clients/st-marys.webp",
     width: 180,
     height: 90,
   },
   {
     name: "B&A Health",
-    src: "/images/brands/ba-health.webp",
+    src: "/images/clients/ba-health.webp",
     width: 170,
     height: 85,
   },
   {
     name: "Legala",
-    src: "/images/brands/legala.webp",
+    src: "/images/clients/legala.webp",
     width: 170,
     height: 85,
   },
   {
     name: "Lé Gala Resort",
-    src: "/images/brands/legala_resort.webp",
+    src: "/images/clients/legala_resort.webp",
     width: 180,
     height: 90,
   },
   {
     name: "The Alta Group",
-    src: "/images/brands/alta.webp",
+    src: "/images/clients/alta.webp",
     width: 170,
     height: 85,
   },
   {
     name: "50+ Private Villa Clients & More",
-    src: "/images/brands/private-villas.webp",
+    src: "/images/clients/private-villas.webp",
     width: 220,
     height: 90,
   },
@@ -68,39 +68,39 @@ const ROW_1_BRANDS = [
 const ROW_2_BRANDS = [
   {
     name: "Apollo Hospitals",
-    src: "/images/brands/apollo.webp",
+    src: "/images/clients/apollo.webp",
     width: 180,
     height: 90,
     scale: "scale-110",
   },
   {
     name: "HDFC Bank",
-    src: "/images/brands/hdfc-bank.webp",
+    src: "/images/clients/hdfc-bank.webp",
     width: 180,
     height: 90,
     scale: "scale-110",
   },
   {
     name: "Maruti Suzuki",
-    src: "/images/brands/maruti-suzuki.webp",
+    src: "/images/clients/maruti-suzuki.webp",
     width: 190,
     height: 90,
   },
   {
     name: "Modulus Housing",
-    src: "/images/brands/modulus.webp",
+    src: "/images/clients/modulus.webp",
     width: 180,
     height: 90,
   },
   {
     name: "Peter England",
-    src: "/images/brands/peter-england.webp",
+    src: "/images/clients/peter-england.webp",
     width: 180,
     height: 90,
   },
   {
     name: "TVS Motor Company",
-    src: "/images/brands/tvs.webp",
+    src: "/images/clients/tvs.webp",
     width: 180,
     height: 90,
   },
@@ -110,37 +110,37 @@ const ROW_2_BRANDS = [
 const ROW_3_BRANDS = [
   {
     name: "Microsoft",
-    src: "/images/brands/microsoft.webp",
+    src: "/images/clients/microsoft.webp",
     width: 190,
     height: 90,
   },
   {
     name: "DRDO",
-    src: "/images/brands/drdo.webp",
+    src: "/images/clients/drdo.webp",
     width: 150,
     height: 90,
   },
   {
     name: "GMR",
-    src: "/images/brands/gmr.webp",
+    src: "/images/clients/gmr.webp",
     width: 170,
     height: 85,
   },
   {
     name: "Candeur",
-    src: "/images/brands/candeur.webp",
+    src: "/images/clients/candeur.webp",
     width: 180,
     height: 90,
   },
   {
     name: "Indian Immunologicals",
-    src: "/images/brands/indian-immunologicals.webp",
+    src: "/images/clients/indian-immunologicals.webp",
     width: 200,
     height: 90,
   },
   {
     name: "Pepsi",
-    src: "/images/brands/pepsi.webp",
+    src: "/images/clients/pepsi.webp",
     width: 170,
     height: 85,
   },
@@ -247,16 +247,16 @@ export default function ClientLogosSection() {
                 {[...ROW_1_BRANDS, ...ROW_1_BRANDS].map((brand, index) => (
                   <div
                     key={`row1-${brand.name}-${index}`}
-                    className="flex items-center gap-3 sm:gap-6 md:gap-8 mx-3 sm:mx-6 md:mx-8 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
+                    className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 mx-1 sm:mx-2 md:mx-2.5 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
                   >
-                    <div className="w-36 sm:w-48 md:w-56 h-12 sm:h-16 md:h-20 flex items-center justify-center relative">
+                    <div className="w-28 sm:w-36 md:w-44 h-12 sm:h-16 md:h-18 flex items-center justify-center relative">
                       <Image
                         src={brand.src}
                         alt={brand.name}
                         title={brand.name}
                         width={brand.width}
                         height={brand.height}
-                        className="max-w-[130px] sm:max-w-[175px] md:max-w-[210px] max-h-[38px] sm:max-h-[50px] md:max-h-[60px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
+                        className="max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
                       />
                     </div>
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />
@@ -287,16 +287,16 @@ export default function ClientLogosSection() {
                 {[...ROW_2_BRANDS, ...ROW_2_BRANDS].map((brand, index) => (
                   <div
                     key={`row2-${brand.name}-${index}`}
-                    className="flex items-center gap-3 sm:gap-6 md:gap-8 mx-3 sm:mx-6 md:mx-8 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
+                    className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 mx-1 sm:mx-2 md:mx-2.5 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
                   >
-                    <div className="w-36 sm:w-48 md:w-56 h-12 sm:h-16 md:h-20 flex items-center justify-center relative">
+                    <div className="w-28 sm:w-36 md:w-44 h-12 sm:h-16 md:h-18 flex items-center justify-center relative">
                       <Image
                         src={brand.src}
                         alt={brand.name}
                         title={brand.name}
                         width={brand.width}
                         height={brand.height}
-                        className={`max-w-[130px] sm:max-w-[175px] md:max-w-[210px] max-h-[38px] sm:max-h-[50px] md:max-h-[60px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300 ${brand.scale || ""}`}
+                        className={`max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300 ${brand.scale || ""}`}
                       />
                     </div>
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />
@@ -327,16 +327,16 @@ export default function ClientLogosSection() {
                 {[...ROW_3_BRANDS, ...ROW_3_BRANDS].map((brand, index) => (
                   <div
                     key={`row3-${brand.name}-${index}`}
-                    className="flex items-center gap-3 sm:gap-6 md:gap-8 mx-3 sm:mx-6 md:mx-8 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
+                    className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 mx-1 sm:mx-2 md:mx-2.5 shrink-0 group cursor-default transition-all duration-300 hover:scale-105"
                   >
-                    <div className="w-36 sm:w-48 md:w-56 h-12 sm:h-16 md:h-20 flex items-center justify-center relative">
+                    <div className="w-28 sm:w-36 md:w-44 h-12 sm:h-16 md:h-18 flex items-center justify-center relative">
                       <Image
                         src={brand.src}
                         alt={brand.name}
                         title={brand.name}
                         width={brand.width}
                         height={brand.height}
-                        className="max-w-[130px] sm:max-w-[175px] md:max-w-[210px] max-h-[38px] sm:max-h-[50px] md:max-h-[60px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
+                        className="max-w-[115px] sm:max-w-[155px] md:max-w-[185px] max-h-[36px] sm:max-h-[48px] md:max-h-[56px] w-auto h-auto object-contain filter grayscale contrast-125 brightness-110 opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
                       />
                     </div>
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#ae7b13]/70 group-hover:bg-[#ae7b13] inline-block shrink-0 transition-colors shadow-[0_0_8px_rgba(174,123,19,0.5)]" />

@@ -67,7 +67,7 @@ export default function IsoSection() {
 
   return (
     <section
-      id="quality"
+      id="iso-certifications"
       className="w-full bg-[#090b0e] text-white py-20 sm:py-24 lg:py-28 px-6 sm:px-8 lg:px-12 select-none border-t border-white/5"
     >
       <div className="max-w-[1440px] mx-auto">

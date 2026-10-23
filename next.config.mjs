@@ -3,7 +3,7 @@ const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   images: {
-    qualities: [75, 95],
+    qualities: [75, 90, 95],
   },
   turbopack: {
     rules: {

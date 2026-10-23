@@ -26,11 +26,19 @@ export default function Hero() {
 
   const slides = [
     {
-      src: "/images/Sunlit Tropical Villa Courtyard.png",
+      src: "/images/hero/hero-slide-1.webp",
       alt: "Sunlit Tropical Villa Courtyard",
     },
     {
-      src: "/images/Sunny Tropical Bungalow Pathway.png",
+      src: "/images/hero/hero-slide-2.webp",
+      alt: "Modern Architectural Landmark Estate",
+    },
+    {
+      src: "/images/hero/hero-slide-3.webp",
+      alt: "Contemporary Luxury Residence Architecture",
+    },
+    {
+      src: "/images/hero/hero-slide-4.webp",
       alt: "Sunny Tropical Bungalow Pathway",
     },
   ];

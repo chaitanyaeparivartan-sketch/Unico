@@ -192,10 +192,10 @@ export default function Header({ onOpenContact }) {
           <Link href="/" className="relative flex items-center group">
             <div
               style={{ animationDelay: "220ms" }}
-              className="relative h-14 sm:h-16 md:h-15 w-36 sm:w-44 md:w-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
+              className="relative h-14 sm:h-16 w-28 sm:w-32 md:w-36 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
             >
               <Image
-                src="/images/unico-logo-cropped.png"
+                src="/images/logo/unico-logo.png"
                 alt="UNICO Logo"
                 fill
                 priority

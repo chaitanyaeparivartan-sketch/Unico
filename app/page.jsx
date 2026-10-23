@@ -12,6 +12,7 @@ import ProcessSection from "@/components/ProcessSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ClientLogosSection from "@/components/ClientLogosSection";
+import IsoSection from "@/components/IsoSection";
 import QualitySection from "@/components/QualitySection";
 import CtaSection from "@/components/CtaSection";
 import ContactModal from "@/components/ContactModal";
@@ -30,6 +31,12 @@ export default function Home() {
 
       {/* Construction Metrics & Video Section */}
       <MetricsSection />
+
+      {/* 1. Client Logos & Institutional Partners Section: 'ESTEEMED CLIENTELE' */}
+      <ClientLogosSection />
+
+      {/* 2. ISO Certifications Section: 'ISO CERTIFIED EXCELLENCE' */}
+      <IsoSection />
 
       {/* Our Story: 'THE UNICO JOURNEY' (1985 to Today) */}
       <StorySection onOpenContact={() => setContactOpen(true)} />
@@ -51,9 +58,6 @@ export default function Home() {
 
       {/* Testimonials Section: 'CLIENT VOICES' */}
       <TestimonialsSection />
-
-      {/* Client Logos & Institutional Partners Section: 'ESTEEMED CLIENTELE' */}
-      <ClientLogosSection />
 
       {/* Quality Promise & Standards Section: 'QUALITY STANDARDS' */}
       <QualitySection />

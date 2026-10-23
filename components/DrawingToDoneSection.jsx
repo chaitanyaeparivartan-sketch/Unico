@@ -111,7 +111,7 @@ export default function DrawingToDoneSection() {
             {/* Background Layer: Completed / Reality Structure (Right side revealed as slider moves right) */}
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src="/images/featured/retail/cad-front-elevation-reality-aligned.jpg"
+                src="/images/result/facade-span-building.webp"
                 alt="Completed, delivered SPAN Commercial structure in Banjara Hills, Hyderabad"
                 fill
                 priority
@@ -129,7 +129,7 @@ export default function DrawingToDoneSection() {
             >
               {/* Base Blueprint Drawing */}
               <Image
-                src="/images/featured/retail/cad-front-elevation-blueprint.jpg"
+                src="/images/result/blueprint-span-building.webp"
                 alt="Architectural CAD elevation blueprint of SPAN Commercial Complex"
                 fill
                 priority
