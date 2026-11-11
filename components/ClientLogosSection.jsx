@@ -57,6 +57,12 @@ const ROW_1_BRANDS = [
     height: 85,
   },
   {
+    name: "The Alta Associates",
+    src: "/images/clients/alta-associates.webp",
+    width: 170,
+    height: 85,
+  },
+  {
     name: "50+ Private Villa Clients & More",
     src: "/images/clients/private-villas.webp",
     width: 220,
@@ -87,7 +93,7 @@ const ROW_2_BRANDS = [
     height: 90,
   },
   {
-    name: "Modulus Housing",
+    name: "Modulus",
     src: "/images/clients/modulus.webp",
     width: 180,
     height: 90,

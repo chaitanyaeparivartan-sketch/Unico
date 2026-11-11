@@ -81,7 +81,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         "/images/featured/techpark/tech-park-2.webp",
         "/images/featured/techpark/tech-park-3.webp",
         "/images/featured/techpark/tech-park-4.webp",
-        "/images/featured/techpark/tech-park-5.webp",
+        // "/images/featured/techpark/tech-park-5.webp",
       ],
       details: {
         Client: "Enterprise Commercial & Tech Park",
@@ -103,14 +103,13 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       gallery: [
         "/images/featured/industrial/ba-frame-5.webp",
         "/images/featured/industrial/ba-frame-1.webp",
-        "/images/featured/industrial/ba-frame-2.webp",
         "/images/featured/industrial/ba-frame-6.webp",
       ],
       details: {
         Client: "B&A Health",
         "Built-Up Area": "10,000 sq. ft.",
         Location: "Hyderabad",
-        Role: "Cleanroom Contractor",
+        Role: "Turnkey EPC",
       },
     },
     {
@@ -125,21 +124,22 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       gallery: [
         "/images/featured/villa/luxury-villa-01.webp",
         "/images/featured/villa/luxury-villa-02.webp",
-        "/images/featured/villa/luxury-villa-03.webp",
-        "/images/featured/villa/luxury-villa-04.webp",
-        "/images/featured/villa/luxury-villa-05.webp",
-        "/images/featured/villa/luxury-villa-06.webp",
-        "/images/featured/villa/luxury-villa-07.webp",
-        "/images/featured/villa/luxury-villa-08.webp",
-        "/images/featured/villa/luxury-villa-09.webp",
+        // "/images/featured/villa/luxury-villa-03.webp",
+        // "/images/featured/villa/luxury-villa-04.webp",
+        // "/images/featured/villa/luxury-villa-05.webp",
+        // "/images/featured/villa/luxury-villa-06.webp",
+        // "/images/featured/villa/luxury-villa-07.webp",
+        // "/images/featured/villa/luxury-villa-08.webp",
+        // "/images/featured/villa/luxury-villa-09.webp",
         "/images/featured/villa/luxury-villa-10.webp",
         "/images/featured/villa/luxury-villa-11.webp",
-        "/images/featured/villa/hospitality-01.webp",
-        "/images/featured/villa/hospitality-02.webp",
-        "/images/featured/villa/hospitality-03.webp",
-        "/images/featured/villa/hospitality-04.webp",
-        "/images/featured/villa/hospitality-05.webp",
-        "/images/featured/villa/hospitality-06.webp",
+        "/images/featured/villa/luxury-villa-12.webp",
+        // "/images/featured/villa/hospitality-01.webp",
+        // "/images/featured/villa/hospitality-02.webp",
+        // "/images/featured/villa/hospitality-03.webp",
+        // "/images/featured/villa/hospitality-04.webp",
+        // "/images/featured/villa/hospitality-05.webp",
+        // "/images/featured/villa/hospitality-06.webp",
       ],
       details: {
         Client: "Private Estates & Legala Coastal Resort",
@@ -170,7 +170,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         Tenant: "Aditya Birla (Peter England) & SPAN",
         Year: "2023",
         Location: "Hyderabad",
-        Role: "Facade & Civil EPC",
+        Role: "Turnkey EPC",
       },
     },
   ];
@@ -292,13 +292,12 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                             setHoveredId(item.id);
                           }
                         }}
-                        className={`relative h-[420px] sm:h-[460px] lg:h-[510px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group border border-white/10 ${
-                          isHovered
-                            ? "md:flex-[2.6] shadow-[0_20px_60px_rgba(0,0,0,0.85)] border-white/30"
-                            : isRowHovered
+                        className={`relative h-[420px] sm:h-[460px] lg:h-[510px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group border border-white/10 ${isHovered
+                          ? "md:flex-[2.6] shadow-[0_20px_60px_rgba(0,0,0,0.85)] border-white/30"
+                          : isRowHovered
                             ? "md:flex-[0.8] opacity-75 md:opacity-85 hover:opacity-100"
                             : "md:flex-1"
-                        }`}
+                          }`}
                       >
                         {/* Background Image with Zoom on Hover */}
                         <Image
@@ -307,9 +306,8 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           priority={rowIndex === 0 && idx === 0}
-                          className={`object-cover object-center transition-transform duration-700 ease-out ${
-                            isHovered ? "scale-105" : "scale-100"
-                          }`}
+                          className={`object-cover object-center transition-transform duration-700 ease-out ${isHovered ? "scale-105" : "scale-100"
+                            }`}
                         />
 
                         {/* Dark Gradient Overlay for optimal contrast */}
@@ -324,11 +322,10 @@ export default function FeaturedDevelopments({ onOpenContact }) {
 
                         {/* Card Bottom: Header Style Split CTA Button - Appears only on hover on lg/xl */}
                         <div
-                          className={`absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10 transition-all duration-300 ease-out ${
-                            isHovered
-                              ? "opacity-100 translate-y-0 pointer-events-auto"
-                              : "opacity-100 sm:opacity-100 lg:opacity-0 lg:translate-y-3 lg:pointer-events-none"
-                          }`}
+                          className={`absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10 transition-all duration-300 ease-out ${isHovered
+                            ? "opacity-100 translate-y-0 pointer-events-auto"
+                            : "opacity-100 sm:opacity-100 lg:opacity-0 lg:translate-y-3 lg:pointer-events-none"
+                            }`}
                         >
                           <button
                             type="button"
@@ -385,9 +382,8 @@ export default function FeaturedDevelopments({ onOpenContact }) {
               <ArrowUpRight
                 size={16}
                 strokeWidth={2.2}
-                className={`transition-transform duration-300 ${
-                  showAll ? "rotate-90" : "group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                }`}
+                className={`transition-transform duration-300 ${showAll ? "rotate-90" : "group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                  }`}
               />
             </span>
           </button>
@@ -515,11 +511,10 @@ export default function FeaturedDevelopments({ onOpenContact }) {
                       key={imgSrc}
                       type="button"
                       onClick={() => setActiveImageIndex(imgIdx)}
-                      className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${
-                        activeImageIndex === imgIdx
-                          ? "border-[#7F5E12] ring-2 ring-[#7F5E12]/60 scale-105"
-                          : "border-white/15 opacity-60 hover:opacity-100"
-                      }`}
+                      className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${activeImageIndex === imgIdx
+                        ? "border-[#7F5E12] ring-2 ring-[#7F5E12]/60 scale-105"
+                        : "border-white/15 opacity-60 hover:opacity-100"
+                        }`}
                     >
                       <Image
                         src={imgSrc}

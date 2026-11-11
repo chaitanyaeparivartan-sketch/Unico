@@ -1,9 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { X, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
-export default function ContactModal({ isOpen, onClose }) {
+export function openContactModal() {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-contact-modal"));
+  }
+}
+
+export default function ContactModal({ isOpen: controlledIsOpen, onClose: controlledOnClose }) {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalOpen;
+
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -13,6 +23,59 @@ export default function ContactModal({ isOpen, onClose }) {
     message: "",
   });
 
+  const handleClose = useCallback(() => {
+    if (isControlled) {
+      controlledOnClose?.();
+    } else {
+      setInternalOpen(false);
+      if (typeof window !== "undefined" && window.location.hash === "#contact") {
+        window.history.pushState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+  }, [isControlled, controlledOnClose]);
+
+  // Handle hashchange and custom events when in uncontrolled mode
+  useEffect(() => {
+    if (isControlled) return;
+
+    const checkHash = () => {
+      if (typeof window !== "undefined" && window.location.hash === "#contact") {
+        setInternalOpen(true);
+      }
+    };
+
+    const handleOpenEvent = () => setInternalOpen(true);
+
+    checkHash();
+    window.addEventListener("hashchange", checkHash);
+    window.addEventListener("open-contact-modal", handleOpenEvent);
+
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+      window.removeEventListener("open-contact-modal", handleOpenEvent);
+    };
+  }, [isControlled]);
+
+  // Handle ESC key press and body scroll locking
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen, handleClose]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
@@ -20,15 +83,20 @@ export default function ContactModal({ isOpen, onClose }) {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      onClose();
+      handleClose();
     }, 2800);
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 animate-in fade-in duration-200">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 animate-in fade-in duration-200"
+    >
       {/* Backdrop */}
       <div
-        onClick={onClose}
+        onClick={handleClose}
         className="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity"
       />
 
@@ -36,7 +104,7 @@ export default function ContactModal({ isOpen, onClose }) {
       <div className="relative w-full max-w-xl bg-[#0c1017] border border-[#7F5E12]/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-6 sm:p-10 z-10 text-white rounded-none">
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-6 right-6 p-2 text-white/60 hover:text-white transition-colors"
           aria-label="Close modal"
         >
@@ -46,7 +114,7 @@ export default function ContactModal({ isOpen, onClose }) {
         {submitted ? (
           <div className="py-12 text-center flex flex-col items-center">
             <CheckCircle2 size={56} className="text-[#7F5E12] mb-4 animate-bounce" />
-            <h3 className="font-canela text-3xl font-light text-white mb-2 uppercase tracking-wide">
+            <h3 id="contact-modal-title" className="font-canela text-3xl font-light text-white mb-2 uppercase tracking-wide">
               Inquiry Received
             </h3>
             <p className="text-sm text-neutral-300 max-w-sm font-light">
@@ -59,7 +127,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <span className="text-[11px] uppercase tracking-[0.25em] text-[#7F5E12]/90 font-medium block mb-1">
                 Bespoke Architecture & Design
               </span>
-              <h2 className="font-canela text-3xl sm:text-4xl font-light uppercase tracking-wide text-white">
+              <h2 id="contact-modal-title" className="font-canela text-3xl sm:text-4xl font-light uppercase tracking-wide text-white">
                 Get In Touch
               </h2>
               <p className="text-neutral-400 text-xs sm:text-sm mt-2 font-light">

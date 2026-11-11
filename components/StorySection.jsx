@@ -50,8 +50,8 @@ export default function StorySection({ onOpenContact }) {
       year: "2015",
       badge: "PHASE 04",
       pillar: "Enterprise",
-      title: "Commercial & Steel",
-      shortDesc: "Heavy structural steel, ISO cleanrooms, and institutional campus developments.",
+      title: "Industrial",
+      shortDesc: "Manufacturing facilities and clean rooms",
       fullDesc:
         "Diversified into heavy structural steel assemblies, enterprise commercial hubs, precision ISO-certified cleanroom facilities for medical manufacturing, and major institutional education campuses like Sancta Maria.",
       metric: "Grade-A Infrastructure",
@@ -395,28 +395,26 @@ export default function StorySection({ onOpenContact }) {
               >
                 {/* Golden Diamond Node centered on timeline */}
                 <div
-                  className={`absolute -left-5 sm:-left-6 top-6 sm:top-7 -translate-x-1/2 w-2.5 h-2.5 rotate-45 z-10 transition-all duration-500 ${
-                    isCurrent
+                  className={`absolute -left-5 sm:-left-6 top-6 sm:top-7 -translate-x-1/2 w-2.5 h-2.5 rotate-45 z-10 transition-all duration-500 ${isCurrent
                       ? "bg-[#7F5E12] ring-4 ring-[#090c10] shadow-[0_0_16px_rgba(127, 94, 18,1),0_0_30px_rgba(127, 94, 18,0.7)] scale-125 opacity-100"
                       : isReached
-                      ? "bg-[#7F5E12] ring-4 ring-[#090c10] shadow-[0_0_10px_rgba(127, 94, 18,0.8)] scale-105 opacity-100"
-                      : "bg-[#141b27] border border-white/20 ring-4 ring-[#090c10] scale-90 opacity-40"
-                  }`}
+                        ? "bg-[#7F5E12] ring-4 ring-[#090c10] shadow-[0_0_10px_rgba(127, 94, 18,0.8)] scale-105 opacity-100"
+                        : "bg-[#141b27] border border-white/20 ring-4 ring-[#090c10] scale-90 opacity-40"
+                    }`}
                 />
 
                 {/* Card Container with Prominent Highlight Effect */}
                 <div
-                  className={`relative overflow-hidden p-5 sm:p-6 border transition-all duration-500 ${
-                    isCurrent
+                  className={`relative overflow-hidden p-5 sm:p-6 border transition-all duration-500 ${isCurrent
                       ? phase.isHighlight
                         ? "bg-gradient-to-br from-[#121926] via-[#0f1522] to-[#0a0f18] border-[#7F5E12] shadow-[0_0_35px_rgba(127, 94, 18,0.25),0_12px_40px_rgba(0,0,0,0.85)] scale-[1.01]"
                         : "bg-gradient-to-br from-[#121c2e] via-[#0d1624] to-[#080d16] border-[#7F5E12] shadow-[0_0_30px_rgba(127, 94, 18,0.22),0_12px_40px_rgba(0,0,0,0.85)] scale-[1.01]"
                       : isReached
-                      ? phase.isHighlight
-                        ? "bg-gradient-to-br from-[#121926] via-[#0f1522] to-[#0a0f18] border-[#7F5E12]/80 shadow-[0_8px_30px_rgba(127, 94, 18,0.18)]"
-                        : "bg-[#0e1420] border-[#7F5E12]/50 shadow-[0_8px_25px_rgba(0,0,0,0.6)]"
-                      : "bg-[#0a0d14]/60 border-white/10 opacity-40"
-                  }`}
+                        ? phase.isHighlight
+                          ? "bg-gradient-to-br from-[#121926] via-[#0f1522] to-[#0a0f18] border-[#7F5E12]/80 shadow-[0_8px_30px_rgba(127, 94, 18,0.18)]"
+                          : "bg-[#0e1420] border-[#7F5E12]/50 shadow-[0_8px_25px_rgba(0,0,0,0.6)]"
+                        : "bg-[#0a0d14]/60 border-white/10 opacity-40"
+                    }`}
                 >
                   {/* Top Glowing Beam Accent for Current Highlighted Card */}
                   {isCurrent && (
@@ -428,25 +426,23 @@ export default function StorySection({ onOpenContact }) {
                     <div className="flex items-center gap-3">
                       {phase.isHighlight && (
                         <span
-                          className={`text-[10px] font-semibold tracking-[0.16em] uppercase px-2.5 py-1 border transition-colors duration-300 ${
-                            isCurrent
+                          className={`text-[10px] font-semibold tracking-[0.16em] uppercase px-2.5 py-1 border transition-colors duration-300 ${isCurrent
                               ? "text-[#7F5E12] border-[#7F5E12]/40 bg-[#7F5E12]/10"
                               : "text-neutral-300 border-white/10 bg-white/[0.04]"
-                          }`}
+                            }`}
                         >
                           PRESENT DAY
                         </span>
                       )}
                       <span
-                        className={`text-2xl sm:text-3xl font-bold tracking-tight transition-all duration-300 ${
-                          phase.isHighlight
+                        className={`text-2xl sm:text-3xl font-bold tracking-tight transition-all duration-300 ${phase.isHighlight
                             ? "font-canela text-white"
                             : isCurrent
-                            ? "text-[#7F5E12] drop-shadow-[0_0_12px_rgba(127, 94, 18,0.5)]"
-                            : isReached
-                            ? "text-white"
-                            : "text-neutral-500"
-                        }`}
+                              ? "text-[#7F5E12] drop-shadow-[0_0_12px_rgba(127, 94, 18,0.5)]"
+                              : isReached
+                                ? "text-white"
+                                : "text-neutral-500"
+                          }`}
                       >
                         {phase.year}
                       </span>
@@ -454,9 +450,8 @@ export default function StorySection({ onOpenContact }) {
 
                     {phase.isHighlight ? (
                       <svg
-                        className={`w-4 h-4 shrink-0 transition-colors duration-300 ${
-                          isCurrent ? "text-[#7F5E12]" : "text-neutral-400"
-                        }`}
+                        className={`w-4 h-4 shrink-0 transition-colors duration-300 ${isCurrent ? "text-[#7F5E12]" : "text-neutral-400"
+                          }`}
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -476,48 +471,44 @@ export default function StorySection({ onOpenContact }) {
                       <Icon
                         size={18}
                         strokeWidth={1.5}
-                        className={`shrink-0 transition-all duration-300 ${
-                          isCurrent
+                        className={`shrink-0 transition-all duration-300 ${isCurrent
                             ? "text-[#7F5E12] scale-110 drop-shadow-[0_0_8px_rgba(127, 94, 18,0.6)]"
                             : isReached
-                            ? "text-neutral-300"
-                            : "text-neutral-600"
-                        }`}
+                              ? "text-neutral-300"
+                              : "text-neutral-600"
+                          }`}
                       />
                     )}
                   </div>
 
                   {/* Title */}
                   <h4
-                    className={`text-[15px] sm:text-base font-bold tracking-normal leading-snug mb-1.5 transition-colors duration-300 ${
-                      isCurrent || isReached ? "text-white" : "text-neutral-400"
-                    }`}
+                    className={`text-[15px] sm:text-base font-bold tracking-normal leading-snug mb-1.5 transition-colors duration-300 ${isCurrent || isReached ? "text-white" : "text-neutral-400"
+                      }`}
                   >
                     {phase.title}
                   </h4>
 
                   {/* Description */}
                   <p
-                    className={`text-xs sm:text-[13px] leading-relaxed font-light mb-3.5 transition-colors duration-300 ${
-                      isCurrent
+                    className={`text-xs sm:text-[13px] leading-relaxed font-light mb-3.5 transition-colors duration-300 ${isCurrent
                         ? "text-neutral-200"
                         : isReached
-                        ? "text-neutral-400"
-                        : "text-neutral-500"
-                    }`}
+                          ? "text-neutral-400"
+                          : "text-neutral-500"
+                      }`}
                   >
                     {phase.shortDesc}
                   </p>
 
                   {/* Bottom Divider & Stats Metric */}
                   <div
-                    className={`border-t pt-3 text-xs sm:text-[13px] font-medium tracking-wide transition-colors duration-300 flex items-center justify-between ${
-                      isCurrent
+                    className={`border-t pt-3 text-xs sm:text-[13px] font-medium tracking-wide transition-colors duration-300 flex items-center justify-between ${isCurrent
                         ? "border-[#7F5E12]/30 text-[#7F5E12] font-semibold"
                         : isReached
-                        ? "border-white/10 text-[#7F5E12]"
-                        : "border-white/5 text-neutral-600"
-                    }`}
+                          ? "border-white/10 text-[#7F5E12]"
+                          : "border-white/5 text-neutral-600"
+                      }`}
                   >
                     <span className="flex items-center gap-2">
                       {isCurrent && (

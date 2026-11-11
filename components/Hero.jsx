@@ -28,18 +28,22 @@ export default function Hero() {
     {
       src: "/images/hero/hero-slide-1.webp",
       alt: "Tropical villa with landscaped courtyard",
+      position: "object-center",
     },
     {
-      src: "/images/hero/hero-slide-2.webp",
-      alt: "Aerial view of a modern residential development",
+      src: "/images/hero/hero-slide-aerial.webp",
+      alt: "Landscaped building frontage with palm trees",
+      position: "object-[center_bottom] md:object-[center_65%]",
     },
     {
       src: "/images/hero/hero-slide-3.webp",
       alt: "Contemporary red and white institutional building",
+      position: "object-center md:object-[center_35%]",
     },
     {
       src: "/images/hero/hero-slide-4.webp",
       alt: "Sunny tropical bungalow pathway",
+      position: "object-center",
     },
   ];
 
@@ -118,51 +122,48 @@ export default function Hero() {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide
-                ? "opacity-100 z-0"
-                : "opacity-0 pointer-events-none"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentSlide
+              ? "opacity-100 z-0"
+              : "opacity-0 pointer-events-none"
+              }`}
           >
             <Image
               src={slide.src}
               alt={slide.alt}
               fill
-              priority={idx === 0}
+              priority={idx <= 1}
               quality={95}
-              className="object-cover object-center filter brightness-[0.95] contrast-[1.02]"
+              className={`object-cover ${slide.position || "object-center"} filter brightness-[0.97] contrast-[1.03] transition-all duration-700`}
               sizes="100vw"
             />
           </div>
         ))}
 
         {/* Subtle Vignettes & Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/20 to-transparent h-[30%] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent top-[45%] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/20 to-transparent h-[25%] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent top-[50%] md:top-[60%] lg:top-[65%] pointer-events-none" />
       </div>
 
       {/* Bottom Centered Content Area with Page Load & Scroll Growing Effect */}
       <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-12 md:pb-8 lg:pb-10 -translate-y-4 sm:-translate-y-3 md:translate-y-0 flex flex-col items-center text-center">
         {/* Single-line Headline: BUILD FOR THE LIFE INSIDE with Page-Load + Scroll-Driven Growth */}
         <div
-          className={`origin-center ${
-            isMounted ? "opacity-100" : "opacity-0"
-          }`}
+          className={`origin-center ${isMounted ? "opacity-100" : "opacity-0"
+            }`}
           style={{
             transition: "opacity 0.8s ease-out",
           }}
         >
           <h1
-            className={`font-bricolage text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] sm:whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${
-              !entranceComplete && scrollY === 0 ? "animate-hero-title" : ""
-            }`}
+            className={`font-bricolage text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-tight text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] sm:whitespace-nowrap mb-3 sm:mb-3.5 origin-center will-change-transform cursor-default select-none transition-[drop-shadow] duration-300 ${!entranceComplete && scrollY === 0 ? "animate-hero-title" : ""
+              }`}
             style={
               entranceComplete || scrollY > 0
                 ? {
-                    transform: `scale(${textScale})`,
-                    letterSpacing: `${trackingValue}em`,
-                    transition: "transform 0.08s ease-out, letter-spacing 0.08s ease-out",
-                  }
+                  transform: `scale(${textScale})`,
+                  letterSpacing: `${trackingValue}em`,
+                  transition: "transform 0.08s ease-out, letter-spacing 0.08s ease-out",
+                }
                 : {}
             }
           >
@@ -185,11 +186,10 @@ export default function Hero() {
             key={idx}
             onClick={() => setCurrentSlide(idx)}
             aria-label={`Slide ${idx + 1}`}
-            className={`transition-all duration-300 rounded-full cursor-pointer ${
-              idx === currentSlide
-                ? "w-2.5 h-2.5 bg-white ring-2 ring-white/40 shadow-sm"
-                : "w-2 h-2 bg-white/40 hover:bg-white/80"
-            }`}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${idx === currentSlide
+              ? "w-2.5 h-2.5 bg-white ring-2 ring-white/40 shadow-sm"
+              : "w-2 h-2 bg-white/40 hover:bg-white/80"
+              }`}
           />
         ))}
       </div>

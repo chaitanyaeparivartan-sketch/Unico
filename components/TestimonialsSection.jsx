@@ -18,7 +18,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const TESTIMONIALS = [
   {
     id: "01",
-    avatar: "/images/testimonials/avatar-anand.png",
+    avatar: "/images/testimonials/avatar-anand.webp",
     stars: 5,
     quote:
       "“We were living in Dubai throughout the two years of construction. Everyone warned us building remotely was impossible without family on site. UNICO sent daily dashboard photos every single evening at 7 PM. The handover file was immaculate.”",
@@ -28,7 +28,7 @@ const TESTIMONIALS = [
   },
   {
     id: "02",
-    avatar: "/images/testimonials/avatar-vikramaditya.png",
+    avatar: "/images/testimonials/avatar-vikramaditya.webp",
     stars: 5,
     quote:
       "“Variations kill margins in commercial builds. UNICO gave us a strict 8% maximum variation cap in writing and stuck to it. The senior project manager we met on day one stayed through the final handover inspection.”",
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
   },
   {
     id: "03",
-    avatar: "/images/testimonials/avatar-ksrao.png",
+    avatar: "/images/testimonials/avatar-ksrao.webp",
     stars: 5,
     quote:
       "“The most critical constraint for us was delivery before the new academic year commenced in June. UNICO didn't just meet the date — they handed over two weeks ahead of schedule. Acoustic separation between classrooms means lessons never disturb each other.”",
@@ -48,7 +48,7 @@ const TESTIMONIALS = [
   },
   {
     id: "04",
-    avatar: "/images/testimonials/elena.jpg",
+    avatar: "/images/testimonials/elena.webp",
     stars: 5,
     quote:
       "“UNICO delivered a level of finish that you usually only see in Zurich or Milan. Every reveal, shadow gap, and Italian terrazzo floor exceeded our expectations from blueprint to final handover.”",
@@ -58,7 +58,7 @@ const TESTIMONIALS = [
   },
   {
     id: "05",
-    avatar: "/images/testimonials/denis.jpg",
+    avatar: "/images/testimonials/denis.webp",
     stars: 5,
     quote:
       "“UNICO sculpted our villa into the cliffside topography without harming a single ancient tree. Their environmental precision and structural mastery are unmatched in residential execution.”",
@@ -68,7 +68,7 @@ const TESTIMONIALS = [
   },
   {
     id: "06",
-    avatar: "/images/testimonials/jahan.jpg",
+    avatar: "/images/testimonials/jahan.webp",
     stars: 5,
     quote:
       "“They organized their work and internal management was outstanding. Two viewings, one offer, millimeter-accurate execution tolerances from start to finish.”",

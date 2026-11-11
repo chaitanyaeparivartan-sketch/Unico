@@ -12,34 +12,65 @@ export default function MetricsSection() {
 
   // Detect when user reaches this section on scroll or direct navigation
   useEffect(() => {
-    const handleScrollOrReach = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      // Section is reaching or visible in the viewport
-      const isReaching = rect.top < window.innerHeight * 0.75 && rect.bottom > 80;
+    const video = videoRef.current;
+    if (video) {
+      video.muted = isMuted;
+    }
 
-      if (isReaching) {
-        setIsInView(true);
-        if (videoRef.current && videoRef.current.paused) {
-          videoRef.current.play().catch(() => {});
-          setIsPlaying(true);
-        }
-      } else {
-        if (videoRef.current && !videoRef.current.paused) {
-          videoRef.current.pause();
-          setIsPlaying(false);
-        }
+    if (typeof IntersectionObserver !== "undefined") {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            if (videoRef.current && videoRef.current.paused) {
+              videoRef.current.play().catch(() => { });
+              setIsPlaying(true);
+            }
+          } else {
+            if (videoRef.current && !videoRef.current.paused) {
+              videoRef.current.pause();
+              setIsPlaying(false);
+            }
+          }
+        },
+        { threshold: [0, 0.2, 0.5], rootMargin: "50px 0px" }
+      );
+
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
       }
-    };
 
-    window.addEventListener("scroll", handleScrollOrReach, { passive: true });
-    // Check immediately on mount in case user landed on #metrics or refreshed
-    handleScrollOrReach();
+      return () => {
+        observer.disconnect();
+      };
+    } else {
+      const handleScrollOrReach = () => {
+        if (!sectionRef.current) return;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const isReaching = rect.top < window.innerHeight * 0.75 && rect.bottom > 80;
 
-    return () => {
-      window.removeEventListener("scroll", handleScrollOrReach);
-    };
-  }, []);
+        if (isReaching) {
+          setIsInView(true);
+          if (videoRef.current && videoRef.current.paused) {
+            videoRef.current.play().catch(() => { });
+            setIsPlaying(true);
+          }
+        } else {
+          if (videoRef.current && !videoRef.current.paused) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+          }
+        }
+      };
+
+      window.addEventListener("scroll", handleScrollOrReach, { passive: true });
+      handleScrollOrReach();
+
+      return () => {
+        window.removeEventListener("scroll", handleScrollOrReach);
+      };
+    }
+  }, [isMuted]);
 
   // Handle play/pause toggle in place
   const togglePlay = (e) => {
@@ -49,7 +80,7 @@ export default function MetricsSection() {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
       setIsPlaying(true);
     }
   };
@@ -115,12 +146,11 @@ export default function MetricsSection() {
         {/* 50% Video + 50% Content & Stats Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Column 1: 50% Video Card - Plays in place with Pop-up Entrance Effect */}
-          <div className="lg:col-span-6 flex items-center">
+          <div className="lg:col-span-6 flex items-center justify-center w-full">
             <div
               onClick={togglePlay}
-              className={`relative group overflow-hidden bg-neutral-900 aspect-[16/10] w-full shadow-2xl border border-white/15 cursor-pointer transition-all duration-500 hover:border-white/35 ${
-                isInView ? "animate-card-popup" : "opacity-0 scale-90"
-              }`}
+              className={`relative group overflow-hidden bg-neutral-900 aspect-video lg:aspect-[16/10] w-full shadow-2xl border border-white/15 cursor-pointer transition-all duration-500 hover:border-white/35 ${isInView ? "animate-card-popup" : "opacity-0 scale-90"
+                }`}
             >
               {/* High-Definition Video Playing in Place */}
               <video
@@ -130,17 +160,20 @@ export default function MetricsSection() {
                 playsInline
                 loop
                 muted={isMuted}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                autoPlay
+                preload="metadata"
+                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-              />
-
+              >
+                <source src="/video/updated_UNICO.mp4" type="video/mp4" />
+              </video>
 
               {/* Center Play Overlay when paused */}
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] transition-all duration-300 pointer-events-none">
-                  <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                    <Play size={24} fill="white" className="ml-1 text-white" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                    <Play size={22} fill="white" className="ml-1 text-white sm:w-6 sm:h-6" />
                   </div>
                 </div>
               )}
@@ -152,7 +185,7 @@ export default function MetricsSection() {
                   <button
                     type="button"
                     onClick={togglePlay}
-                    className="p-2 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg"
+                    className="p-2 sm:p-2 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg min-w-[34px] min-h-[34px] flex items-center justify-center"
                     aria-label={isPlaying ? "Pause Video" : "Play Video"}
                   >
                     {isPlaying ? <Pause size={14} /> : <Play size={14} fill="white" />}
@@ -162,11 +195,11 @@ export default function MetricsSection() {
                   <button
                     type="button"
                     onClick={toggleMute}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg text-[11px] font-medium"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-black/70 backdrop-blur-md text-white hover:bg-black/90 border border-white/20 transition-all cursor-pointer shadow-lg text-[11px] font-medium min-h-[34px]"
                     aria-label={isMuted ? "Unmute Audio" : "Mute Audio"}
                   >
                     {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                    <span className="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] uppercase tracking-wider font-semibold">
                       {isMuted ? "Unmute" : "Sound On"}
                     </span>
                   </button>
@@ -177,9 +210,8 @@ export default function MetricsSection() {
 
           {/* Column 2: 50% Stats Container with Title on Top and Stats on Bottom */}
           <div
-            className={`lg:col-span-6 flex flex-col justify-between py-1 lg:pl-2 transition-all duration-1000 delay-200 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`lg:col-span-6 flex flex-col justify-between py-1 lg:pl-2 transition-all duration-1000 delay-200 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             {/* Top Part: Title & Tag placed right above stats */}
             <div className="mb-8 lg:mb-10">
@@ -199,17 +231,15 @@ export default function MetricsSection() {
               {metrics.map((metric, idx) => (
                 <div
                   key={idx}
-                  className={`flex flex-col justify-start ${
-                    idx === 0
-                      ? "sm:pr-5 lg:pr-6 sm:pl-0"
-                      : idx === metrics.length - 1
+                  className={`flex flex-col justify-start ${idx === 0
+                    ? "sm:pr-5 lg:pr-6 sm:pl-0"
+                    : idx === metrics.length - 1
                       ? "sm:pl-5 lg:pl-6 sm:pr-0"
                       : "sm:px-5 lg:px-6"
-                  } ${
-                    idx < metrics.length - 1
+                    } ${idx < metrics.length - 1
                       ? "sm:border-r border-white/10"
                       : ""
-                  }`}
+                    }`}
                 >
                   <div>
                     <span

@@ -233,27 +233,27 @@ export default function QualitySection() {
                           }`}
                         />
 
-                        {/* Title (Always bright gold on mobile, step-activated on desktop) */}
+                        {/* Title (White on mobile, step-activated on desktop) */}
                         <div className="relative z-10 pr-12 sm:pr-18">
                           <h3
                             className={`text-[13.5px] sm:text-[15.5px] lg:text-[16.5px] font-bold tracking-tight leading-snug transition-colors duration-300 ${
                               isActive
                                 ? "text-white"
-                                : "text-[#7F5E12] lg:group-hover:text-white"
+                                : "text-white lg:text-[#7F5E12] lg:group-hover:text-white"
                             }`}
                           >
                             {item.title}
                           </h3>
                         </div>
 
-                        {/* Watermark Number (Gold on mobile, step-activated on desktop) */}
+                        {/* Watermark Number (White on mobile, step-activated on desktop) */}
                         <div className="absolute right-3.5 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none">
                           <span
                             aria-hidden="true"
                             className={`font-sans font-black text-3xl sm:text-5xl md:text-[54px] tracking-tight leading-none select-none transition-all duration-300 ${
                               isActive
                                 ? "text-white scale-105"
-                                : "text-[#7F5E12]/35 scale-105 lg:text-white/[0.06] lg:scale-100"
+                                : "text-white scale-105 lg:text-white/[0.06] lg:scale-100"
                             }`}
                           >
                             {item.id}

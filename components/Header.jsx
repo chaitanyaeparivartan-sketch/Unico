@@ -199,7 +199,7 @@ export default function Header({ onOpenContact }) {
               className="relative h-14 sm:h-16 w-28 sm:w-32 md:w-36 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
             >
               <Image
-                src="/images/logo/unico-logo.png"
+                src="/images/logo/unico-logo.webp"
                 alt="UNICO Logo"
                 fill
                 priority

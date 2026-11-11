@@ -30,7 +30,7 @@ export default function Footer({ onOpenContact }) {
               className="relative w-64 sm:w-72 lg:w-[335px] h-48 sm:h-56 lg:h-[250px] block group mx-auto md:mx-0"
             >
               <Image
-                src="/images/logo/unico-logo.png"
+                src="/images/logo/unico-logo.webp"
                 alt="UNICO - Built for the life inside."
                 fill
                 className="object-contain object-center md:object-left-top transition-transform duration-300 group-hover:scale-[1.02]"
