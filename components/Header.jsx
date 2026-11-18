@@ -202,7 +202,7 @@ export default function Header({ onOpenContact }) {
                 alt="UNICO Logo"
                 fill
                 priority
-                className="object-contain filter drop-shadow-[0_2px_12px_rgba(127, 94, 18,0.4)]"
+                className="object-contain"
                 sizes="(max-width: 768px) 180px, 180px"
               />
             </div>
