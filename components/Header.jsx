@@ -11,7 +11,7 @@ export default function Header({ onOpenContact }) {
   const [activeSection, setActiveSection] = useState("");
 
   const leftNavItems = [
-    // { label: "Projects", href: "#projects" },
+    { label: "Our Work", href: "#work" },
     { label: "Our Story", href: "#story" },
     { label: "Upcoming Projects", href: "#upcoming" },
   ];
@@ -41,9 +41,9 @@ export default function Header({ onOpenContact }) {
         { id: "how-we-work", nav: "#how-we-build" },
         { id: "how-we-build", nav: "#how-we-build" },
         { id: "upcoming", nav: "#upcoming" },
-        { id: "work", nav: "#upcoming" },
-        { id: "projects", nav: "#projects" },
-        { id: "services", nav: "#work" },
+        { id: "work", nav: "#work" },
+        { id: "projects", nav: "#work" },
+        { id: "developments", nav: "#work" },
         { id: "story", nav: "#story" },
       ];
 

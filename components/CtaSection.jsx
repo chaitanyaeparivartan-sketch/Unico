@@ -47,37 +47,7 @@ export default function CtaSection({ onOpenContact }) {
         </p>
 
         {/* Contact Details Row (Office Address & Email) */}
-        <div className="w-full max-w-4xl flex flex-col sm:flex-row items-center sm:items-start justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 text-center">
-          {/* Office Address */}
-          <div className="flex flex-col items-center max-w-md sm:max-w-sm">
-            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12] mb-2 sm:mb-2.5">
-              OFFICE ADDRESS
-            </div>
-            <p className="text-white font-normal text-sm sm:text-[14.5px] leading-relaxed drop-shadow-md">
-              Level 2, Plot No:32, Doyens Township, Serilingampalli (M),
-              <br className="hidden md:inline" /> Telangana 500019
-            </p>
-          </div>
 
-          {/* Elegant Divider between Address and Email on tablet/desktop */}
-          <div
-            className="hidden sm:block w-[1px] self-stretch min-h-[54px] bg-white/20 my-1"
-            aria-hidden="true"
-          />
-
-          {/* Email */}
-          <div className="flex flex-col items-center">
-            <div className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#7F5E12] mb-2 sm:mb-2.5">
-              EMAIL
-            </div>
-            <a
-              href="mailto:contact@unicospaces.com"
-              className="text-white hover:text-[#7F5E12] font-normal text-sm sm:text-[14.5px] leading-relaxed transition-colors duration-200 drop-shadow-md underline-offset-4 hover:underline"
-            >
-              contact@unicospaces.com
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

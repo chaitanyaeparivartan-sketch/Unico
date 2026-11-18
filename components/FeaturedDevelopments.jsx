@@ -93,7 +93,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       id: "luxury-villa",
       category: "residential",
       tag: "Villas & Hospitality",
-      title: "Luxury Villa and Hospitality",
+      title: "Luxury Villas",
       subtitle: "CUSTOM RESIDENCES & RESORT DESTINATIONS",
       desc: "Ultra-premium private estates and beachfront hospitality destinations engineered with dramatic architectural woodwork, marine-grade climate-resilient finishes, and natural stone outdoor terraces.",
       image: "/images/featured/villa/luxury-villa-01.webp",
@@ -154,7 +154,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       id: "legala-restaurant",
       category: "commercial",
       tag: "Restaurant",
-      title: "Legala Restaurant",
+      title: "Hospitality",
       subtitle: "FINE-DINING RESTAURANT, GOA",
       desc: "A turnkey restaurant fit-out in Goa, delivering the complete interior build, MEP services and finishing works for a welcoming, high-footfall dining destination.",
       image: "/images/services/hospitality-6.webp",
@@ -229,9 +229,10 @@ export default function FeaturedDevelopments({ onOpenContact }) {
 
   return (
     <section
-      id="projects"
-      className="w-full bg-[#090c10] text-white pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12 lg:pb-14 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
+      id="work"
+      className="scroll-mt-20 md:scroll-mt-24 relative w-full bg-[#090c10] text-white pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12 lg:pb-14 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
+      <span id="projects" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <span id="developments" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}

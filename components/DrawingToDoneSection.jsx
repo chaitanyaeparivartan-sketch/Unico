@@ -63,10 +63,9 @@ export default function DrawingToDoneSection() {
 
   return (
     <section
-      id="work"
-      className="w-full bg-[#090c10] text-white py-8 sm:py-10 lg:py-12 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
+      id="drawing-to-done"
+      className="scroll-mt-20 md:scroll-mt-24 relative w-full bg-[#090c10] text-white py-8 sm:py-10 lg:py-12 px-6 sm:px-8 lg:px-12 select-none border-t border-white/10"
     >
-      <span id="drawing-to-done" className="absolute -top-24 left-0 pointer-events-none opacity-0" />
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
         <div className="mb-5 sm:mb-6 lg:mb-7 max-w-4xl">

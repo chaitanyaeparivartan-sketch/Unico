@@ -332,7 +332,7 @@ export default function StorySection({ onOpenContact }) {
                 <div className="pt-3 border-t border-white/10 text-xs sm:text-sm font-semibold tracking-wide text-[#7F5E12]">
                   <span className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#7F5E12] animate-pulse"></span>
-                    40+ Years
+                    40+ Years in Construction Industry
                   </span>
                 </div>
               </div>
