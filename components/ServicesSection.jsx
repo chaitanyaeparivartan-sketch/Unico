@@ -33,6 +33,13 @@ export default function ServicesSection({ onOpenContact }) {
       image: "/images/featured/industrial/ba-frame-5.webp",
       alt: "Industrial manufacturing machinery and equipment",
     },
+    {
+      id: "05",
+      title: "Hospitality",
+      desc: "Bespoke private estates engineered as a harmonious dialogue between modern architecture, refined natural materials, and Mediterranean coastal living.",
+      image: "/images/services/hospitality-1.JPG",
+      alt: "Goa resorts",
+    },
   ];
 
   return (

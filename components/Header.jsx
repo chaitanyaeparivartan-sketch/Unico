@@ -151,74 +151,19 @@ export default function Header({ onOpenContact }) {
         }
       `}</style>
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 flex items-center justify-between min-h-[56px] sm:min-h-[64px]">
         {/* Left Navigation (Projects, Our Story, Our Work) with Active Indicator (No Dot) */}
-        <nav className="hidden xl:flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase font-medium">
-          {leftNavItems.map((item, idx) => {
-            const isActive = activeSection === item.href;
-
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                style={{ animationDelay: `${idx * 120}ms` }}
-                className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${isActive
-                  ? "text-[#7F5E12] font-semibold"
-                  : "text-white/85 hover:text-white"
-                  }`}
-              >
-                <span
-                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${isActive
-                    ? "text-[#7F5E12]"
-                    : "group-hover:text-white"
-                    }`}
-                >
-                  {item.label}
-                </span>
-
-                {/* Solid Gold Underline on Active & Hover */}
-                <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${isActive
-                    ? "w-full opacity-100"
-                    : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
-                    }`}
-                />
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Center UNICO Logo with Page Load Growing Bloom */}
-        <div className="flex items-center justify-center">
-          <Link href="/" className="relative flex items-center group">
-            <div
-              style={{ animationDelay: "220ms" }}
-              className="relative h-14 sm:h-16 w-28 sm:w-32 md:w-36 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
-            >
-              <Image
-                src="/images/logo/unico-logo.webp"
-                alt="UNICO Logo"
-                fill
-                priority
-                className="object-contain filter drop-shadow-[0_2px_12px_rgba(127, 94, 18,0.4)]"
-                sizes="(max-width: 768px) 180px, 180px"
-              />
-            </div>
-          </Link>
-        </div>
-
-        {/* Right Navigation & CTA with Active Indicator (No Dot) */}
-        <div className="hidden xl:flex items-center space-x-8">
-          <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase font-medium">
-            {rightNavItems.map((item, idx) => {
+        <div className="flex-1 hidden xl:flex items-center justify-start">
+          <nav className="flex items-center space-x-9 text-[13px] tracking-[0.14em] uppercase font-medium">
+            {leftNavItems.map((item, idx) => {
               const isActive = activeSection === item.href;
 
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  style={{ animationDelay: `${380 + idx * 120}ms` }}
-                  className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${isActive
+                  style={{ animationDelay: `${idx * 120}ms` }}
+                  className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${isActive
                     ? "text-[#7F5E12] font-semibold"
                     : "text-white/85 hover:text-white"
                     }`}
@@ -243,65 +188,125 @@ export default function Header({ onOpenContact }) {
               );
             })}
           </nav>
+        </div>
 
-          {/* Luxury Split CTA Button: 'START A PROJECT' Redirecting to #cta Section */}
-          <a
-            href="#cta"
-            onClick={scrollToCta}
-            style={{ animationDelay: "620ms" }}
-            className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.04] animate-cta-grow shadow-md hover:shadow-[0_4px_20px_rgba(191,144,14,0.4)]"
-            aria-label="Start a Project"
-          >
-            <span className="bg-[#7F5E12] text-white text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.12em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
-              <span className="inline-block transition-all duration-300 group-hover:scale-105 group-hover:tracking-[0.16em]">
+        {/* Center UNICO Logo - Perfectly centered across all screen sizes */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto flex items-center justify-center">
+          <Link href="/" className="relative flex items-center group" aria-label="UNICO Home">
+            <div
+              style={{ animationDelay: "220ms" }}
+              className="relative h-14 sm:h-16 w-28 sm:w-32 md:w-36 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 animate-logo-grow"
+            >
+              <Image
+                src="/images/logo/unico-logo.webp"
+                alt="UNICO Logo"
+                fill
+                priority
+                className="object-contain filter drop-shadow-[0_2px_12px_rgba(127, 94, 18,0.4)]"
+                sizes="(max-width: 768px) 180px, 180px"
+              />
+            </div>
+          </Link>
+        </div>
+
+        {/* Right Navigation, CTA & Mobile Toggles */}
+        <div className="flex-1 flex items-center justify-end ml-auto">
+          {/* Desktop Right Nav & CTA (xl and up) */}
+          <div className="hidden xl:flex items-center space-x-8">
+            <nav className="flex items-center space-x-7 text-[13px] tracking-[0.14em] uppercase font-medium">
+              {rightNavItems.map((item, idx) => {
+                const isActive = activeSection === item.href;
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    style={{ animationDelay: `${380 + idx * 120}ms` }}
+                    className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${isActive
+                      ? "text-[#7F5E12] font-semibold"
+                      : "text-white/85 hover:text-white"
+                      }`}
+                  >
+                    <span
+                      className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${isActive
+                        ? "text-[#7F5E12]"
+                        : "group-hover:text-white"
+                        }`}
+                    >
+                      {item.label}
+                    </span>
+
+                    {/* Solid Gold Underline on Active & Hover */}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${isActive
+                        ? "w-full opacity-100"
+                        : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                        }`}
+                    />
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Luxury Split CTA Button: 'START A PROJECT' Redirecting to #cta Section */}
+            <a
+              href="#cta"
+              onClick={scrollToCta}
+              style={{ animationDelay: "620ms" }}
+              className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.04] animate-cta-grow shadow-md hover:shadow-[0_4px_20px_rgba(191,144,14,0.4)]"
+              aria-label="Start a Project"
+            >
+              <span className="bg-[#7F5E12] text-white text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.12em] px-5 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
+                <span className="inline-block transition-all duration-300 group-hover:scale-105 group-hover:tracking-[0.16em]">
+                  START A PROJECT
+                </span>
+              </span>
+              <span className="w-[1px] bg-white/25"></span>
+              <span className="bg-[#7F5E12] text-white px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
+                <ArrowUpRight
+                  size={16}
+                  strokeWidth={2.2}
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-125"
+                />
+              </span>
+            </a>
+          </div>
+
+          {/* Medium screens layout (lg to xl) */}
+          <div className="hidden lg:flex xl:hidden items-center space-x-5">
+            <a
+              href="#cta"
+              onClick={scrollToCta}
+              className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-md"
+              aria-label="Start a Project"
+            >
+              <span className="bg-[#7F5E12] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#7F5E12]">
                 START A PROJECT
               </span>
-            </span>
-            <span className="w-[1px] bg-white/25"></span>
-            <span className="bg-[#7F5E12] text-white px-3 py-2.5 flex items-center justify-center transition-all duration-300 group-hover:bg-[#7F5E12]">
-              <ArrowUpRight
-                size={16}
-                strokeWidth={2.2}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-125"
-              />
-            </span>
-          </a>
-        </div>
+              <span className="w-[1px] bg-white/25"></span>
+              <span className="bg-[#7F5E12] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#7F5E12]">
+                <ArrowUpRight size={14} />
+              </span>
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
+            </button>
+          </div>
 
-        {/* Medium screens layout (lg to xl) */}
-        <div className="hidden lg:flex xl:hidden items-center space-x-5">
-          <a
-            href="#cta"
-            onClick={scrollToCta}
-            className="group flex items-stretch cursor-pointer select-none rounded-[4px] overflow-hidden transition-transform duration-300 hover:scale-[1.03] shadow-md"
-            aria-label="Start a Project"
-          >
-            <span className="bg-[#7F5E12] text-white text-xs font-bold tracking-wider uppercase px-4 py-2 transition-colors duration-300 group-hover:bg-[#7F5E12]">
-              START A PROJECT
-            </span>
-            <span className="w-[1px] bg-white/25"></span>
-            <span className="bg-[#7F5E12] text-white px-2.5 py-2 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#7F5E12]">
-              <ArrowUpRight size={14} />
-            </span>
-          </a>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
-            aria-label="Toggle navigation"
-          >
-            {mobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
-          </button>
-        </div>
-
-        {/* Mobile controls */}
-        <div className="flex items-center lg:hidden">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
-            aria-label="Toggle Navigation"
-          >
-            {mobileMenuOpen ? <X size={34} strokeWidth={2.2} /> : <Menu size={34} strokeWidth={2.2} />}
-          </button>
+          {/* Mobile controls */}
+          <div className="flex items-center lg:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-1 text-[#7F5E12] hover:text-[#7F5E12] transition-colors"
+              aria-label="Toggle Navigation"
+            >
+              {mobileMenuOpen ? <X size={34} strokeWidth={2.2} /> : <Menu size={34} strokeWidth={2.2} />}
+            </button>
+          </div>
         </div>
       </div>
 

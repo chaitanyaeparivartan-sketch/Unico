@@ -31,7 +31,7 @@ export default function Hero() {
       position: "object-center",
     },
     {
-      src: "/images/hero/hero-slide-aerial.webp",
+      src: "/images/hero/hero-slide-aerial.png",
       alt: "Landscaped building frontage with palm trees",
       position: "object-[center_bottom] md:object-[center_65%]",
     },

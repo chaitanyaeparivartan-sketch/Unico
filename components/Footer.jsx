@@ -7,17 +7,17 @@ import { ArrowUpRight } from "lucide-react";
 export default function Footer({ onOpenContact }) {
   return (
     <footer className="relative bg-[#080808] text-white overflow-hidden select-none border-t border-white/10">
-      {/* Background Brick Texture with Moody Dark Overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Brick Texture - Subdued & Natural Architectural Masonry */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src="/images/footer/footer-brick-bg.webp"
           alt="Architectural Brick Background"
           fill
-          className="object-cover object-center opacity-40 mix-blend-luminosity brightness-75 contrast-125"
+          className="object-cover object-center opacity-20 sm:opacity-25 saturate-[0.7] brightness-[0.85]"
           quality={90}
         />
-        {/* Dark Vignette & Shading Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/85 via-[#080808]/75 to-[#050505]/90" />
+        {/* Soft Atmospheric Vignette Overlay for Depth & Crisp Typography */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#080808]/70 to-[#080808]" />
       </div>
 
       {/* Main Footer Container */}

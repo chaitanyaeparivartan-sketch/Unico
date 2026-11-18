@@ -16,14 +16,14 @@ export default function UpcomingProjectsSection() {
       title: "Neighbourhood Mall & Multiplex",
       subtitle: "RETAIL & ENTERTAINMENT PROMENADE",
       desc: "A contemporary multi-level neighborhood shopping and entertainment destination featuring high-street retail storefronts, open-air dining terraces, multi-screen multiplex screens, and two-level subterranean parking.",
-      image: "/images/featured/retail-building/retail-building-01.webp",
+      image: "/images/upcoming/upcoming1-1.jpeg",
       alt: "Neighbourhood Mall & Multiplex - West Hyderabad",
       gallery: [
-        "/images/featured/retail-building/retail-building-01.webp",
-        "/images/featured/retail-building/retail-building-02.webp",
-        "/images/featured/retail-building/retail-building-03.webp",
-        "/images/featured/retail-building/retail-building-04.webp",
-        "/images/featured/retail-building/retail-building-05.webp",
+        "/images/upcoming/upcoming1-1.jpeg",
+        "/images/upcoming/upcoming1-2.jpeg",
+        // "/images/featured/retail-building/retail-building-03.webp",
+        // "/images/featured/retail-building/retail-building-04.webp",
+        // "/images/featured/retail-building/retail-building-05.webp",
       ],
       details: {
         Location: "West Hyderabad",
@@ -39,14 +39,14 @@ export default function UpcomingProjectsSection() {
       title: "Business Hotel",
       subtitle: "EXECUTIVE HOSPITALITY DESTINATION",
       desc: "A premium business hotel engineered for modern corporate travelers. Featuring smart executive suites, sound-isolated conferencing halls, all-day dining lounges, wellness spas, and sustainable energy infrastructure.",
-      image: "/images/featured/villa/hospitality-01.webp",
+      image: "/images/upcoming/upcoming2-1.jpeg",
       alt: "Business Hotel - West Hyderabad",
       gallery: [
-        "/images/featured/villa/hospitality-01.webp",
-        "/images/featured/villa/hospitality-02.webp",
-        "/images/featured/villa/hospitality-03.webp",
-        "/images/featured/villa/hospitality-04.webp",
-        "/images/featured/villa/hospitality-05.webp",
+        "/images/upcoming/upcoming2-1.jpeg",
+        "/images/upcoming/upcoming2-2.jpeg",
+        "/images/upcoming/upcoming2-3.jpeg",
+        "/images/upcoming/upcoming2-4.jpeg",
+        "/images/upcoming/upcoming2-5.jpeg",
       ],
       details: {
         Location: "West Hyderabad",
@@ -56,27 +56,27 @@ export default function UpcomingProjectsSection() {
       },
     },
     {
-      id: "upcoming-residential",
-      category: "residential",
-      tag: "Villas & Hospitality",
-      title: "Upcoming Residential Project",
-      subtitle: "CUSTOM RESIDENCES & RESORT DESTINATIONS",
-      desc: "Ultra-premium private estates and beachfront hospitality destinations engineered with dramatic architectural woodwork, marine-grade climate-resilient finishes, and natural stone outdoor terraces.",
-      image: "/images/featured/villa/luxury-villa-01.webp",
-      alt: "Upcoming Residential Project - Luxury Villa and Hospitality",
+      id: "tech-park",
+      category: "commercial",
+      tag: "Commercial & Tech",
+      title: "Tech Park",
+      subtitle: "ENTERPRISE TECH CAMPUS & COURTYARD",
+      desc: "A flagship commercial and enterprise tech campus featuring lush landscaped podium terraces, central courtyard atriums, geometric water elements, and interconnected high-rise towers.",
+      image: "/images/featured/techpark/tech-park-1.webp",
+      alt: "Tech Park - Enterprise Tech Campus & Courtyard",
       gallery: [
-        "/images/featured/villa/luxury-villa-01.webp",
-        "/images/featured/villa/luxury-villa-02.webp",
-        "/images/featured/villa/luxury-villa-10.webp",
-        "/images/featured/villa/luxury-villa-11.webp",
-        "/images/featured/villa/luxury-villa-12.webp",
+        "/images/featured/techpark/tech-park-1.webp",
+        "/images/featured/techpark/tech-park-2.webp",
+        "/images/featured/techpark/tech-park-3.webp",
+        "/images/featured/techpark/tech-park-4.webp",
+        // "/images/featured/techpark/tech-park-5.webp",
       ],
       details: {
-        Client: "Private Residence",
-        "Built-Up Area": "70,000 sq. ft.",
-        Location: "Western Hills & South Goa",
-        Year: "2026",
-        Role: "Turnkey EPC Builder",
+        Client: "Enterprise Commercial & Tech Park",
+        "Built-Up Area": "95,000 sq. ft.",
+        Location: "Hyderabad",
+        Year: "2025",
+        Role: "Turnkey Commercial EPC",
       },
     },
   ];
@@ -199,14 +199,14 @@ export default function UpcomingProjectsSection() {
 
                 {/* Top Badge: Status + Tag */}
                 <div className="absolute top-3.5 left-3.5 right-3.5 z-10 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
+                  {/* <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#7F5E12] animate-pulse" />
                     Upcoming
-                  </span>
+                  </span> */}
 
-                  <span className="text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/10 text-neutral-300">
+                  {/* <span className="text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/10 text-neutral-300">
                     {project.tag}
-                  </span>
+                  </span> */}
                 </div>
               </div>
 
@@ -221,9 +221,9 @@ export default function UpcomingProjectsSection() {
                     {project.title}
                   </h3>
 
-                  <p className="text-neutral-400 text-xs sm:text-[13px] font-light leading-relaxed mb-5 line-clamp-3">
+                  {/* <p className="text-neutral-400 text-xs sm:text-[13px] font-light leading-relaxed mb-5 line-clamp-3">
                     {project.desc}
-                  </p>
+                  </p> */}
                 </div>
 
                 {/* Key Spec Chips */}
@@ -258,13 +258,13 @@ export default function UpcomingProjectsSection() {
                       <ArrowUpRight size={13} strokeWidth={2.2} />
                     </button>
 
-                    <button
-                      type="button"
-                      onClick={(e) => handleInquire(e, project.title)}
-                      className="text-[11px] font-bold tracking-wider uppercase px-3 py-1.5 bg-white/10 hover:bg-[#7F5E12] text-white border border-white/15 hover:border-[#7F5E12] transition-all cursor-pointer"
-                    >
-                      Inquire
-                    </button>
+                    {/* <button
+                        type="button"
+                        onClick={(e) => handleInquire(e, project.title)}
+                        className="text-[11px] font-bold tracking-wider uppercase px-3 py-1.5 bg-white/10 hover:bg-[#7F5E12] text-white border border-white/15 hover:border-[#7F5E12] transition-all cursor-pointer"
+                      >
+                        Inquire
+                      </button> */}
                   </div>
                 </div>
               </div>
@@ -391,11 +391,10 @@ export default function UpcomingProjectsSection() {
                       key={imgSrc}
                       type="button"
                       onClick={() => setActiveImageIndex(imgIdx)}
-                      className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${
-                        activeImageIndex === imgIdx
-                          ? "border-[#7F5E12] ring-2 ring-[#7F5E12]/60 scale-105"
-                          : "border-white/15 opacity-60 hover:opacity-100"
-                      }`}
+                      className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 overflow-hidden transition-all duration-200 border cursor-pointer ${activeImageIndex === imgIdx
+                        ? "border-[#7F5E12] ring-2 ring-[#7F5E12]/60 scale-105"
+                        : "border-white/15 opacity-60 hover:opacity-100"
+                        }`}
                     >
                       <Image
                         src={imgSrc}
@@ -414,3 +413,4 @@ export default function UpcomingProjectsSection() {
     </section>
   );
 }
+
