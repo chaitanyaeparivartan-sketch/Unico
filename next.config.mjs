@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cacheComponents: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   images: {
     unoptimized: true,
   },
