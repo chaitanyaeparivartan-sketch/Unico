@@ -32,7 +32,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         "/images/featured/school/school-building-09.webp",
       ],
       details: {
-        Client: "Sancta Maria",
+        Client: "International School",
         "Built-Up Area": "1,20,000 sq. ft.",
         Year: "2026",
         Role: "Turnkey EPC",
@@ -60,7 +60,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         "/images/featured/commercial_buildings/commercial-building-10.webp",
       ],
       details: {
-        Client: "Enterprise Commercial & Tech Park",
+        Client: "IIT Foundation School",
         "Built-Up Area": "85,000 sq. ft.",
         Location: "Hyderabad",
         Year: "2025",
@@ -106,7 +106,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         "/images/featured/industrial/ba-frame-6.webp",
       ],
       details: {
-        Client: "B&A Health",
+        Client: "Medical Devices Manufacturing",
         "Built-Up Area": "10,000 sq. ft.",
         Location: "Hyderabad",
         Role: "Turnkey EPC",
@@ -142,7 +142,7 @@ export default function FeaturedDevelopments({ onOpenContact }) {
         // "/images/featured/villa/hospitality-06.webp",
       ],
       details: {
-        Client: "Private Estates & Legala Coastal Resort",
+        Client: "Private Residence",
         "Built-Up Area": "70,000 sq. ft.",
         Location: "Western Hills & South Goa",
         Year: "2025",

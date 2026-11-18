@@ -4,6 +4,7 @@ import MetricsSection from "@/components/MetricsSection";
 import StorySection from "@/components/StorySection";
 import ServicesSection from "@/components/ServicesSection";
 import FeaturedDevelopments from "@/components/FeaturedDevelopments";
+import UpcomingProjectsSection from "@/components/UpcomingProjectsSection";
 import DrawingToDoneSection from "@/components/DrawingToDoneSection";
 import ProcessSection from "@/components/ProcessSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
@@ -53,6 +54,9 @@ export default function Home() {
         {/* Featured Developments: 'LANDMARK DEVELOPMENTS' with Expanding Cards */}
         <FeaturedDevelopments />
 
+        {/* Upcoming Projects: 'UPCOMING PROJECTS & PIPELINE' */}
+        <UpcomingProjectsSection />
+
         {/* Interactive Blueprint to Reality Comparison Slider: 'FROM DRAWING TO DONE' */}
         <DrawingToDoneSection />
 
@@ -63,7 +67,7 @@ export default function Home() {
         <HowWeWorkSection />
 
         {/* Testimonials Section: 'CLIENT VOICES' */}
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
 
         {/* Quality Promise & Standards Section: 'QUALITY STANDARDS' */}
         <QualitySection />

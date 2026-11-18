@@ -11,9 +11,9 @@ export default function Header({ onOpenContact }) {
   const [activeSection, setActiveSection] = useState("");
 
   const leftNavItems = [
-    { label: "Projects", href: "#projects" },
+    // { label: "Projects", href: "#projects" },
     { label: "Our Story", href: "#story" },
-    { label: "Our Work", href: "#work" },
+    { label: "Upcoming Projects", href: "#upcoming" },
   ];
 
   const rightNavItems = [
@@ -40,7 +40,8 @@ export default function Header({ onOpenContact }) {
         { id: "quality", nav: "#quality" },
         { id: "how-we-work", nav: "#how-we-build" },
         { id: "how-we-build", nav: "#how-we-build" },
-        { id: "work", nav: "#work" },
+        { id: "upcoming", nav: "#upcoming" },
+        { id: "work", nav: "#upcoming" },
         { id: "projects", nav: "#projects" },
         { id: "services", nav: "#work" },
         { id: "story", nav: "#story" },
@@ -79,11 +80,10 @@ export default function Header({ onOpenContact }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-black/80 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
-          : "bg-transparent py-5 sm:py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? "bg-black/80 backdrop-blur-md py-3.5 border-b border-white/10 shadow-2xl"
+        : "bg-transparent py-5 sm:py-6"
+        }`}
     >
       {!isScrolled && (
         <div className="absolute inset-x-0 top-0 h-52 sm:h-60 bg-gradient-to-b from-black/90 via-black/55 to-transparent pointer-events-none" />
@@ -162,29 +162,26 @@ export default function Header({ onOpenContact }) {
                 key={item.label}
                 href={item.href}
                 style={{ animationDelay: `${idx * 120}ms` }}
-                className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${
-                  isActive
-                    ? "text-[#7F5E12] font-semibold"
-                    : "text-white/85 hover:text-white"
-                }`}
+                className={`relative py-1 transition-all duration-300 flex items-center group animate-nav-grow ${isActive
+                  ? "text-[#7F5E12] font-semibold"
+                  : "text-white/85 hover:text-white"
+                  }`}
               >
                 <span
-                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
-                    isActive
-                      ? "text-[#7F5E12]"
-                      : "group-hover:text-white"
-                  }`}
+                  className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${isActive
+                    ? "text-[#7F5E12]"
+                    : "group-hover:text-white"
+                    }`}
                 >
                   {item.label}
                 </span>
 
                 {/* Solid Gold Underline on Active & Hover */}
                 <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${
-                    isActive
-                      ? "w-full opacity-100"
-                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${isActive
+                    ? "w-full opacity-100"
+                    : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                    }`}
                 />
               </Link>
             );
@@ -221,29 +218,26 @@ export default function Header({ onOpenContact }) {
                   key={item.label}
                   href={item.href}
                   style={{ animationDelay: `${380 + idx * 120}ms` }}
-                  className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${
-                    isActive
-                      ? "text-[#7F5E12] font-semibold"
-                      : "text-white/85 hover:text-white"
-                  }`}
+                  className={`relative py-1 transition-all duration-300 group flex items-center animate-nav-grow ${isActive
+                    ? "text-[#7F5E12] font-semibold"
+                    : "text-white/85 hover:text-white"
+                    }`}
                 >
                   <span
-                    className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${
-                      isActive
-                        ? "text-[#7F5E12]"
-                        : "group-hover:text-white"
-                    }`}
+                    className={`inline-block transition-all duration-300 ease-out origin-center group-hover:scale-105 group-hover:tracking-[0.18em] ${isActive
+                      ? "text-[#7F5E12]"
+                      : "group-hover:text-white"
+                      }`}
                   >
                     {item.label}
                   </span>
 
                   {/* Solid Gold Underline on Active & Hover */}
                   <span
-                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${
-                      isActive
-                        ? "w-full opacity-100"
-                        : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
-                    }`}
+                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#7F5E12] transition-all duration-300 ${isActive
+                      ? "w-full opacity-100"
+                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                      }`}
                   />
                 </Link>
               );
@@ -323,11 +317,10 @@ export default function Header({ onOpenContact }) {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`py-1.5 transition-all duration-300 group flex items-center justify-between border-b border-white/5 ${
-                    isActive
-                      ? "text-[#7F5E12] font-semibold"
-                      : "text-white/80 hover:text-white"
-                  }`}
+                  className={`py-1.5 transition-all duration-300 group flex items-center justify-between border-b border-white/5 ${isActive
+                    ? "text-[#7F5E12] font-semibold"
+                    : "text-white/80 hover:text-white"
+                    }`}
                 >
                   <span className="inline-block transition-transform duration-300 group-hover:scale-105 group-hover:tracking-[0.2em] origin-left">
                     {item.label}
