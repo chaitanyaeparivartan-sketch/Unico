@@ -181,7 +181,7 @@ export default function DrawingToDoneSection() {
                 LOCATION
               </span>
               <span className="block text-xs sm:text-[14px] lg:text-[15px] font-medium text-white tracking-wide">
-                Banjara Hills, Hyderabad
+                Doyens Colony, Serilingampalle, Hyderabad
               </span>
             </div>
 

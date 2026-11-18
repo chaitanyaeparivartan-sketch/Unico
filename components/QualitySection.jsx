@@ -29,7 +29,7 @@ const COMMITMENTS = [
     title: "Quality checks at every critical stage",
     tag: "Multi-Tier Inspections",
     desc: "Comprehensive engineering audits, slump & cube-strength testing at every milestone prior to subsequent phase clearance.",
-    image: "/images/quality/quality-02-inspections.jpg",
+    image: "/images/quality/quality-02-inspections.webp",
   },
   {
     id: "03",

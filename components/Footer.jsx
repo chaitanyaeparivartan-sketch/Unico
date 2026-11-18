@@ -177,6 +177,17 @@ export default function Footer({ onOpenContact }) {
                   contact@unicospaces.com
                 </a>
               </div>
+              <div>
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#7F5E12] mb-1.5">
+                  PHONE
+                </div>
+                <a
+                  href="mailto:contact@unicospaces.com"
+                  className="text-neutral-300 hover:text-white font-normal text-[13.5px] sm:text-[14px] transition-colors duration-200"
+                >
+                  +91 9721356789
+                </a>
+              </div>
 
               {/* WhatsApp */}
               {/* <div>
