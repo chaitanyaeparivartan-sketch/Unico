@@ -162,10 +162,10 @@ export default function FeaturedDevelopments({ onOpenContact }) {
       gallery: [
         "/images/services/hospitality-1.webp",
         "/images/services/hospitality-3.webp",
-        "/images/services/hospitality-4.JPG",
-        "/images/services/hospitality-5.JPG",
-        "/images/services/hospitality-6.JPG",
-        "/images/services/hospitality-7.JPG",
+        "/images/services/hospitality-4.webp",
+        "/images/services/hospitality-5.webp",
+        "/images/services/hospitality-6.webp",
+        "/images/services/hospitality-7.webp",
       ],
       details: {
         Client: "Legala",

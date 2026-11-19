@@ -37,7 +37,7 @@ export default function ServicesSection({ onOpenContact }) {
       id: "05",
       title: "Hospitality",
       desc: "Turnkey restaurant fit-outs and boutique hospitality spaces, delivering complete interior builds, specialized MEP services, and refined architectural finishes for high-footfall dining destinations.",
-      image: "/images/services/hospitality-8.JPG",
+      image: "/images/services/hospitality-8.webp",
       alt: "Hospitality and Fine-Dining Restaurant Fit-Outs",
     },
   ];

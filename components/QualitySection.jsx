@@ -22,7 +22,7 @@ const COMMITMENTS = [
     title: "Approved materials from trusted sources",
     tag: "Certified Supply Chain",
     desc: "Rigorous laboratory testing and tier-1 vendor verification for all cement, structural steel, aggregates, and engineered components.",
-    image: "/images/quality/quality-01-materials.jpg",
+    image: "/images/quality/quality-01-materials.webp",
   },
   {
     id: "02",
@@ -43,7 +43,7 @@ const COMMITMENTS = [
     title: "Progress & QC updates shared regularly",
     tag: "Transparent Reporting",
     desc: "Weekly photographic audits, digital milestones, and quality control reports shared directly with property owners and partners.",
-    image: "/images/quality/quality-04-reporting.jpeg",
+    image: "/images/quality/quality-04-reporting.webp",
   },
   {
     id: "05",
@@ -64,7 +64,7 @@ const COMMITMENTS = [
     title: "Support continuing after completion",
     tag: "Lifecycle Warranty",
     desc: "Post-handover transition assistance, structured maintenance checks, and long-term structural guarantee stewardship.",
-    image: "/images/quality/quality-07-support.jpg",
+    image: "/images/quality/quality-07-support.webp",
   },
 ];
 
