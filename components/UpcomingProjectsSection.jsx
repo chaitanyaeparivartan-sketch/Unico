@@ -69,11 +69,10 @@ export default function UpcomingProjectsSection() {
         // "/images/featured/techpark/tech-park-5.webp",
       ],
       details: {
-        Client: "Enterprise Commercial & Tech Park",
-        "Built-Up Area": "95,000 sq. ft.",
         Location: "Hyderabad",
-        Year: "2025",
-        Role: "Turnkey Commercial EPC",
+        Type: "Residential",
+        Status: "Design",
+        Role: "Turnkey EPC",
       },
     },
   ];

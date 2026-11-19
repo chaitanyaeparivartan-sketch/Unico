@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Download, Eye, X, ExternalLink, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Eye, X, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 function IsoBadge({ number }) {
   return (
@@ -186,72 +186,43 @@ export default function IsoSection() {
                   {item.desc}
                 </p>
 
-                {/* Certificate Preview Card */}
-                <div className="relative group/cert mb-6">
+                {/* Certificate Preview Card - Scaled down & Centered */}
+                <div className="relative group/cert mb-4 flex justify-center w-full">
                   <div
                     onClick={() => setSelectedCert(item)}
-                    className="relative w-full aspect-[1/1.414] max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 rounded-[4px] overflow-hidden bg-white/95 border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)] cursor-pointer transition-all duration-300 group-hover/cert:border-[#7F5E12] group-hover/cert:shadow-[0_12px_36px_rgba(127,94,18,0.25)] group-hover/cert:scale-[1.01]"
+                    className="relative w-full aspect-[1/1.414] max-w-[170px] sm:max-w-[190px] mx-auto rounded-[4px] overflow-hidden bg-white/95 border border-white/15 shadow-[0_6px_24px_rgba(0,0,0,0.5)] cursor-pointer transition-all duration-300 group-hover/cert:border-[#7F5E12] group-hover/cert:shadow-[0_8px_28px_rgba(127,94,18,0.25)] group-hover/cert:scale-[1.02]"
                   >
                     <Image
                       src={item.previewImage}
                       alt={`${item.code} Certificate - UNICO`}
                       fill
-                      className="object-contain p-2"
-                      sizes="(max-width: 768px) 300px, 320px"
+                      className="object-contain p-1.5"
+                      sizes="(max-width: 768px) 190px, 200px"
                     />
 
                     {/* Dark Hover Overlay with Zoom Icon */}
-                    <div className="absolute inset-0 bg-[#090b0e]/75 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                      <div className="w-12 h-12 rounded-full bg-[#7F5E12] text-white flex items-center justify-center shadow-lg mb-2 transition-transform duration-300 group-hover/cert:scale-110">
-                        <Eye size={22} strokeWidth={2.2} />
+                    <div className="absolute inset-0 bg-[#090b0e]/80 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 text-center">
+                      <div className="w-10 h-10 rounded-full bg-[#7F5E12] text-white flex items-center justify-center shadow-lg mb-1.5 transition-transform duration-300 group-hover/cert:scale-110">
+                        <Eye size={18} strokeWidth={2.2} />
                       </div>
-                      <span className="text-xs font-semibold tracking-wider uppercase text-white">
-                        Click to Inspect Certificate
-                      </span>
-                      <span className="text-[10px] text-neutral-400 mt-1">
-                        Cert No: {item.certNo}
+                      <span className="text-[11px] font-semibold tracking-wider uppercase text-white">
+                        Inspect Certificate
                       </span>
                     </div>
                   </div>
                 </div>
-
-                {/* Metadata Specifications */}
-                {/* <div className="space-y-1.5 text-xs text-neutral-300 bg-white/[0.03] border border-white/5 p-3.5 rounded mb-5">
-                  <div className="flex items-center justify-between text-[11.5px]">
-                    <span className="text-neutral-500 uppercase tracking-wider text-[10px]">Cert No:</span>
-                    <span className="font-mono text-white/90 font-medium">{item.certNo}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-[11.5px]">
-                    <span className="text-neutral-500 uppercase tracking-wider text-[10px]">Validity:</span>
-                    <span className="text-neutral-200">{item.validity}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-[11.5px]">
-                    <span className="text-neutral-500 uppercase tracking-wider text-[10px]">Audited By:</span>
-                    <span className="text-[#7F5E12] font-medium">SGS UK (UKAS & IAF)</span>
-                  </div>
-                </div> */}
               </div>
 
-              {/* Action Buttons: View Preview & Download PDF */}
-              <div className="flex items-center gap-2.5 pt-2">
+              {/* Action Button: View Certificate - Centered */}
+              <div className="pt-1 flex justify-center w-full">
                 <button
                   type="button"
                   onClick={() => setSelectedCert(item)}
-                  className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider uppercase px-3.5 py-2.5 bg-white/10 hover:bg-[#7F5E12] text-white border border-white/15 hover:border-[#7F5E12] rounded-[3px] transition-all duration-200 cursor-pointer shadow-sm"
+                  className="w-full max-w-[170px] sm:max-w-[190px] flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider uppercase px-3 py-2 bg-white/10 hover:bg-[#7F5E12] text-white border border-white/15 hover:border-[#7F5E12] rounded-[3px] transition-all duration-200 cursor-pointer shadow-sm"
                 >
-                  <Eye size={14} />
-                  <span>Preview</span>
+                  <Eye size={13} />
+                  <span>View Certificate</span>
                 </button>
-
-                <a
-                  href={item.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider uppercase px-3.5 py-2.5 bg-[#7F5E12]/20 hover:bg-[#7F5E12] text-white border border-[#7F5E12]/50 hover:border-[#7F5E12] rounded-[3px] transition-all duration-200 cursor-pointer shadow-sm group"
-                >
-                  <Download size={14} className="transition-transform duration-200 group-hover:-translate-y-0.5" />
-                  <span>PDF Document</span>
-                </a>
               </div>
             </div>
           ))}
@@ -300,15 +271,6 @@ export default function IsoSection() {
               </div>
 
               <div className="flex items-center gap-2">
-                <a
-                  href={selectedCert.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3.5 py-1.5 bg-[#7F5E12] text-white hover:bg-[#9E7820] rounded transition-colors"
-                >
-                  <Download size={13} />
-                  <span>Download PDF</span>
-                </a>
                 <button
                   type="button"
                   onClick={() => setSelectedCert(null)}
@@ -324,14 +286,14 @@ export default function IsoSection() {
             <div className="flex-1 overflow-y-auto p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               {/* Certificate Image Frame */}
               <div className="lg:col-span-7 flex justify-center">
-                <div className="relative w-full max-w-[420px] aspect-[1/1.414] bg-white rounded shadow-2xl overflow-hidden border border-white/20">
+                <div className="relative w-full max-w-[360px] aspect-[1/1.414] bg-white rounded shadow-2xl overflow-hidden border border-white/20">
                   <Image
                     src={selectedCert.previewImage}
                     alt={`${selectedCert.code} Official Certificate`}
                     fill
                     className="object-contain p-2"
                     priority
-                    sizes="(max-width: 1024px) 100vw, 500px"
+                    sizes="(max-width: 1024px) 100vw, 420px"
                   />
                 </div>
               </div>
@@ -389,17 +351,16 @@ export default function IsoSection() {
                   </div>
                 </div>
 
-                {/* Mobile action bar */}
-                <div className="pt-2 flex items-center gap-3">
-                  <a
-                    href={selectedCert.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-3 bg-[#7F5E12] hover:bg-[#9E7820] text-white rounded transition-colors"
+                {/* Close Button */}
+                <div className="pt-2 flex items-center">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCert(null)}
+                    className="w-full flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 bg-white/10 hover:bg-white/15 text-white rounded transition-colors cursor-pointer border border-white/15"
                   >
-                    <Download size={14} />
-                    <span>Open / Download Official PDF</span>
-                  </a>
+                    <X size={14} />
+                    <span>Close Preview</span>
+                  </button>
                 </div>
               </div>
             </div>

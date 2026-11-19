@@ -22,7 +22,7 @@ const COMMITMENTS = [
     title: "Approved materials from trusted sources",
     tag: "Certified Supply Chain",
     desc: "Rigorous laboratory testing and tier-1 vendor verification for all cement, structural steel, aggregates, and engineered components.",
-    image: "/images/quality/quality-01-materials.webp",
+    image: "/images/quality/quality-01-materials.jpg",
   },
   {
     id: "02",
@@ -43,7 +43,7 @@ const COMMITMENTS = [
     title: "Progress & QC updates shared regularly",
     tag: "Transparent Reporting",
     desc: "Weekly photographic audits, digital milestones, and quality control reports shared directly with property owners and partners.",
-    image: "/images/quality/quality-04-reporting.webp",
+    image: "/images/quality/quality-04-reporting.jpeg",
   },
   {
     id: "05",
@@ -64,7 +64,7 @@ const COMMITMENTS = [
     title: "Support continuing after completion",
     tag: "Lifecycle Warranty",
     desc: "Post-handover transition assistance, structured maintenance checks, and long-term structural guarantee stewardship.",
-    image: "/images/quality/quality-07-support.webp",
+    image: "/images/quality/quality-07-support.jpg",
   },
 ];
 
@@ -217,17 +217,17 @@ export default function QualitySection() {
                         data-card-id={item.id}
                         onClick={() => jumpToStep(item.id)}
                         className={`group cursor-pointer w-full py-3.5 sm:py-4 lg:py-3.5 px-4 sm:px-6 transition-all duration-300 border relative overflow-hidden min-h-[60px] sm:min-h-[66px] lg:min-h-[62px] flex items-center bg-gradient-to-r from-[#7F5E12] to-[#7F5E12] border-[#7F5E12]/85 shadow-[0_4px_20px_rgba(127, 94, 18,0.14)] opacity-100 scale-100 ${isActive
-                            ? "lg:bg-gradient-to-r lg:from-[#7F5E12] lg:to-[#7F5E12] lg:border-[#7F5E12]/85 lg:shadow-[0_6px_25px_rgba(127, 94, 18,0.18)] lg:opacity-100 lg:scale-100"
-                            : isEven
-                              ? "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#14120e] lg:to-[#7F5E12] lg:border-[#7F5E12]/15 hover:lg:opacity-75 hover:lg:border-white/30"
-                              : "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#11141a] lg:to-[#0c0f14] lg:border-white/5 hover:lg:opacity-75 hover:lg:border-white/30"
+                          ? "lg:bg-gradient-to-r lg:from-[#7F5E12] lg:to-[#7F5E12] lg:border-[#7F5E12]/85 lg:shadow-[0_6px_25px_rgba(127, 94, 18,0.18)] lg:opacity-100 lg:scale-100"
+                          : isEven
+                            ? "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#14120e] lg:to-[#7F5E12] lg:border-[#7F5E12]/15 hover:lg:opacity-75 hover:lg:border-white/30"
+                            : "lg:shadow-none lg:opacity-45 lg:scale-[0.99] lg:from-[#11141a] lg:to-[#0c0f14] lg:border-white/5 hover:lg:opacity-75 hover:lg:border-white/30"
                           }`}
                       >
                         {/* Left Gold Accent Pip (Always active on mobile, step-activated on desktop) */}
                         <span
                           className={`absolute left-0 top-0 bottom-0 w-[4px] bg-[#7F5E12] transition-all duration-300 opacity-100 shadow-[0_0_10px_rgba(127, 94, 18,0.9)] ${isActive
-                              ? "lg:opacity-100 lg:shadow-[0_0_10px_rgba(127, 94, 18,0.9)]"
-                              : "lg:opacity-0 lg:shadow-none group-hover:lg:opacity-40"
+                            ? "lg:opacity-100 lg:shadow-[0_0_10px_rgba(127, 94, 18,0.9)]"
+                            : "lg:opacity-0 lg:shadow-none group-hover:lg:opacity-40"
                             }`}
                         />
 
@@ -235,8 +235,8 @@ export default function QualitySection() {
                         <div className="relative z-10 pr-12 sm:pr-18">
                           <h3
                             className={`text-[13.5px] sm:text-[15.5px] lg:text-[16.5px] font-bold tracking-tight leading-snug transition-colors duration-300 ${isActive
-                                ? "text-white"
-                                : "text-white lg:text-[#7F5E12] lg:group-hover:text-white"
+                              ? "text-white"
+                              : "text-white lg:text-[#7F5E12] lg:group-hover:text-white"
                               }`}
                           >
                             {item.title}
@@ -248,8 +248,8 @@ export default function QualitySection() {
                           <span
                             aria-hidden="true"
                             className={`font-sans font-black text-3xl sm:text-5xl md:text-[54px] tracking-tight leading-none select-none transition-all duration-300 ${isActive
-                                ? "text-white scale-105"
-                                : "text-white scale-105 lg:text-white/[0.06] lg:scale-100"
+                              ? "text-white scale-105"
+                              : "text-white scale-105 lg:text-white/[0.06] lg:scale-100"
                               }`}
                           >
                             {item.id}
@@ -273,8 +273,8 @@ export default function QualitySection() {
                           <div
                             key={item.id}
                             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isActive
-                                ? "opacity-100 z-10"
-                                : "opacity-0 z-0 pointer-events-none"
+                              ? "opacity-100 z-10"
+                              : "opacity-0 z-0 pointer-events-none"
                               }`}
                           >
                             <Image
@@ -321,8 +321,8 @@ export default function QualitySection() {
                             key={item.id}
                             onClick={() => jumpToStep(item.id)}
                             className={`h-1.5 transition-all duration-300 rounded-full ${activeId === item.id
-                                ? "w-6 bg-[#7F5E12]"
-                                : "w-2 bg-white/20 hover:bg-white/50"
+                              ? "w-6 bg-[#7F5E12]"
+                              : "w-2 bg-white/20 hover:bg-white/50"
                               }`}
                             aria-label={`Jump to step ${item.id}`}
                           />

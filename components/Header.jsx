@@ -17,7 +17,7 @@ export default function Header({ onOpenContact }) {
   ];
 
   const rightNavItems = [
-    { label: "How We Build", href: "#how-we-build" },
+    { label: "Clients", href: "#clients" },
     { label: "Quality", href: "#quality" },
   ];
 
@@ -45,6 +45,7 @@ export default function Header({ onOpenContact }) {
         { id: "projects", nav: "#work" },
         { id: "developments", nav: "#work" },
         { id: "story", nav: "#story" },
+        { id: "clients", nav: "#clients" },
       ];
 
       let current = "";
