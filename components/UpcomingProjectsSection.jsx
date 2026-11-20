@@ -57,7 +57,7 @@ export default function UpcomingProjectsSection() {
       category: "commercial",
       tag: "Commercial & Tech",
       title: "Residential",
-      subtitle: "ENTERPRISE TECH CAMPUS & COURTYARD",
+      subtitle: "RESIDENTIAL DEVELOPMENTS",
       desc: "A flagship commercial and enterprise tech campus featuring lush landscaped podium terraces, central courtyard atriums, geometric water elements, and interconnected high-rise towers.",
       image: "/images/featured/techpark/tech-park-1.webp",
       alt: "Tech Park - Enterprise Tech Campus & Courtyard",
